@@ -1,16 +1,21 @@
-const size = {
-  mobile: '600px',
-  tablet: '900px',
-  laptop: '1200px',
-  desktop: '1800px',
+const font = {
+  family: {
+    sansSerif: "'Noto Sans KR', sans-serif",
+    serif: "'Bodoni Moda', serif",
+  },
+  size: {
+    sm: '0.85rem',
+    base: '1rem',
+    lg: '1.2rem',
+    xl: '1.5rem',
+    title: '2.5rem',
+    banner: '10vw',
+  },
 }
 
-const theme = {
-  mainColor: '#0a4297',
-  mobile: `(max-width: ${size.mobile})`,
-  tablet: `(max-width: ${size.tablet})`,
-  laptop: `(max-width: ${size.laptop})`,
-  desktop: `(min-width: ${size.desktop})`,
-}
+const color = {}
 
-export default theme
+export const theme = {
+  font,
+  color,
+}
