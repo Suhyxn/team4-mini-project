@@ -2,8 +2,6 @@ const palette = {
   baseColor: '##13BD7E',
 }
 
-const theme = {
+export const theme = {
   palette,
 }
-
-export default theme
