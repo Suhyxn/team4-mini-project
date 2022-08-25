@@ -7,6 +7,7 @@ import Favorites from './routes/Favorites'
 import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
+import Button from './components/common/Button'
 
 function App() {
   return (
