@@ -7,12 +7,10 @@ import Favorites from './routes/Favorites'
 import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
-import Loader from './components/layout/Loader'
 
 function App() {
   return (
     <div>
-      <Loader />
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="login" element={<Login />} />
