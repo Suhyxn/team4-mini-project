@@ -23,7 +23,7 @@ const GlobalStyled = createGlobalStyle`
   }
   body {
     font-family: 'GmarketSansMedium';
-    font-size: ${(props) => props.theme.font.size.base};
+    font-size: ${(props) => props.theme.size.base};
   }
   a {
     color: inherit;
