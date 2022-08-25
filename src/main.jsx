@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { ThemeProvider } from 'styled-components'
-import { theme } from './style/theme'
+import theme from './style/theme'
 import App from './App'
 import GlobalStyled from './style/global'
 import media from './style/media'
