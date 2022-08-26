@@ -10,10 +10,12 @@ import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
 import Button from './components/common/Button'
+import ProductDetail from './routes/ProductDetail'
 
 function App() {
   return (
     <Container>
+      <ProductDetail />
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="login" element={<Login />} />
