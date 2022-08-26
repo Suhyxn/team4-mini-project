@@ -10,17 +10,8 @@ import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
-import Button from './components/common/Button'
-import { gender } from './constants/buttonData'
 
 function App() {
-  const [active, setActive] = useState()
-
-  const activeHandler = (index) => {
-    setActive(index)
-  }
-  console.log(gender[0])
-  console.log(active)
   return (
     <Container>
       <Routes>
@@ -35,21 +26,6 @@ function App() {
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Nav />
-      <div className="d-flex gap-1">
-        {gender.map((item, index) => (
-          <div key={index} className="w-100">
-            <Button
-              active={`${active == index} ? 'active' : ''`}
-              size="radio"
-              onClick={() => activeHandler(index)}
-            >
-              {active}
-              {index}
-              {item}
-            </Button>
-          </div>
-        ))}
-      </div>
     </Container>
   )
 }
