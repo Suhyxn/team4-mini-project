@@ -4,8 +4,8 @@ const sizes = css`
   ${(props) =>
     props.size === 'large' &&
     css`
-      width: 330px;
-      height: 62px;
+      height: ${(props) => (props.height ? props.height : '62px')};
+      width: ${(props) => (props.width ? props.width : '330px')};
       font-size: 17px;
       line-height: 22px;
       border-radius: 12px;
