@@ -68,7 +68,7 @@ function ProductDetail() {
       </S.SubTitle>
       <S.Button>
         <Button size="large" className="btn">
-          button
+          장바구니 담기
         </Button>
       </S.Button>
     </>
