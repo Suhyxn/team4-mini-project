@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 import Home from './routes/Home'
 import Nav from './components/layout/Nav'
 import Login from './routes/Login'
@@ -10,10 +11,9 @@ import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
 import Button from './components/common/Button'
 
-
 function App() {
   return (
-    <div>
+    <Container>
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="login" element={<Login />} />
@@ -26,7 +26,7 @@ function App() {
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Nav />
-    </div>
+    </Container>
   )
 }
 export default App
