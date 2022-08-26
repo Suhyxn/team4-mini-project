@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Home from './routes/Home'
@@ -9,8 +10,11 @@ import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
+<<<<<<< HEAD
 import Button from './components/common/Button'
 import ProductDetail from './routes/ProductDetail'
+=======
+>>>>>>> d16a7172bfde266dd0575a730566353159b8e3f6
 
 function App() {
   return (
@@ -28,6 +32,11 @@ function App() {
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Nav />
+      <Button disabled>disabled</Button>
+      <Button size="medium">medium</Button>
+      <Button size="large">large</Button>
+      <Button size="small">small</Button>
+      <Button size="flat">flat</Button>
     </Container>
   )
 }
