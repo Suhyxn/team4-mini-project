@@ -10,12 +10,11 @@ import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
-import Additional from './components/template/Additional'
 
 function App() {
   return (
     <Container>
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Home />}>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
@@ -26,8 +25,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
-      <Nav /> */}
-      <Additional />
+      <Nav />
     </Container>
   )
 }
