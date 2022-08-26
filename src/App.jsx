@@ -10,16 +10,11 @@ import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
-<<<<<<< HEAD
 import Button from './components/common/Button'
-import ProductDetail from './routes/ProductDetail'
-=======
->>>>>>> d16a7172bfde266dd0575a730566353159b8e3f6
 
 function App() {
   return (
     <Container>
-      <ProductDetail />
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="login" element={<Login />} />
