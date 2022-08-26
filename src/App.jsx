@@ -10,6 +10,7 @@ import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
 import Button from './components/common/Button'
+import { gender } from './constants/buttonData'
 
 function App() {
   return (
@@ -26,6 +27,11 @@ function App() {
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Nav />
+      <div className="d-flex gap-1">
+        {gender.map((item) => (
+          <Button size="radio">{item}</Button>
+        ))}
+      </div>
     </Container>
   )
 }
