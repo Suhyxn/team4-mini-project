@@ -7,7 +7,8 @@ const size = {
   banner: '10vw',
 }
 const palette = {
-  baseColor: '##13BD7E',
+  baseColor: '#13BD7E',
+  disabled: '#E4EDF2',
 }
 
 export const theme = {
