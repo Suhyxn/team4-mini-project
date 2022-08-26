@@ -46,8 +46,9 @@ const sizes = css`
       height: 33px;
       font-size: 14px;
       border-radius: 4px;
-      background-color: rgba(19, 189, 126, 0.1);
-      color: #63e6be;
+      background-color: ${(props) =>
+        props.active ? '#63e6be' : 'rgba(19, 189, 126, 0.1)'};
+      color: ${(props) => (props.active ? '#fff' : '#63e6be')};
       border: 1px solid #e4edf2;
     `}
 `
@@ -61,6 +62,21 @@ export const Button = styled.button`
     props.disabled
       ? props.theme.palette.disabled
       : props.theme.palette.baseColor};
+  &:hover {
+    opacity: 0.9;
+  }
+  &:active {
+    opacity: 0.9;
+  }
+  ${sizes}
+`
+export const RadioButton = styled.button`
+  margin-bottom: 0.5rem;
+  outline: none;
+  border: none;
+  color: ${(props) => (props.active ? '#fff' : '#63e6be')};
+  background-color: ${(props) =>
+    props.active ? '#63e6be' : 'rgba(19, 189, 126, 0.1)'};
   &:hover {
     opacity: 0.9;
   }
