@@ -9,13 +9,13 @@ export const Container = styled.div`
   flex-direction: column;
 
   .spinner-border {
-    width: 100px;
-    height: 100px;
+    width: 10rem;
+    height: 10rem;
   }
 `
 
 export const Message = styled.div`
-  margin-top: 40px;
+  margin-top: 4rem;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1.8rem;
 `
