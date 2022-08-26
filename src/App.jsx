@@ -7,6 +7,9 @@ import Favorites from './routes/Favorites'
 import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
+import NotFound from './components/layout/NotFound'
+import Button from './components/common/Button'
+
 
 function App() {
   return (
@@ -20,6 +23,7 @@ function App() {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/recommened" element={<Recommended />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
       <Nav />
     </div>
