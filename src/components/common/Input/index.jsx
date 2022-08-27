@@ -5,9 +5,9 @@ import Form from 'react-bootstrap/Form'
 function Input({ size = null, placeholder }) {
   //lg, sm
   return (
-    <div>
+    <>
       <Form.Control size={size} type="text" placeholder={placeholder} />
-    </div>
+    </>
   )
 }
 

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Home from './routes/Home'
@@ -26,11 +25,6 @@ function App() {
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Nav />
-      <Button disabled>disabled</Button>
-      <Button size="medium">medium</Button>
-      <Button size="large">large</Button>
-      <Button size="small">small</Button>
-      <Button size="flat">flat</Button>
     </Container>
   )
 }
