@@ -56,6 +56,10 @@ export const Description = styled.div`
     margin-top: 0.7rem;
     color: #444b55;
     font-size: 1.1rem;
+
+    span {
+      color: #00a49d;
+    }
   }
 `
 
