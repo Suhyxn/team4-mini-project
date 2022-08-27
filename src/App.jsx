@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 import { useState } from 'react'
 import './App.css';
-=======
->>>>>>> 1ed3d70c96753fe0193425a0bc85dfdb0dd73195
+
 import { Route, Routes } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Home from './routes/Home'
@@ -18,7 +16,7 @@ import NotFound from './components/layout/NotFound'
 function App() {
   return (
     <Container>
-      <main className='appMain'>
+      {/* <main className='appMain'> */}
         <Routes>
           <Route path="/" element={<Home />}>
             <Route path="login" element={<Login />} />
@@ -30,7 +28,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
-      </main>
+      {/* </main> */}
       <Nav />
     </Container>
   )

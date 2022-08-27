@@ -1,16 +1,40 @@
 import React from "react";
 import * as S from './style'
+import {NavLink} from 'react-router-dom'
 
 function TempNav() {
     return (
         <footer className='footer'>
             <S.Hr />
             <S.NavInit>
-                <S.NavBtn className="navBtn"><S.NavA>상품<br/>추천</S.NavA></S.NavBtn>
-                <S.NavBtn className="navBtn"><S.NavA>즐겨<br/>찾기</S.NavA></S.NavBtn>
-                <S.NavBtn className="navBtn"><S.NavA>상품<br/>리스트</S.NavA></S.NavBtn>
-                <S.NavBtn className="navBtn"><S.NavA>장바<br/>구니</S.NavA></S.NavBtn>
-                <S.NavBtn className="navBtn"><S.NavA>마이<br/>페이지</S.NavA></S.NavBtn>
+                <S.NavBtn className="navBtn">
+                    <S.NavA>
+                        <NavLink style={({ isActive }) => ({ color: isActive ? 'red' : 'black' })} to="/">
+                            Home
+                        </NavLink>
+                    </S.NavA>
+                </S.NavBtn>
+                <S.NavBtn className="navBtn">
+                    <S.NavA>
+                        <NavLink style={({ isActive }) => ({ color: isActive ? 'red' : 'black' })} to="/recommened">
+                            recommened 
+                        </NavLink>
+                    </S.NavA>
+                </S.NavBtn>
+                <S.NavBtn className="navBtn">
+                    <S.NavA>
+                        <NavLink style={({ isActive }) => ({ color: isActive ? 'red' : 'black' })} to="/favorites">
+                            favorites 
+                        </NavLink>
+                    </S.NavA>
+                </S.NavBtn>
+                <S.NavBtn className="navBtn">
+                    <S.NavA>
+                        <NavLink style={({ isActive }) => ({ color: isActive ? 'red' : 'black' })} to="/mypage">
+                            mypage 
+                        </NavLink>
+                    </S.NavA>
+                </S.NavBtn>
             </S.NavInit>
         </footer>
     )

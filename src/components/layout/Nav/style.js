@@ -25,9 +25,9 @@ import styled from 'styled-components'
   export const NavBtn = styled.button`
     background-color: #13BD7E;
     border: 0rem;
-    font-size: 2rem;
-    width: 8rem;
-    height: 8rem;
+    font-size: 1.2rem;
+    width: 10rem;
+    height: 10rem;
     border-radius: 0.5rem;
   `
 
