@@ -16,3 +16,20 @@ export const Title = styled.h2`
   font-size: 1.2rem;
   line-height: 2rem;
 `
+
+export const Input = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.4rem;
+`
+
+export const SubTitle = styled.h3`
+  font-size: 0.8rem;
+  margin-top: 0.8rem;
+`
+export const Text = styled.div`
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+`
