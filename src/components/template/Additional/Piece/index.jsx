@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Button from '../../../common/Button'
 import * as S from './style'
 
-function Piece({ title, items }) {
+function Piece({ title, items, size }) {
   const [active, setActive] = useState()
 
   const activeHandler = (index) => {
@@ -10,11 +10,12 @@ function Piece({ title, items }) {
   }
 
   return (
-    <>
+    <S.Container>
       <S.Title>{title}</S.Title>
       <S.BtnContainer>
         {items.map((item, index) => (
           <Button
+            Fontsize={size}
             key={index}
             active={`${active}` == index ? 'active' : ''}
             size="radio"
@@ -24,7 +25,7 @@ function Piece({ title, items }) {
           </Button>
         ))}
       </S.BtnContainer>
-    </>
+    </S.Container>
   )
 }
 

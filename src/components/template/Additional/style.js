@@ -13,8 +13,8 @@ export const Form = styled.form`
 `
 
 export const Title = styled.h2`
-  font-size: 1.2rem;
-  line-height: 2rem;
+  font-size: 2.2rem;
+  line-height: 3.4rem;
 `
 
 export const Input = styled.div`

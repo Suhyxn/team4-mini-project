@@ -6,7 +6,7 @@ const sizes = css`
     css`
       height: ${(props) => (props.height ? props.height : '6.2rem')};
       width: ${(props) => (props.width ? props.width : '3.3rem')};
-      font-size: 1.7rem;
+      font-size: 1.4rem;
       line-height: 2.2rem;
       border-radius: 1.2rem;
     `}
@@ -41,12 +41,12 @@ const sizes = css`
     css`
       display: inline-block;
       width: 100%;
-      height: 33px;
-      font-size: 14px;
-      border-radius: 4px;
+      height: 3.3rem;
+      border-radius: 0.4rem;
+      font-size: ${(props) => (props.Fontsize ? props.Fontsize : '1.4rem')};
       background-color: ${(props) =>
-        props.active ? '#63e6be' : 'rgba(19, 189, 126, 0.1)'};
-      color: ${(props) => (props.active ? '#fff' : '#63e6be')};
+        props.active ? 'rgba(19, 189, 126, 0.1)' : '#fff'};
+      color: ${(props) => (props.active ? '#63e6be' : '#BABABC')};
       border: 1px solid #e4edf2;
     `}
 `
@@ -60,21 +60,6 @@ export const Button = styled.button`
     props.disabled
       ? props.theme.palette.disabled
       : props.theme.palette.baseColor};
-  &:hover {
-    opacity: 0.9;
-  }
-  &:active {
-    opacity: 0.9;
-  }
-  ${sizes}
-`
-export const RadioButton = styled.button`
-  margin-bottom: 0.5rem;
-  outline: none;
-  border: none;
-  color: ${(props) => (props.active ? '#fff' : '#63e6be')};
-  background-color: ${(props) =>
-    props.active ? '#63e6be' : 'rgba(19, 189, 126, 0.1)'};
   &:hover {
     opacity: 0.9;
   }
