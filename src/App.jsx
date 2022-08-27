@@ -9,6 +9,7 @@ import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
+import Button from './components/common/Button'
 
 function App() {
   return (
