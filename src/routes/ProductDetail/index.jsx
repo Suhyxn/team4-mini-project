@@ -22,7 +22,7 @@ function ProductDetail() {
         <S.BankTitle>{card1.bank}</S.BankTitle>
       </S.Header>
       <S.Content>
-        <S.CardImage src="/public/assets/images/Card.png" alt="" />
+        <S.CardImage src="/public/assets/images/Card.png" alt="card" />
         <S.CardTitle>{card1.title}</S.CardTitle>
         <S.CardSubTilte>{card1.subtitle}</S.CardSubTilte>
         <S.DescriptionContainer>
