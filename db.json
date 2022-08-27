@@ -1,194 +1,173 @@
 {
-  "users": [
-    {
-      "name": "ㅇㅇㅇ",
-      "username": "sjsjsj@naver.com",
-      "gender": "여자",
-      "age": "22",
-      "job": "학생",
-      "income": "3000",
-      "hobby": "코딩/개발",
-      "house": "true"
-    }
-  ],
-  "my-page": [
-    {
-      "name": "이정수",
-      "order": [
-        {
-          "loan": [
-            {
-              "loan_name": "미소금융대출",
-              "product_id": "11",
-              "product_tpye": "대출",
-              "bank_name": "전북은행",
-              "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
-              "rate": "16.4%",
-              "credit_line": "1800만원",
-              "tags": ["주부", "프리랜서", "모바일"],
-              "orders-status": "신청"
-            },
-            {
-              "loan_name": "미소금융대출",
-              "product_id": "12",
-              "product_tpye": "대출",
-              "bank_name": "전북은행",
-              "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
-              "rate": "16.4%",
-              "credit_line": "1800만원",
-              "tags": ["직장인", "방문", "단기가능"],
-              "orders-status": "거절"
-            }
-          ],
-          "card": [
-            {
-              "card_img": "https://www.ebs.co.kr/common/images/munwha_card/nuri_img01.png",
-              "product_id": "21",
-              "card_name": "현대백화점 Fit카드",
-              "bank_name": "현대백화점",
-              "annual_fee": "10000원",
-              "tags": ["이벤트 혜택 1위"],
-              "orders-status": "신청"
-            },
-            {
-              "card_img": "https://www.ebs.co.kr/common/images/munwha_card/nuri_img01.png",
-              "product_id": "31",
-              "card_name": "현대백화점 Fit카드",
-              "bank_name": "현대백화점",
-              "연회비": "10000원",
-              "tags": ["이벤트 혜택 1위"],
-              "orders-status": "승인"
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "carts": [
-    {
-      "card": [
-        {
-          "card_img": "https://www.ebs.co.kr/common/images/munwha_card/nuri_img01.png",
-          "product_id": "21",
-          "card_name": "현대백화점 Fit카드",
-          "bank_name": "현대백화점"
-        },
-        {
-          "card_img": "https://www.ebs.co.kr/common/images/munwha_card/nuri_img01.png",
-          "product_id": "22",
-          "card_name": "현대백화점 Fit카드",
-          "bank_name": "현대백화점"
-        }
-      ],
+  "users": {
+    "name": "홍길동",
+    "username": "hong@naver.com",
+    "gender": "여자",
+    "age": 10,
+    "job": "학생",
+    "income": 3000,
+    "hobby": "코딩/개발",
+    "house": true
+  },
+  "my-page": {
+    "name": "홍길동",
+    "order": {
       "loan": [
         {
-          "loan_name": "미소금융대출",
-          "product_id": "11",
-          "product_tpye": "대출",
-          "bank_name": "전북은행",
-          "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg"
+          "product_type": "대출",
+          "loan_company": "대구은행",
+          "loan_id": "11",
+          "loan_name": "보험계약대출",
+          "loan_rate": ["2.82", "10.5"],
+          "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
+          "tags": ["2금융권", "직장인"],
+          "credit_line": 150,
+          "orders-status": "신청"
+        },
+        {
+          "product_type": "대출",
+          "loan_company": "대구은행",
+          "loan_id": "11",
+          "loan_name": "보험계약대출",
+          "loan_rate": ["2.82", "10.5"],
+          "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
+          "tags": ["1금융권", "직장인"],
+          "credit_line": 150,
+          "orders-status": "거절"
+        }
+      ],
+      "card": [
+        {
+          "product_type": "카드",
+          "card_type": "체크",
+          "card_img": "https://cdn.banksalad.com/cards/3578.png",
+          "product_id": "23",
+          "card_name": "신한카드 Deep",
+          "card_company": "신한카드",
+          "annual_fee": 10000,
+          "tags": ["군인", "20대", "영상/사진"],
+          "orders-status": "신청"
+        },
+        {
+          "product_type": "카드",
+          "card_type": "신용",
+          "card_img": "https://cdn.banksalad.com/entities/etc/1527572372734-3661.png",
+          "product_id": "22",
+          "card_name": "1Q Daily+",
+          "card_company": "하나카드",
+          "annual_fee": 12000,
+          "tags": ["학생", "10대", "영상/사진"],
+          "orders-status": "거절"
         }
       ]
     }
-  ],
+  },
+  "carts": {
+    "card": [
+      {
+        "product_type": "카드",
+        "card_type": "신용",
+        "card_img": "https://www.ebs.co.kr/common/images/munwha_card/nuri_img01.png",
+        "product_id": "21",
+        "card_name": "Fit카드",
+        "card_company": "현대백화점",
+        "tags": ["주부", "그림/운동", "30대"],
+        "annual_fee": 10000
+      },
+      {
+        "product_type": "카드",
+        "card_type": "신용",
+        "card_img": "https://cdn.banksalad.com/entities/etc/1527572372734-3661.png",
+        "product_id": "22",
+        "card_name": "1Q Daily+",
+        "card_company": "하나카드",
+        "annual_fee": 12000,
+        "tags": ["학생", "10대", "영상/사진"]
+      }
+    ],
+    "loan": [
+      {
+        "product_type": "대출",
+        "loan_company": "대구은행",
+        "loan_id": "11",
+        "loan_name": "보험계약대출",
+        "loan_rate": ["2.82", "10.5"],
+        "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
+        "tags": ["2금융권", "직장인"],
+        "credit_line": 150
+      },
+      {
+        "product_type": "대출",
+        "loan_company": "대구은행",
+        "loan_id": "11",
+        "loan_name": "보험계약대출",
+        "loan_rate": ["2.82", "10.5"],
+        "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
+        "tags": ["1금융권", "직장인"],
+        "credit_line": 150
+      }
+    ]
+  },
   "loan_detail": {
     "loan": [
       {
-        "loan_name": "미소금융대출",
-        "product_id": "1",
         "product_type": "대출",
-        "bank_name": "전북은행",
-        "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
-        "rate": "10.17%",
-        "credit_line": "150만원",
-        "loan_description": [
-          {
-            "rate_des": [
-              "최저 5.12% ~ 최고 9.92% (가산금리 : 3.72%~8.52%",
-              "기준금리 : 금융채연동 기준금리 3개월",
-              "※ 기준일자 : 2021.12.24 (연이율)"
-            ],
-            "credit_line_des": "최소 50만원 ~ 최대 300만원 (신용등급별차등)",
-            "period": "1년 ~ 3년이내 (연단위)",
-            "Interest_rate_type": "금융채연동기준금리 (3개월)",
-            "repayment": "매월 원금균등분할상환",
-            "apply_method": "앱 신청 및 실행",
-            "delinquent_rate": "1. 연체이자율 : 최고 연15% (차주별 대출이자율 + 연체가산이자율) > 『연체가산이자율』은 연3%를 적용합니다."
-          }
-        ]
-      },
-      {
-        "loan_name": "낙원대출",
+        "loan_company": "교보생명",
         "product_id": "1",
-        "product_type": "대출",
-        "bank_name": "낙원은행",
+        "loan_name": "보험계약대출",
         "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
-        "rate": "10.17%",
-        "credit_line": "300만원",
-        "loan_description": [
-          {
-            "rate_des": [
-              "최저 10.12% ~ 최고 19.92% (가산금리 : 3.72%~8.52%",
-              "기준금리 : 금융채연동 기준금리 3개월",
-              "※ 기준일자 : 2021.12.24 (연이율)"
-            ],
-            "credit_line_des": "최소 100만원 ~ 최대 800만원 (신용등급별차등)",
-            "period": "1년 ~ 3년이내 (연단위)",
-            "Interest_rate_type": "금융채연동기준금리 (3개월)",
-            "repayment": "매월 원금균등분할상환",
-            "apply_method": "방문 신청 및 실행",
-            "delinquent_rate": "1. 연체이자율 : 최고 연20% (차주별 대출이자율 + 연체가산이자율) > 『연체가산이자율』은 연3%를 적용합니다."
-          }
-        ]
+        "loan_rate": ["2.82", "10.5"],
+        "loan_description": {
+          "prime_rate": false,
+          "loan_line": [50, 95]
+        }
       }
     ]
   },
   "card_detail": {
     "card": [
       {
+        "product_type": "카드",
+        "card_type": "체크",
         "card_img": "https://www.ebs.co.kr/common/images/munwha_card/nuri_img01.png",
         "product_id": "21",
-        "card_type": "체크",
-        "card_name": "현대백화점 Fit카드",
-        "bank_name": "현대백화점",
+        "annual_fee": 10000,
+        "card_name": "Fit카드",
+        "card_company": "현대백화점",
         "card_description": "매일매일 혜택이 플러스",
-        "benefits": [
-          {
-            "franchisee": "0.3-1.0%",
-            "shopping": "10만원당 5천머니",
-            "oiling": "5만원당 3천원",
-            "insurance": "10만원당 5천머니",
-            "cafe": "4000원"
-          }
-        ],
-        "annual_fee": "10000",
-        "subject_to_join": "개인"
+        "benefits": {
+          "franchisee": [0.3, 1.0],
+          "shopping": "10만원당 5천머니",
+          "oiling": "5만원당 3천원",
+          "insurance": "10만원당 5천머니",
+          "cafe": 4000
+        }
       },
       {
+        "product_type": "카드",
+        "card_type": "신용",
         "card_img": "https://www.ebs.co.kr/common/images/munwha_card/nuri_img01.png",
         "product_id": "22",
-        "card_type": "신용",
-        "card_name": "신한카드 나나카드",
-        "bank_name": "신한카드",
+        "annual_fee": 12000,
+        "card_name": "나나카드",
+        "card_company": "신한카드",
         "card_description": "20대는 나야나 플러스",
         "benefits": [
           {
-            "franchisee": "0.3-1.0%",
+            "franchisee": [0.3, 1.0],
             "shopping": "10만원당 8천머니",
             "oiling": "1만원당 4천원",
             "insurance": "5만원당 1천머니",
-            "cafe": "1000원"
+            "cafe": 1000
           }
-        ],
-        "annual_fee": "0",
-        "subject_to_join": "개인"
+        ]
       },
       {
         "card_img": "https://www.ebs.co.kr/common/images/munwha_card/nuri_img01.png",
         "product_id": "23",
         "card_type": "신용",
         "card_name": "하나카드 노노카드",
-        "bank_name": "하나카드",
+        "card_company": "하나카드",
         "card_description": "절세는 바로 노노카드",
         "benefits": [
           {
@@ -207,62 +186,92 @@
   "products": {
     "card": [
       {
+        "product_type": "카드",
+        "card_type": "신용",
         "card_img": "https://www.ebs.co.kr/common/images/munwha_card/nuri_img01.png",
         "product_id": "21",
-        "card_name": "현대백화점 Fit카드",
-        "bank_name": "현대백화점",
-        "tags": ["주부", "프리랜서", "모바일"],
-        "isLiked": "true"
+        "card_name": "Fit카드",
+        "card_company": "현대백화점",
+        "tags": ["주부", "그림/운동", "30대"],
+        "annual_fee": 10000
       },
       {
-        "card_img": "https://www.ebs.co.kr/common/images/munwha_card/nuri_img01.png",
+        "product_type": "카드",
+        "card_type": "신용",
+        "card_img": "https://cdn.banksalad.com/entities/etc/1527572372734-3661.png",
         "product_id": "22",
-        "card_name": "현대백화점 Fit카드",
-        "bank_name": "현대백화점",
-        "tags": ["이벤트 혜택 1위"],
-        "isLiked": "true"
+        "card_name": "1Q Daily+",
+        "card_company": "하나카드",
+        "annual_fee": 12000,
+        "tags": ["학생", "10대", "영상/사진"]
+      },
+      {
+        "product_type": "카드",
+        "card_type": "체크",
+        "card_img": "https://cdn.banksalad.com/cards/3578.png",
+        "product_id": "23",
+        "card_name": "신한카드 Deep",
+        "card_company": "신한카드",
+        "annual_fee": 10000,
+        "tags": ["군인", "20대", "영상/사진"]
       }
     ],
     "loan": [
       {
-        "loan_name": "미소금융대출",
-        "product_id": "11",
-        "product_tpye": "대출",
-        "bank_name": "전북은행",
+        "product_type": "대출",
+        "loan_company": "대구은행",
+        "loan_id": "11",
+        "loan_name": "보험계약대출",
+        "loan_rate": ["2.82", "10.5"],
         "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
-        "tags": ["이벤트 혜택 1위"],
-        "isLiked": "true"
+        "tags": ["2금융권", "직장인"],
+        "credit_line": 150
+      },
+      {
+        "product_type": "대출",
+        "loan_company": "대구은행",
+        "loan_id": "11",
+        "loan_name": "보험계약대출",
+        "loan_rate": ["2.82", "10.5"],
+        "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
+        "tags": ["1금융권", "직장인"],
+        "credit_line": 150
       }
     ]
   },
   "favorites": {
     "card": [
       {
-        "card_img": "https://www.ebs.co.kr/common/images/munwha_card/nuri_img01.png",
-        "product_id": "21",
-        "card_name": "현대백화점 Fit카드",
-        "bank_name": "현대백화점",
-        "tags": ["주부", "프리랜서", "모바일"],
-        "isLiked": "true"
+        "product_type": "카드",
+        "card_type": "체크",
+        "card_img": "https://cdn.banksalad.com/cards/3578.png",
+        "product_id": "23",
+        "card_name": "신한카드 Deep",
+        "card_company": "신한카드",
+        "annual_fee": 10000,
+        "tags": ["군인", "20대", "영상/사진"]
       },
       {
-        "card_img": "https://www.ebs.co.kr/common/images/munwha_card/nuri_img01.png",
+        "product_type": "카드",
+        "card_type": "신용",
+        "card_img": "https://cdn.banksalad.com/entities/etc/1527572372734-3661.png",
         "product_id": "22",
-        "card_name": "현대백화점 Fit카드",
-        "bank_name": "현대백화점",
-        "tags": ["이벤트 혜택 1위"],
-        "isLiked": "true"
+        "card_name": "1Q Daily+",
+        "card_company": "하나카드",
+        "annual_fee": 12000,
+        "tags": ["학생", "10대", "영상/사진"]
       }
     ],
     "loan": [
       {
-        "loan_name": "미소금융대출",
-        "product_id": "11",
-        "product_tpye": "대출",
-        "bank_name": "전북은행",
+        "product_type": "대출",
+        "loan_company": "대구은행",
+        "loan_id": "11",
+        "loan_name": "보험계약대출",
+        "loan_rate": ["2.82", "10.5"],
         "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
-        "tags": ["이벤트 혜택 1위"],
-        "isLiked": "true"
+        "tags": ["1금융권", "직장인"],
+        "credit_line": 150
       }
     ]
   }
