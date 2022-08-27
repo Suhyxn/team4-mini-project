@@ -38,4 +38,12 @@
 
 .read-the-docs {
   color: #888;
+<<<<<<< HEAD
+}
+
+.appMain {
+  min-height: calc(100vh - 10rem);
+}
+=======
 } */
+>>>>>>> 1ed3d70c96753fe0193425a0bc85dfdb0dd73195

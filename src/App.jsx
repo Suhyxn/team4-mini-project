@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import './App.css';
+
 import { Route, Routes } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Home from './routes/Home'
@@ -14,17 +17,19 @@ import Button from './components/common/Button'
 function App() {
   return (
     <Container>
-      <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
-        </Route>
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/mypage" element={<MyPage />} />
-        <Route path="/recommened" element={<Recommended />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/*" element={<NotFound />} />
-      </Routes>
+      {/* <main className='appMain'> */}
+        <Routes>
+          <Route path="/" element={<Home />}>
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<SignUp />} />
+          </Route>
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/recommened" element={<Recommended />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+      {/* </main> */}
       <Nav />
     </Container>
   )
