@@ -25,6 +25,11 @@ function App() {
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Nav />
+      <Button disabled>disabled</Button>
+      <Button size="medium">medium</Button>
+      <Button size="large">large</Button>
+      <Button size="small">small</Button>
+      <Button size="flat">flat</Button>
     </Container>
   )
 }

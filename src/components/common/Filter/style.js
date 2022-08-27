@@ -1,24 +1,24 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  height: 100px;
+  height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f6f7f9;
-  margin: 20px;
-  border-radius: 50px;
+  margin: 2rem;
+  border-radius: 5rem;
 `
 
 export const Label = styled.label`
   background: #f6f7f9;
   display: block;
   width: 50%;
-  height: 80px;
-  border-radius: 50px;
+  height: 8rem;
+  border-radius: 5rem;
   text-align: center;
-  line-height: 80px;
-  font-size: 42px;
+  line-height: 8rem;
+  font-size: 4.2rem;
   font-weight: bold;
   color: #9ea2b0;
 
