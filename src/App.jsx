@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import { useState } from 'react'
 import './App.css';
+=======
+>>>>>>> 1ed3d70c96753fe0193425a0bc85dfdb0dd73195
 import { Route, Routes } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Home from './routes/Home'
