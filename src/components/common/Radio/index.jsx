@@ -2,7 +2,6 @@ import React from 'react'
 import * as S from './style'
 
 function Radio({ items }) {
-  console.log(items)
   return (
     <S.Container>
       {items.map((item, index) => (
