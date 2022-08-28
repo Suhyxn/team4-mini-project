@@ -60,11 +60,11 @@ function ProductDetail() {
           id="filterloan"
           checked="checked"
         />
-        <S.Label for="filterloan">연회비/브랜드</S.Label>
+        <S.Label Htmlfor="filterloan">연회비/브랜드</S.Label>
         <S.Input type="radio" name="filter" value="card" id="filtercard" />
-        <S.Label for="filtercard">주요혜택</S.Label>
+        <S.Label Htmlfor="filtercard">주요혜택</S.Label>
         <S.Input type="radio" name="filter" value="card" id="role" />
-        <S.Label for="role">가입대상</S.Label>
+        <S.Label Htmlfor="role">가입대상</S.Label>
       </S.MenuContainer>
       <S.SubTitle>
         연회비

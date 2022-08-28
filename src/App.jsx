@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import { useState } from 'react'
+>>>>>>> a3bb7b80d5f1eeaf8f145b047642f444d63f0e12
 import './App.css'
 
 import { Route, Routes } from 'react-router-dom'
@@ -18,6 +22,7 @@ function App() {
   return (
     <Container>
       {/* <main className='appMain'> */}
+<<<<<<< HEAD
       {/* <Routes>
           <Route path="/" element={<Home />}>
             <Route path="login" element={<Login />} />
@@ -29,6 +34,19 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/*" element={<NotFound />} />
         </Routes> */}
+=======
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+        </Route>
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/mypage" element={<MyPage />} />
+        <Route path="/recommened" element={<Recommended />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/*" element={<NotFound />} />
+      </Routes>
+>>>>>>> a3bb7b80d5f1eeaf8f145b047642f444d63f0e12
       {/* </main> */}
       <CustomInput title="이름" />
       <UserEdit />

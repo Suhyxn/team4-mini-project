@@ -1,5 +1,5 @@
 import { gender, age, job, hobby, house } from '../../../constants/buttonData'
-import RadioBtn from '../../common/RadioBtn'
+import Radio from '../../common/Radio'
 import Input from '../../common/Input'
 import * as S from './style'
 
@@ -7,11 +7,11 @@ function UserDetailForm() {
   return (
     <>
       <S.SubTitle>성별</S.SubTitle>
-      <RadioBtn items={gender} />
+      <Radio items={gender} />
       <S.SubTitle>나이</S.SubTitle>
-      <RadioBtn items={age} />
+      <Radio items={age} />
       <S.SubTitle>직업</S.SubTitle>
-      <RadioBtn items={job} />
+      <Radio items={job} />
       <S.SubTitle>연소득</S.SubTitle>
       <S.Input className="flex">
         <Input
@@ -23,9 +23,9 @@ function UserDetailForm() {
         <S.Text> 만원</S.Text>
       </S.Input>
       <S.SubTitle>취미여부</S.SubTitle>
-      <RadioBtn items={hobby} />
+      <Radio items={hobby} />
       <S.SubTitle>자가여부</S.SubTitle>
-      <RadioBtn items={house} />
+      <Radio items={house} />
     </>
   )
 }
