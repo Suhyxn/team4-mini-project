@@ -12,4 +12,4 @@ export const cartApi = createApi({
   }),
 })
 
-export const { useGetFavoritesQuery } = cartApi
+export const { useGetCartQuery } = cartApi
