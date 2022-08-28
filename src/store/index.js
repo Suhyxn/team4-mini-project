@@ -1,7 +1,13 @@
-import React from 'react'
+import { configureStore } from '@reduxjs/toolkit'
+import { productsSlice } from '../api/productApiSlice'
+import { setupListeners } from '@reduxjs/toolkit/query'
 
-function index() {
-  return <div>index</div>
-}
+export const store = configureStore({
+  reducer: {
+    [productsSlice.reducerPath]: productsSlice.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(productsSlice.middleware),
+})
 
-export default index
+setupListeners(store.dispatch)

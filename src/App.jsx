@@ -1,3 +1,5 @@
+import { Provider } from 'react-redux'
+import { store } from './store/index'
 import { Route, Routes } from 'react-router-dom'
 import Home from './routes/Home'
 import Nav from './components/layout/Nav'
@@ -8,25 +10,26 @@ import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
+// import Product from './routes/Product'
 import Button from './components/common/Button'
-
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
         </Route>
         <Route path="/favorites" element={<Favorites />} />
+        {/* <Route path="/prdoucts" element={<Product />} /> */}
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/recommened" element={<Recommended />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Nav />
-    </div>
+    </Provider>
   )
 }
 export default App
