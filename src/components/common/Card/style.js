@@ -37,6 +37,11 @@ export const CardBank = styled.div`
 `
 export const CardDescription = styled.div`
   background-color: transparent;
+  width: 98px;
+  position: absolute;
+  left: 132px;
+  top: 70px;
+  color: #979cac;
 `
 export const CardFavorite = styled.div`
   position: absolute;

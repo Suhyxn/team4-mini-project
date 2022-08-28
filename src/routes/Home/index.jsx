@@ -8,7 +8,13 @@ function Home() {
   return (
     <div>
       Home
-      <Card imageName="kookmin" bank="신한카드" name="신한 deep dream" />
+      <Card
+        imageName="kookmin"
+        bank="신한카드"
+        name="신한 deep dream"
+        description="1900"
+        tags={['신한']}
+      />
       <Outlet />
     </div>
   )
