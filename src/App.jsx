@@ -1,6 +1,6 @@
-import { useState } from 'react'
 import './App.css'
-
+import { Provider } from 'react-redux'
+import { store } from './store/index'
 import { Route, Routes } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Home from './routes/Home'
@@ -12,11 +12,12 @@ import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
+// import Product from './routes/Product'
 import Button from './components/common/Button'
 
 function App() {
   return (
-    <Container>
+    <Provider store={store}>
       {/* <main className='appMain'> */}
       <Routes>
         <Route path="/" element={<Home />}>
@@ -24,6 +25,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
         </Route>
         <Route path="/favorites" element={<Favorites />} />
+        {/* <Route path="/prdoucts" element={<Product />} /> */}
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/recommened" element={<Recommended />} />
         <Route path="/cart" element={<Cart />} />
@@ -31,7 +33,7 @@ function App() {
       </Routes>
       {/* </main> */}
       <Nav />
-    </Container>
+    </Provider>
   )
 }
 export default App

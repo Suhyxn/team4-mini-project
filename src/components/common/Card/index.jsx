@@ -7,16 +7,16 @@ import {
   AiFillHeart,
 } from 'react-icons/ai'
 
-function Card({
-  imageName,
-  name,
-  bank,
-  checked,
-  favorite,
-  description,
-  theTags,
-}) {
-  const [tags, setTags] = useState(theTags)
+function Card({ item }) {
+  const {
+    card_img: imageName,
+    card_company: bank,
+    card_name: name,
+    annual_fee: description,
+    isfavorite: favorite,
+  } = item
+  const [checked, setChecked] = useState(false)
+  // const [tags, setTags] = useState(theTags)
   return (
     <S.CardContainer>
       <S.CardCheckBox>
@@ -26,10 +26,18 @@ function Card({
           <AiOutlineBorder size={25} />
         )}
       </S.CardCheckBox>
-      <S.CardImage imageName={imageName} />
-      <S.CardBank>{bank}</S.CardBank>
-      <S.CardName>{name}</S.CardName>
-      <S.CardDescription>연회비 {description} 원</S.CardDescription>
+      <S.CardBox>
+        <S.CardImage src={imageName} />
+      </S.CardBox>
+      <S.CardInfo>
+        <S.CardTitle>
+          <S.CardBank>{bank}</S.CardBank>
+          <S.CardName>{name}</S.CardName>
+        </S.CardTitle>
+        <S.CardDescription>
+          연회비 {description.toLocaleString('ko-KR')} 원
+        </S.CardDescription>
+      </S.CardInfo>
       <S.CardFavorite>
         {favorite ? (
           <AiFillHeart size={25} />
