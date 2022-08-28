@@ -46,7 +46,8 @@
           "card_company": "신한카드",
           "annual_fee": 10000,
           "tags": ["군인", "20대", "영상/사진"],
-          "orders-status": "신청"
+          "orders-status": "신청",
+          "isfavorite": false
         },
         {
           "product_type": "카드",
@@ -57,7 +58,8 @@
           "card_company": "하나카드",
           "annual_fee": 12000,
           "tags": ["학생", "10대", "영상/사진"],
-          "orders-status": "거절"
+          "orders-status": "거절",
+          "isfavorite": true
         }
       ]
     }
@@ -193,7 +195,8 @@
         "card_name": "Fit카드",
         "card_company": "현대백화점",
         "tags": ["주부", "그림/운동", "30대"],
-        "annual_fee": 10000
+        "annual_fee": 10000,
+        "isfavorite": false
       },
       {
         "product_type": "카드",
@@ -203,7 +206,8 @@
         "card_name": "1Q Daily+",
         "card_company": "하나카드",
         "annual_fee": 12000,
-        "tags": ["학생", "10대", "영상/사진"]
+        "tags": ["학생", "10대", "영상/사진"],
+        "isfavorite": false
       },
       {
         "product_type": "카드",
@@ -213,7 +217,8 @@
         "card_name": "신한카드 Deep",
         "card_company": "신한카드",
         "annual_fee": 10000,
-        "tags": ["군인", "20대", "영상/사진"]
+        "tags": ["군인", "20대", "영상/사진"],
+        "isfavorite": false
       }
     ],
     "loan": [

@@ -1,7 +1,6 @@
+import './App.css'
 import { Provider } from 'react-redux'
 import { store } from './store/index'
-import { useState } from 'react'
-import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Home from './routes/Home'
