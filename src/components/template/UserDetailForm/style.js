@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const Container = styled.div`
+  margin: 1rem;
+`
+
 export const Input = styled.div`
   display: flex;
   align-items: center;

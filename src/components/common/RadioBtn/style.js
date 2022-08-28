@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
 export const Container = styled.ul`
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  margin-top: 1.2rem;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 `
 
 export const Input = styled.input`
@@ -15,13 +18,13 @@ export const Text = styled.span`
   justify-content: center;
   position: relative;
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   cursor: pointer;
   height: ${(props) => (props.height ? props.height : '3.3rem')};
 `
 export const Label = styled.label`
   width: 100%;
-  border-radius: 0.4rem;
+  border-radius: 0.6rem;
   background-color: #fff;
   color: #bababc;
   border: 1px solid #e4edf2;

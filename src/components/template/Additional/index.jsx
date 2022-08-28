@@ -9,7 +9,7 @@ function Additional() {
         <S.Title>
           username을 위한 <br /> 서비스를 위해 입력해주세요!
         </S.Title>
-        <UserDetailForm hegiht="3.3rem" />
+        <UserDetailForm />
         <Button width="100%" height="5.2rem" disabled>
           회원가입 완료
         </Button>
