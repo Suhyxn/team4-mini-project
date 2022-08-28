@@ -4,39 +4,50 @@ const sizes = css`
   ${(props) =>
     props.size === 'large' &&
     css`
-      width: 330px;
-      height: 62px;
-      font-size: 17px;
-      line-height: 22px;
-      border-radius: 12px;
+      height: ${(props) => (props.height ? props.height : '6.2rem')};
+      width: ${(props) => (props.width ? props.width : '3.3rem')};
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+      border-radius: 1.2rem;
     `}
   ${(props) =>
     props.size === 'medium' &&
     css`
-      width: 160px;
-      height: 37px;
-      font-size: 13px;
-      line-height: 22px;
-      border-radius: 8px;
+      width: 16rem;
+      height: 3.7rem;
+      font-size: 1.3rem;
+      line-height: 2.2rem;
+      border-radius: 0.8rem;
     `}
   ${(props) =>
     props.size === 'small' &&
     css`
-      width: 83px;
-      height: 25px;
-      font-size: 13px;
-      line-height: 16px;
-      border-radius: 4px;
+      width: 8.3rem;
+      height: 2.5rem;
+      font-size: 1.3rem;
+      border-radius: 0.4rem;
     `}
   ${(props) =>
     props.size === 'flat' &&
     css`
-      width: 60px;
-      height: 60px;
-      font-size: 13px;
-      line-height: 16px;
+      width: 6rem;
+      height: 6rem;
+      font-size: 1.3rem;
       opacity: 0.8;
-      border-radius: 12px;
+      border-radius: 1.2rem;
+    `}
+    ${(props) =>
+    props.size === 'radio' &&
+    css`
+      display: inline-block;
+      width: 100%;
+      height: 3.3rem;
+      border-radius: 0.4rem;
+      font-size: ${(props) => (props.Fontsize ? props.Fontsize : '1.4rem')};
+      background-color: ${(props) =>
+        props.active ? 'rgba(19, 189, 126, 0.1)' : '#fff'};
+      color: ${(props) => (props.active ? '#63e6be' : '#BABABC')};
+      border: 1px solid #e4edf2;
     `}
 `
 

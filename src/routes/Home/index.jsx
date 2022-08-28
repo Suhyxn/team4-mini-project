@@ -1,6 +1,9 @@
 import React from 'react'
 import { useGetProductsQuery } from '../../api/productApiSlice'
 
+import { Outlet } from 'react-router-dom'
+import Card from '../../components/common/Card'
+
 function Home() {
   // const { data: products, loading, isError } = useGetProductsQuery()
   const { data, error, isLoading } = useGetProductsQuery(undefined, {
@@ -22,12 +25,14 @@ function Home() {
 
   return (
     <div>
-      {data.map((product) => (
-        <div key={product.product_id}>
-          <p>{product.card_name}</p>
-          <img src={product.card_img} width="112" />
-        </div>
-      ))}
+      <Card
+        imageName="kookmin"
+        bank="신한카드"
+        name="신한 deep dream"
+        description="1900"
+        tags={['신한']}
+      />
+      <Outlet />
     </div>
   )
 }
