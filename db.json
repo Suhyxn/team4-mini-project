@@ -224,21 +224,21 @@
     "loan": [
       {
         "product_type": "대출",
-        "loan_company": "대구은행",
+        "loan_company": "교보생명",
         "loan_id": "11",
         "loan_name": "보험계약대출",
         "loan_rate": ["2.82", "10.5"],
-        "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
-        "tags": ["2금융권", "직장인"],
+        "bank_img": "https://www.banksalad.com/_next/image?url=https%3A%2F%2Fcdn.banksalad.com%2Fgraphic%2Fcolor%2Flogo%2Fcircle%2Fkyobo.png&w=96&q=75",
+        "tags": ["2금융권", "주부"],
         "credit_line": 150
       },
       {
         "product_type": "대출",
         "loan_company": "대구은행",
         "loan_id": "12",
-        "loan_name": "보험계약대출",
-        "loan_rate": ["2.82", "10.5"],
-        "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
+        "loan_name": "IM직장인 간편신용대출",
+        "loan_rate": ["3.29", "6.87"],
+        "bank_img": "https://www.banksalad.com/_next/image?url=https%3A%2F%2Fcdn.banksalad.com%2Fgraphic%2Fcolor%2Flogo%2Fcircle%2Fdgb.png&w=96&q=75",
         "tags": ["1금융권", "직장인"],
         "credit_line": 150
       }
