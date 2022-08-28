@@ -20,10 +20,9 @@ function App() {
     <Provider store={store}>
       {/* <main className='appMain'> */}
       <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<SignUp />} />
         <Route path="/favorites" element={<Favorites />} />
         {/* <Route path="/prdoucts" element={<Product />} /> */}
         <Route path="/mypage" element={<MyPage />} />
