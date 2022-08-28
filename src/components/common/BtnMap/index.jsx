@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Button from '../../../common/Button'
+import Button from '../Button'
 import * as S from './style'
 
-function Piece({ title, items, size }) {
+function BtnMap({ title, items, size }) {
   const [active, setActive] = useState()
 
   const activeHandler = (index) => {
@@ -29,4 +29,4 @@ function Piece({ title, items, size }) {
   )
 }
 
-export default Piece
+export default BtnMap

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css';
+import './App.css'
 
 import { Route, Routes } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
@@ -13,12 +13,14 @@ import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
 import Button from './components/common/Button'
+import Additional from './components/template/Additional'
+import RadioBtn from './components/common/RadioBtn'
 
 function App() {
   return (
     <Container>
       {/* <main className='appMain'> */}
-        <Routes>
+      {/* <Routes>
           <Route path="/" element={<Home />}>
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
@@ -28,8 +30,10 @@ function App() {
           <Route path="/recommened" element={<Recommended />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/*" element={<NotFound />} />
-        </Routes>
+        </Routes> */}
       {/* </main> */}
+      <Additional />
+      <RadioBtn />
       <Nav />
     </Container>
   )
