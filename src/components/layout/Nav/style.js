@@ -1,36 +1,23 @@
 import styled from 'styled-components'
 
-// #main {
-//     min-height: calc(100vh - 6rem);
-//   }
-  
-//   Nav {
-//     margin-top: auto;
-//   }
-  
-  export const Hr = styled.hr`
-    margin: 0rem;
-  `
-  
-  export const NavInit = styled.div`
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: space-between;
-    list-style: none;
-    align-items: center;
-    padding: 1rem;
-  `
-  
-  export const NavBtn = styled.button`
-    background-color: #13BD7E;
-    border: 0rem;
-    font-size: 1.2rem;
-    width: 10rem;
-    height: 10rem;
-    border-radius: 0.5rem;
-  `
+export const NavContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
+  padding: 1rem;
+  border-top: 1px solid lightgray;
+`
 
-  export const NavA = styled.a`
-    color: #fff;
-  `
+export const NavBtn = styled.div`
+  background-color: #13bd7e;
+  font-size: 1.4rem;
+  text-align: center;
+  line-height: 2.2rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
