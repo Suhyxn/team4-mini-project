@@ -14,7 +14,6 @@ import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
 import Button from './components/common/Button'
 import Additional from './components/template/Additional'
-import RadioBtn from './components/common/RadioBtn'
 
 function App() {
   return (
@@ -33,7 +32,6 @@ function App() {
         </Routes> */}
       {/* </main> */}
       <Additional />
-      <RadioBtn />
       <Nav />
     </Container>
   )

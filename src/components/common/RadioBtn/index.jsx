@@ -1,13 +1,12 @@
 import React from 'react'
 import * as S from './style'
-import { gender } from '../../../constants/buttonData'
 
-function RadioBtn({ value }) {
+function RadioBtn({ items }) {
   return (
     <S.Container>
-      {gender.map((item, index) => (
-        <S.List>
-          <S.Input type="radio" value={item} name="group" id={item} />
+      {items.map((item, index) => (
+        <S.List key={index}>
+          <S.Input type="radio" value={item} name={`group-${item}`} id={item} />
           <S.Label htmlFor={item} key={index}>
             <S.Text>{item}</S.Text>
           </S.Label>
