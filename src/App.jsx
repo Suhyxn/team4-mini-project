@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 
 import { Route, Routes } from 'react-router-dom'
@@ -12,8 +11,8 @@ import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
-import Button from './components/common/Button'
-import Additional from './components/template/Additional'
+import UserEdit from './components/template/UserEdit'
+import CustomInput from './components/common/CustomInput'
 
 function App() {
   return (
@@ -31,7 +30,8 @@ function App() {
           <Route path="/*" element={<NotFound />} />
         </Routes> */}
       {/* </main> */}
-      <Additional />
+      <CustomInput title="이름" />
+      <UserEdit />
       <Nav />
     </Container>
   )
