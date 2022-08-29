@@ -12,20 +12,26 @@ export const Container = styled.div`
   margin: 1.5rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  /* gap: 1rem; */
 `
 
 export const Box = styled.div`
   display: flex;
-  gap: 1rem;
 `
-
+export const imgBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  flex-shrink: 0;
+`
 export const StyledImg = styled.img`
-  flex-shrink: 1;
-  width: 10%;
-  height: 10%;
+  width: 90%;
+  height: 90%;
 `
 
 export const InfoBox = styled.div`
+  margin: 1rem;
   flex-grow: 1;
   overflow: hidden;
   display: flex;
@@ -78,6 +84,7 @@ export const Tag = styled.li`
 export const CardFavorite = styled.div`
   font-size: 2.5rem;
   flex-shrink: 0;
-  width: 6.8rem;
+  width: 4rem;
   text-align: center;
+  flex-shrink: 0;
 `

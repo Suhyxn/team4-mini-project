@@ -17,21 +17,24 @@ function Loan({ item }) {
   return (
     <>
       <S.Container>
-        <S.Box>
+        {/* <S.Box> */}
+
+        <S.imgBox>
           <S.StyledImg src={imageURL} />
-          <S.InfoBox>
-            <S.Title>{bank}</S.Title>
-            <S.SubTitle>{name}</S.SubTitle>
-            <S.Rate>
-              {rates[0]}~{rates[1]}%
-            </S.Rate>
-            <S.TagBox>
-              {tags.map((tag, index) => (
-                <S.Tag index={index}>{tag}</S.Tag>
-              ))}
-            </S.TagBox>
-          </S.InfoBox>
-        </S.Box>
+        </S.imgBox>
+        <S.InfoBox>
+          <S.Title>{bank}</S.Title>
+          <S.SubTitle>{name}</S.SubTitle>
+          <S.Rate>
+            {rates[0]}~{rates[1]}%
+          </S.Rate>
+          <S.TagBox>
+            {tags.map((tag, index) => (
+              <S.Tag index={index}>{tag}</S.Tag>
+            ))}
+          </S.TagBox>
+        </S.InfoBox>
+        {/* </S.Box> */}
         <S.CardFavorite>
           {favorite ? (
             <AiFillHeart size={25} />
