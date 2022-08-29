@@ -27,7 +27,9 @@ function Loan({ item }) {
             </S.Rate>
             <S.TagBox>
               {tags.map((tag, index) => (
-                <S.Tag index={index}>{tag}</S.Tag>
+                <S.Tag index={index} key={index}>
+                  {tag}
+                </S.Tag>
               ))}
             </S.TagBox>
           </S.InfoBox>
