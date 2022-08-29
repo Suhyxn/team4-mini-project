@@ -19,13 +19,6 @@ function Card({ item }) {
   // const [tags, setTags] = useState(theTags)
   return (
     <S.CardContainer>
-      <S.CardCheckBox>
-        {checked ? (
-          <AiOutlineCheckSquare size={25} />
-        ) : (
-          <AiOutlineBorder size={25} />
-        )}
-      </S.CardCheckBox>
       <S.CardBox>
         <S.CardImage src={imageName} />
       </S.CardBox>

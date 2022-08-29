@@ -2,29 +2,36 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   cursor: pointer;
-  width: 100%;
-  padding: 3rem 2rem;
-  background-color: #fff;
+  border-radius: 1.2rem;
+  background-color: #fafafb;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
   position: relative;
-`
-
-export const Line = styled.div`
-  height: 1px;
-  background-color: rgb(228, 237, 242);
+  font-size: small;
+  margin: 1.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  /* gap: 1rem; */
 `
 
 export const Box = styled.div`
   display: flex;
-  gap: 1rem;
 `
-
+export const imgBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  flex-shrink: 0;
+`
 export const StyledImg = styled.img`
-  flex-shrink: 1;
-  width: 10%;
-  height: 10%;
+  width: 90%;
+  height: 90%;
 `
 
 export const InfoBox = styled.div`
+  margin: 1rem;
   flex-grow: 1;
   overflow: hidden;
   display: flex;
@@ -73,4 +80,11 @@ export const Tag = styled.li`
   font-size: 1.2rem;
   color: ${({ index }) => (index == 0 ? '#DCF5EC' : '#E4EDF2')};
   background-color: ${({ index }) => (index == 0 ? '#7ADAB7' : '#868C9C')};
+`
+export const CardFavorite = styled.div`
+  font-size: 2.5rem;
+  flex-shrink: 0;
+  width: 4rem;
+  text-align: center;
+  flex-shrink: 0;
 `
