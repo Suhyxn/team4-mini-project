@@ -1,11 +1,6 @@
 import React, { useState } from 'react'
 import * as S from './style'
-import {
-  AiOutlineBorder,
-  AiOutlineCheckSquare,
-  AiOutlineHeart,
-  AiFillHeart,
-} from 'react-icons/ai'
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 
 function Card({ item }) {
   const {
@@ -15,8 +10,7 @@ function Card({ item }) {
     annual_fee: description,
     isfavorite: favorite,
   } = item
-  const [checked, setChecked] = useState(false)
-  // const [tags, setTags] = useState(theTags)
+
   return (
     <S.CardContainer>
       <S.CardBox>
