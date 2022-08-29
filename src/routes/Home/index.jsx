@@ -24,7 +24,7 @@ function Home() {
       </div>
       <div>
         {products.loan.map((item) => (
-          <Loan item={item} key={item.product_id} />
+          <Loan item={item} key={item.loan_id} />
         ))}
       </div>
       <Outlet />
