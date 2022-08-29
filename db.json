@@ -74,7 +74,8 @@
         "card_name": "Fit카드",
         "card_company": "현대백화점",
         "tags": ["주부", "그림/운동", "30대"],
-        "annual_fee": 10000
+        "annual_fee": 10000,
+        "isfavorite": false
       },
       {
         "product_type": "카드",
@@ -84,7 +85,8 @@
         "card_name": "1Q Daily+",
         "card_company": "하나카드",
         "annual_fee": 12000,
-        "tags": ["학생", "10대", "영상/사진"]
+        "tags": ["학생", "10대", "영상/사진"],
+        "isfavorite": true
       }
     ],
     "loan": [
@@ -96,7 +98,8 @@
         "loan_rate": ["2.82", "10.5"],
         "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
         "tags": ["2금융권", "직장인"],
-        "credit_line": 150
+        "credit_line": 150,
+        "isfavorite": false
       },
       {
         "product_type": "대출",
@@ -106,7 +109,8 @@
         "loan_rate": ["2.82", "10.5"],
         "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
         "tags": ["1금융권", "직장인"],
-        "credit_line": 150
+        "credit_line": 150,
+        "isfavorite": true
       }
     ]
   },

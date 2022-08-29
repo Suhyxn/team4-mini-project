@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useGetCartQuery } from '../../store/slices/cartApiSlice'
 import Card from '../../components/common/Card'
 import Loan from '../../components/common/Loan'
 import Loader from '../../components/layout/Loader'
 import Button from '../../components/common/Button'
 import * as S from './style'
+import { AiOutlineBorder, AiOutlineCheckSquare } from 'react-icons/ai'
 
 function Cart() {
   const { data: carts, isLoading, isError } = useGetCartQuery()
+  const [checked, setChecked] = useState(false)
   if (isLoading) {
     return (
       <div>
@@ -30,7 +32,16 @@ function Cart() {
       <div>
         <div>
           {carts.card.map((item) => (
-            <Card item={item} key={item.product_id} />
+            <div>
+              <S.CardCheckBox>
+                {item.isfavorite ? (
+                  <AiOutlineCheckSquare size={25} />
+                ) : (
+                  <AiOutlineBorder size={25} />
+                )}
+              </S.CardCheckBox>
+              <Card item={item} key={item.product_id} />
+            </div>
           ))}
         </div>
 
