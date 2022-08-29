@@ -5,7 +5,9 @@ export const CartsTitleContainer = styled.div`
   margin-bottom: 3rem;
   margin-left: 2rem;
 `
-export const CardCheckBox = styled.div``
+export const CardCheckBox = styled.input`
+  display: none;
+`
 
 export const CartsTitle = styled.h2`
   font-size: 2rem;

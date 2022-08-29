@@ -18,6 +18,8 @@ function Cart() {
     )
   }
 
+  const ddd = () => {}
+
   if (isError || !carts) {
     return <div>오류발생!</div>
   }
@@ -31,16 +33,20 @@ function Cart() {
       </S.CartsTitleContainer>
       <div>
         <div>
-          {carts.card.map((item) => (
-            <div>
-              <S.CardCheckBox>
-                {item.isfavorite ? (
+          {carts.card.map((item, idx) => (
+            <div key={item.product_id}>
+              <S.CardCheckBox
+                type="checkbox"
+                idx={item.product_id}
+                onClick={(e) => console.log(e.target)}
+              >
+                {checked ? (
                   <AiOutlineCheckSquare size={25} />
                 ) : (
                   <AiOutlineBorder size={25} />
                 )}
               </S.CardCheckBox>
-              <Card item={item} key={item.product_id} />
+              <Card item={item} />
             </div>
           ))}
         </div>
