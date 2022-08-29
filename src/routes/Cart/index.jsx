@@ -10,6 +10,13 @@ import { AiOutlineBorder, AiOutlineCheckSquare } from 'react-icons/ai'
 function Cart() {
   const { data: carts, isLoading, isError } = useGetCartQuery()
   const [checked, setChecked] = useState(false)
+  const arr = []
+  const checkedHandler = (e, id) => {
+    if (!e.target.parentNode.previousSibling.checked && !arr.includes(id)) {
+      arr.push(id)
+    }
+  }
+
   if (isLoading) {
     return (
       <div>
@@ -17,8 +24,6 @@ function Cart() {
       </div>
     )
   }
-
-  const ddd = () => {}
 
   if (isError || !carts) {
     return <div>오류발생!</div>
@@ -33,27 +38,34 @@ function Cart() {
       </S.CartsTitleContainer>
       <div>
         <div>
-          {carts.card.map((item, idx) => (
-            <div key={item.product_id}>
-              <S.CardCheckBox
-                type="checkbox"
-                idx={item.product_id}
-                onClick={(e) => console.log(e.target)}
+          {carts.card.map((item) => (
+            <S.Container key={item.product_id}>
+              <S.CardCheckInput type="checkbox" id={item.product_id} />
+              <S.CardLabel
+                htmlFor={item.product_id}
+                onClick={(e) => checkedHandler(e, item.product_id)}
               >
-                {checked ? (
-                  <AiOutlineCheckSquare size={25} />
-                ) : (
-                  <AiOutlineBorder size={25} />
-                )}
-              </S.CardCheckBox>
+                <S.CardCheckBox />
+              </S.CardLabel>
               <Card item={item} />
-            </div>
+            </S.Container>
           ))}
         </div>
+        <AiOutlineCheckSquare size={25} />
+        <AiOutlineBorder size={25} />
 
         <div>
           {carts.loan.map((item) => (
-            <Loan item={item} key={item.loan_id} />
+            <S.Container key={item.product_id}>
+              <S.CardCheckInput type="checkbox" id={item.product_id} />
+              <S.CardLabel
+                htmlFor={item.product_id}
+                onClick={(e) => checkedHandler(e, item.product_id)}
+              >
+                <S.CardCheckBox />
+              </S.CardLabel>
+              <Loan item={item} />
+            </S.Container>
           ))}
         </div>
       </div>
