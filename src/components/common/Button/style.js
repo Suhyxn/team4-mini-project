@@ -36,19 +36,6 @@ const sizes = css`
       opacity: 0.8;
       border-radius: 1.2rem;
     `}
-    ${(props) =>
-    props.size === 'radio' &&
-    css`
-      display: inline-block;
-      width: 100%;
-      height: 3.3rem;
-      border-radius: 0.4rem;
-      font-size: ${(props) => (props.Fontsize ? props.Fontsize : '1.4rem')};
-      background-color: ${(props) =>
-        props.active ? 'rgba(19, 189, 126, 0.1)' : '#fff'};
-      color: ${(props) => (props.active ? '#63e6be' : '#BABABC')};
-      border: 1px solid #e4edf2;
-    `}
 `
 
 export const Button = styled.button`
