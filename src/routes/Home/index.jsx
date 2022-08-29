@@ -2,6 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { useGetProductsQuery } from '../../store/slices/productApiSlice'
 import Card from '../../components/common/Card'
+import Loan from '../../components/common/Loan'
 
 function Home() {
   const { data: products, isLoading, isError } = useGetProductsQuery()
@@ -15,12 +16,19 @@ function Home() {
   }
 
   return (
-    <div>
-      {products.card.map((item) => (
-        <Card item={item} key={item.product_id} />
-      ))}
+    <>
+      <div>
+        {products.card.map((item) => (
+          <Card item={item} key={item.product_id} />
+        ))}
+      </div>
+      <div>
+        {products.loan.map((item) => (
+          <Loan item={item} key={item.product_id} />
+        ))}
+      </div>
       <Outlet />
-    </div>
+    </>
   )
 }
 
