@@ -14,6 +14,7 @@ import ProductDetail from './routes/ProductDetail'
 import LoanDetail from './routes/LoanDeatil'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
+import RequireAuth from './components/template/RequireAuth'
 import GotoTop from './components/common/GoToTop'
 
 function App() {
@@ -23,17 +24,22 @@ function App() {
       <main className="root">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/card/:id" element={<ProductDetail />} />
-          <Route path="/loan/:id" element={<LoanDetail />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/recommened" element={<Recommended />} />
           <Route path="/cart" element={<Cart />} />
+
+          {/* 토큰 생기면 주석 삭제하기 */}
+          {/* <Route element={<RequireAuth />}>    
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/recommened" element={<Recommended />} />
+          <Route path="/cart" element={<Cart />} />
+        </Route> */}
           <Route path="/*" element={<NotFound />} />
         </Routes>
-        {/* <GotoTop /> */}
       </main>
       <Nav />
     </Provider>
