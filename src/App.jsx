@@ -12,6 +12,7 @@ import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
+import RequireAuth from './components/template/RequireAuth'
 
 function App() {
   return (
@@ -25,6 +26,14 @@ function App() {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/recommened" element={<Recommended />} />
         <Route path="/cart" element={<Cart />} />
+
+        {/* 토큰 생기면 주석 삭제하기 */}
+        {/* <Route element={<RequireAuth />}>
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/recommened" element={<Recommended />} />
+          <Route path="/cart" element={<Cart />} />
+        </Route> */}
         <Route path="/*" element={<NotFound />} />
       </Routes>
       {/* </main> */}
