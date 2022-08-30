@@ -4,10 +4,10 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 
 function Card({ item }) {
   const {
-    card_img: imageName,
-    card_company: bank,
-    card_name: name,
-    annual_fee: description,
+    img: imageName,
+    cardCompany: bank,
+    cardName: name,
+    annualFee: description,
     isfavorite: favorite,
   } = item
 
@@ -26,7 +26,7 @@ function Card({ item }) {
         </S.CardDescription>
       </S.CardInfo>
       <S.CardFavorite>
-        {item.isfavorite ? (
+        {favorite ? (
           <AiFillHeart size={25} />
         ) : (
           <AiOutlineHeart size={25} color="red" />

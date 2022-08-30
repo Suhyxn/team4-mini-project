@@ -10,7 +10,17 @@
     "house": true
   },
   "my-page": {
-    "name": "홍길동",
+    "member": {
+      "username": "qweqweqe@naver.com",
+      "password": "*****",
+      "name": "양양양",
+      "gender": "여자",
+      "age": "20대",
+      "job": "직장인",
+      "income": 5000,
+      "hobby": "코딩/개발",
+      "house": true
+    },
     "order": {
       "cardList": [
         {
@@ -112,7 +122,7 @@
     }
   },
   "carts": {
-    "userInfo": "3000 5.96",
+    "name": "홍길동",
     "cardList": [
       {
         "cardId": 1,
@@ -437,5 +447,16 @@
         "tag": "주부 그림/운동 30대"
       }
     ]
+  },
+  "edit": {
+    "username": "qweqweqe@naver.com",
+    "password": "*****",
+    "name": "양양양",
+    "gender": "여자",
+    "age": "20대",
+    "job": "직장인",
+    "income": 5000,
+    "hobby": "코딩/개발",
+    "house": true
   }
 }

@@ -4,10 +4,10 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 
 function Loan({ item }) {
   const {
-    bank_img: imageURL,
-    loan_company: bank,
-    loan_name: name,
-    loan_rate: rates,
+    img: imageURL,
+    loanCompany: bank,
+    loanName: name,
+    rate: rates,
     isfavorite: favorite,
   } = item
 
@@ -24,7 +24,7 @@ function Loan({ item }) {
           <S.Title>{bank}</S.Title>
           <S.SubTitle>{name}</S.SubTitle>
           <S.Rate>
-            {rates[0]}~{rates[1]}%
+            {rates.split(' ')[0]}~{rates.split(' ')[1]}%
           </S.Rate>
           <S.TagBox>
             {tags.map((tag, index) => (
