@@ -38,7 +38,7 @@ function Cart() {
         <S.CardContainer>
           {carts.cardList.map((item) => (
             <S.Container key={item.cardId}>
-              <S.CardCheckInput type="checkbox" id={item.product_id} />
+              <S.CardCheckInput type="checkbox" id={item.cardId} />
               <S.CardLabel
                 htmlFor={item.cardId}
                 onClick={(e) => checkedHandler(e, item.cardId)}
@@ -64,7 +64,7 @@ function Cart() {
           ))}
         </S.CardContainer>
       </div>
-      <Button width="100%" height="5.2rem" disabled>
+      <Button width="100%" height="5.2rem">
         장바구니 신청
       </Button>
     </div>
