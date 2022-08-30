@@ -17,6 +17,7 @@ import GotoTop from './components/common/GoToTop'
 function App() {
   return (
     <Provider store={store}>
+      {/* <MyPage /> */}
       <main className="root">
         <Routes>
           <Route path="/" element={<Home />} />
