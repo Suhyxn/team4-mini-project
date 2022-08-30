@@ -12,7 +12,7 @@ import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
-import GotoTop from './components/common/GoToTOp'
+import GotoTop from './components/common/GoToTop'
 
 function App() {
   return (
