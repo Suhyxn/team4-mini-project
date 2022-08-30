@@ -6,21 +6,9 @@ import { AiOutlineArrowLeft, AiOutlineShopping } from 'react-icons/ai'
 import { BiStoreAlt, BiHomeHeart } from 'react-icons/bi'
 import { RiOilLine } from 'react-icons/ri'
 import Button from '../../components/common/Button'
+import { useAddCardCartMutation } from '../../store/slices/cartApiSlice'
 
 function ProductDetail() {
-  const navigate = useNavigate()
-
-  // let history = useHistory()
-
-  // const { data, error, isLoading } = useGetProductsQuery(undefined, {
-  //   selectFromResult: ({ data, error, isLoading }) => ({
-  //     data: data.card,
-  //     error,
-  //     isLoading,
-  //   }),
-  //   pollingInterval: 3000,
-  // })
-
   const data = {
     cardId: 1,
     productType: '카드',
@@ -38,7 +26,24 @@ function ProductDetail() {
     img: 'https://cdn.banksalad.com/entities/etc/1561359772723-1572.png',
   }
 
-  console.log(data.franchisee.split(' '))
+  const navigate = useNavigate()
+  const [addCardCart] = useAddCardCartMutation()
+
+  const submitHandler = () => {
+    addCardCart({
+      card_id: data.cardId,
+    })
+  }
+  // let history = useHistory()
+
+  // const { data, error, isLoading } = useGetProductsQuery(undefined, {
+  //   selectFromResult: ({ data, error, isLoading }) => ({
+  //     data: data.card,
+  //     error,
+  //     isLoading,
+  //   }),
+  //   pollingInterval: 3000,
+  // })
 
   return (
     <>
@@ -111,7 +116,7 @@ function ProductDetail() {
         <S.SubContent>VISA/mastercard/국내전용/One Way(JCB)</S.SubContent>
       </S.SubTitle>
       <S.Button>
-        <Button size="large" onClick={() => goToCart(id)}>
+        <Button size="large" onClick={submitHandler}>
           장바구니 담기
         </Button>
       </S.Button>

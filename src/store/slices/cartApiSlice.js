@@ -10,14 +10,25 @@ export const cartApi = createApi({
     getCart: builder.query({
       query: () => '',
     }),
-    addCardCart: builder.query({
-      query: (id) => `/card/${id}`,
+    addCardCart: builder.mutation({
+      query: ({ data }) => ({
+        url: '/card',
+        method: 'POST',
+        body: data,
+      }),
     }),
-    addLoanCart: builder.query({
-      query: (id) => `/loan/${id}`,
+    addLoanCart: builder.mutation({
+      query: ({ data }) => ({
+        url: '/loan',
+        method: 'POST',
+        body: data,
+      }),
     }),
   }),
 })
 
-export const { useGetCartQuery, useAddCardCartQuery, useAddLoanCartQuery } =
-  cartApi
+export const {
+  useGetCartQuery,
+  useAddCardCartMutation,
+  useAddLoanCartMutation,
+} = cartApi

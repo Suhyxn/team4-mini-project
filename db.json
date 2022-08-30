@@ -284,5 +284,6 @@
         "credit_line": 150
       }
     ]
-  }
+  },
+  "carts/card": { "code": "201", "status": "success" }
 }
