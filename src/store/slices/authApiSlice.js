@@ -23,4 +23,5 @@ export const authApi = createApi({
   }),
 })
 
-export const { useLoginMutation, useDoLogoutQuery } = authApi
+export const { useLoginMutation, useDoLogoutQuery, useGetIsduplicateQuery } =
+  authApi

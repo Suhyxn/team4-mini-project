@@ -22,4 +22,8 @@ export const productsSlice = createApi({
   }),
 })
 
-export const { useGetProductsQuery } = productsSlice
+export const {
+  useGetProductsQuery,
+  useGetLoanDetailQuery,
+  useGetCardDetailQuery,
+} = productsSlice
