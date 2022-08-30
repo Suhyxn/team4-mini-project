@@ -7,12 +7,13 @@ export const NavContainer = styled.div`
   width: 100%;
   display: flex;
   background: #fff;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 1.5rem 1.5rem 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  border-top: 1px solid lightgray;
+  border-top: 1px solid rgb(232, 232, 232);
+  box-shadow: rgb(0 0 0 / 4%) 0px 0px 6px 4px;
   a {
     border-radius: 1.2rem;
   }

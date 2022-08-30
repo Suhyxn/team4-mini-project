@@ -34,6 +34,9 @@ const GlobalStyled = createGlobalStyle`
     height: 100vh;
     padding: 3rem 2rem;
   }
+  .root {
+    padding-bottom: 9rem;
+  }
   a {
     color: inherit;
     text-decoration: none;

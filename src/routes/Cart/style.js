@@ -11,7 +11,7 @@ export const CardContainer = styled.div`
 `
 
 export const CardCheckInput = styled.input`
-  opacity: 0;
+  display: none;
 `
 
 export const CardLabel = styled.label`

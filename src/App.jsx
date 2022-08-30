@@ -16,18 +16,18 @@ import NotFound from './components/layout/NotFound'
 function App() {
   return (
     <Provider store={store}>
-      {/* <main className='appMain'> */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<SignUp />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/mypage" element={<MyPage />} />
-        <Route path="/recommened" element={<Recommended />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/*" element={<NotFound />} />
-      </Routes>
-      {/* </main> */}
+      <main className="root">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/recommened" element={<Recommended />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+      </main>
       <Nav />
     </Provider>
   )
