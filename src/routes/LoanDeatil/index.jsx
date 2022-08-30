@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '../../components/common/Button'
 import * as S from './style'
+import { useAddLoanCartMutation } from '../../store/slices/cartApiSlice'
 
 function LoanDetail() {
   const data = {
@@ -17,6 +18,13 @@ function LoanDetail() {
     img: 'https://www.banksalad.com/_next/image?url=https%3A%2F%2Fcdn.banksalad.com%2Fgraphic%2Fcolor%2Flogo%2Fcircle%2Fkyobo.png&w=96&q=75',
   }
 
+  const [addLoanCart] = useAddLoanCartMutation()
+
+  const submitHandler = () => {
+    addLoanCart({
+      loan_id: data.loanId,
+    })
+  }
   return (
     <>
       <S.LoanImage src={data.img} alt="loan" />
@@ -29,13 +37,11 @@ function LoanDetail() {
         </S.Content>
         <S.Content>
           <div className="title">내 한도</div>
-          <div className="content">
-            {data.creditLine.toLocaleString('ko-KR')}만원
-          </div>
+          <div className="content">{data.creditLine} 만원</div>
         </S.Content>
       </S.ContentContainer>
       <S.Button>
-        <Button size="large" className="btn">
+        <Button size="large" onClick={submitHandler}>
           신청하기
         </Button>
       </S.Button>
