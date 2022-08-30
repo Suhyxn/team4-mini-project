@@ -249,6 +249,7 @@
     ]
   },
   "favorites": {
+    "name": "홍길동",
     "card": [
       {
         "product_type": "카드",
