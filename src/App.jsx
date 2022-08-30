@@ -16,7 +16,8 @@ import NotFound from './components/layout/NotFound'
 function App() {
   return (
     <Provider store={store}>
-      {/* <main className='appMain'> */}
+      {/* <MyPage /> */}
+      {/* <main className="appMain"> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />

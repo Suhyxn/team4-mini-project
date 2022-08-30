@@ -1,7 +1,44 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
+import { useGetProductsQuery } from '../../store/slices/productApiSlice'
+import * as S from './style'
+import Button from '../../components/common/Button'
+import Card from '../../components/common/Card'
+import Loan from '../../components/common/Loan'
 
 function MyPage() {
-  return <div>MyPage</div>
+  const { data: products, isLoading, isError } = useGetProductsQuery()
+
+  if (isLoading) {
+    return <div>로딩중...</div>
+  }
+
+  if (isError || !products) {
+    return <div>오류발생!</div>
+  }
+
+  return (
+    <S.Container>
+      <div>ㅇㅇㅇ 님의 정보입니다</div>
+      <span>신청 중인 상품</span>
+      <Button size="smaill" className="btn">
+        수정하기
+      </Button>
+      <S.ItemBox>
+        <div>
+          {products.loan.map((item) => (
+            <Loan item={item} key={item.loan_id} />
+          ))}
+        </div>
+      </S.ItemBox>
+      <div>신청 완료 상품</div>
+      <div>
+        {products.card.map((item) => (
+          <Card item={item} key={item.product_id} />
+        ))}
+      </div>
+    </S.Container>
+  )
 }
 
 export default MyPage

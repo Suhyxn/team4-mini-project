@@ -6,7 +6,7 @@ function Product() {
   const { loan, card } = products
   const [select, setSelect] = useState(loanProducts)
 
-  const loanProducts = card.map((product) => (
+  const loanProducts = card.((product) => (
     <div key={product.product_id}>
       <p>{product.card_name}</p>
       <img src={product.card_img} width="112" />
