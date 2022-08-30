@@ -10,14 +10,14 @@ import Button from '../../components/common/Button'
 function ProductDetail() {
   // let history = useHistory()
 
-  const { data, error, isLoading } = useGetProductsQuery(undefined, {
-    selectFromResult: ({ data, error, isLoading }) => ({
-      data: data.card,
-      error,
-      isLoading,
-    }),
-    pollingInterval: 3000,
-  })
+  // const { data, error, isLoading } = useGetProductsQuery(undefined, {
+  //   selectFromResult: ({ data, error, isLoading }) => ({
+  //     data: data.card,
+  //     error,
+  //     isLoading,
+  //   }),
+  //   pollingInterval: 3000,
+  // })
 
   return (
     <>

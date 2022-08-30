@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import * as S from './style'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 
@@ -9,10 +10,14 @@ function Card({ item }) {
     card_name: name,
     annual_fee: description,
     isfavorite: favorite,
+    product_id: id,
+    product_type: type,
   } = item
 
+  const navigate = useNavigate()
+
   return (
-    <S.CardContainer>
+    <S.CardContainer onClick={() => navigate(`/card/${id}`)}>
       <S.CardBox>
         <S.CardImage src={imageName} />
       </S.CardBox>

@@ -104,5 +104,4 @@ export const SubContent = styled.div`
 
 export const Button = styled.div`
   margin-top: 5rem;
-  margin-left: 2rem;
 `

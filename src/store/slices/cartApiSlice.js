@@ -4,11 +4,11 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const cartApi = createApi({
   reducerPath: 'cartApi',
-  baseQuery: fetchBaseQuery({ baseUrl: VITE_BASE_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: `${VITE_BASE_URL}/carts` }),
   endpoints: (builder) => ({
     //카드 상품 불러오기
     getCart: builder.query({
-      query: () => 'carts',
+      query: () => '',
     }),
   }),
 })

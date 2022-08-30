@@ -10,6 +10,8 @@ import SignUp from './routes/SignUp'
 import Favorites from './routes/Favorites'
 import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
+import ProductDetail from './routes/ProductDetail'
+import LoanDetail from './routes/LoanDeatil'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
 import GotoTop from './components/common/GoToTop'
@@ -21,6 +23,8 @@ function App() {
       <main className="root">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/card/:id" element={<ProductDetail />} />
+          <Route path="/loan/:id" element={<LoanDetail />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="/favorites" element={<Favorites />} />
