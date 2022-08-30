@@ -1,6 +1,6 @@
 //로그인, 로그아웃,  토큰 무효화 체크
 const { VITE_BASE_URL } = import.meta.env
-import { createApi } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const authApi = createApi({
   reducerPath: 'authApi',

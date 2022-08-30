@@ -12,7 +12,10 @@ export const myPageApi = createApi({
     getMypage: builder.query({
       query: () => 'mypage',
     }),
+    getRecommend: builder.query({
+      query: () => 'recommend',
+    }),
   }),
 })
 
-export const { useGetCartQuery } = myPageApi
+export const { useGetCartQuery, useGetMypageQuery } = myPageApi
