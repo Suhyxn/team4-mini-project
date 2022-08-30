@@ -1,7 +1,8 @@
 import React from 'react'
+import * as S from './style'
 
 function GotoTop() {
-  return <div>GotoTop</div>
+  return <S.Container>GotoTop</S.Container>
 }
 
 export default GotoTop
