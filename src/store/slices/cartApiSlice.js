@@ -24,12 +24,25 @@ export const cartApi = createApi({
         body: data,
       }),
     }),
-    deleteCard:
+    deleteCardInCart: builder.query({
+      query: (id) => ({
+        url: `card/${id}`,
+        method: 'DELETE',
+      }),
+    }),
+    deleteLoanInCart: builder.query({
+      query: (id) => ({
+        url: `loan/${id}`,
+        method: 'DELETE',
+      }),
+    }),
   }),
 })
 
 export const {
   useGetCartQuery,
   useAddCardToCartMutation,
-  useAddLoanToCartMutation
+  useAddLoanToCartMutation,
+  useDeleteCardInCartQuery,
+  useDeleteLoanInCartQuery,
 } = cartApi

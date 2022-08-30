@@ -36,12 +36,12 @@ function Cart() {
       </S.CartsTitleContainer>
       <div>
         <S.CardContainer>
-          {carts.card.map((item) => (
-            <S.Container key={item.product_id}>
+          {carts.cardList.map((item) => (
+            <S.Container key={item.cardId}>
               <S.CardCheckInput type="checkbox" id={item.product_id} />
               <S.CardLabel
-                htmlFor={item.product_id}
-                onClick={(e) => checkedHandler(e, item.product_id)}
+                htmlFor={item.cardId}
+                onClick={(e) => checkedHandler(e, item.cardId)}
               >
                 <S.CardCheckBox />
               </S.CardLabel>
@@ -50,12 +50,12 @@ function Cart() {
           ))}
         </S.CardContainer>
         <S.CardContainer>
-          {carts.loan.map((item) => (
-            <S.Container key={item.product_id}>
-              <S.CardCheckInput type="checkbox" id={item.product_id} />
+          {carts.loanList.map((item) => (
+            <S.Container key={item.loanId}>
+              <S.CardCheckInput type="checkbox" id={item.loanId} />
               <S.CardLabel
-                htmlFor={item.product_id}
-                onClick={(e) => checkedHandler(e, item.product_id)}
+                htmlFor={item.loanId}
+                onClick={(e) => checkedHandler(e, item.loanId)}
               >
                 <S.CardCheckBox />
               </S.CardLabel>

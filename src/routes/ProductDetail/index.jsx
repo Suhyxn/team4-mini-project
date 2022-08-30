@@ -104,7 +104,7 @@ function ProductDetail() {
       <S.SubTitle>
         연회비
         <S.SubContent>
-          One Way(JCB) {data.annualFee.toLocaleString('ko-KR')} 원
+          One Way(JCB) {data.annualFee} 원
           <br />
           VISA/mastercard 12,000원
           <br />
