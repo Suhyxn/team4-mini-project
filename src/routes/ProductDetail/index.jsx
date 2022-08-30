@@ -1,3 +1,4 @@
+import React from 'react'
 import * as S from './style'
 // import { useHistory } from 'react-router-dom'
 import { card1 } from '../../constants/card'
@@ -8,6 +9,15 @@ import Button from '../../components/common/Button'
 
 function ProductDetail() {
   // let history = useHistory()
+
+  const { data, error, isLoading } = useGetProductsQuery(undefined, {
+    selectFromResult: ({ data, error, isLoading }) => ({
+      data: data.card,
+      error,
+      isLoading,
+    }),
+    pollingInterval: 3000,
+  })
 
   return (
     <>
