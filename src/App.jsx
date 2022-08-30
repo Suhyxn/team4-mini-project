@@ -12,6 +12,7 @@ import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
+import GotoTop from './components/common/GoToTop'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
+        <GotoTop />
       </main>
       <Nav />
     </Provider>
