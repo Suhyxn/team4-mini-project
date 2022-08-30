@@ -4,6 +4,9 @@ import * as S from './style'
 import Button from '../../components/common/Button'
 import Card from '../../components/common/Card'
 import Loan from '../../components/common/Loan'
+import Filter from '../../components/common/Filter'
+import BankTab from '../../components/template/BankTab'
+import LoanTab from '../../components/template/LoanTab'
 
 function Recommended() {
   const { data: recommends, isLoading, isError } = useGetMypageQuery()
@@ -23,7 +26,10 @@ function Recommended() {
       <S.Title>
         <span>{cardList.length + loanList.length}</span>의 정보입니다.
       </S.Title>
-      <S.ContentContainer>
+      <Filter />
+      <BankTab name="bank" onClick={filterHandler} />
+      <LoanTab name="loan" onClick={filterHandler} />
+      {/* <S.ContentContainer>
         <span>신청 중인 상품</span>
         <Button size="smaill" className="btn">
           수정하기
@@ -42,7 +48,7 @@ function Recommended() {
       </S.ContentContainer>
       <Button size="smaill" className="btn">
         로그아웃
-      </Button>
+      </Button> */}
     </S.Container>
   )
 }
