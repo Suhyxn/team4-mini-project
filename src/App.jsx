@@ -12,12 +12,14 @@ import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
+// import Additional from './components/template/Additional'
+import UserEdit from './components/template/UserEdit'
 
 function App() {
   return (
     <Provider store={store}>
       <main className="root">
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
@@ -26,7 +28,9 @@ function App() {
           <Route path="/recommened" element={<Recommended />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/*" element={<NotFound />} />
-        </Routes>
+        </Routes> */}
+        {/* <Addi?tional /> */}
+        <UserEdit />
       </main>
       <Nav />
     </Provider>
