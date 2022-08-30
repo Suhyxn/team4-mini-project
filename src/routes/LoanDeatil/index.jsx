@@ -1,24 +1,37 @@
 import React from 'react'
-import Header from '../../components/layout/Header'
 import Button from '../../components/common/Button'
 import * as S from './style'
-import { loan } from '../../constants/loan'
 
 function LoanDetail() {
+  const data = {
+    loanId: 1,
+    productType: '대출',
+    loanName: '신한대출',
+    loanCompany: '신한',
+    creditLine: '2000',
+    rate: '2.8 10.2',
+    primeRate: false,
+    period: 3,
+    loanLine: '50 90',
+    tag: '주부 모바일 1금융권',
+    img: 'https://www.banksalad.com/_next/image?url=https%3A%2F%2Fcdn.banksalad.com%2Fgraphic%2Fcolor%2Flogo%2Fcircle%2Fkyobo.png&w=96&q=75',
+  }
+
   return (
     <>
-      <Header />
-      <S.LoanImage src="/public/assets/images/loan.png" alt="loan" />
-      <S.LoanTitle>{loan.title}</S.LoanTitle>
-      <S.LoanSubTitle>{loan.subtitle}</S.LoanSubTitle>
+      <S.LoanImage src={data.img} alt="loan" />
+      <S.LoanTitle>{data.loanCompany}</S.LoanTitle>
+      <S.LoanSubTitle>{data.loanName}</S.LoanSubTitle>
       <S.ContentContainer>
         <S.Content>
           <div className="title">내 금리</div>
-          <div className="content">{loan.interestrate}%</div>
+          <div className="content">{data.rate.split(' ')[0]}%</div>
         </S.Content>
         <S.Content>
           <div className="title">내 한도</div>
-          <div className="content">{loan.limit}만원</div>
+          <div className="content">
+            {data.creditLine.toLocaleString('ko-KR')}만원
+          </div>
         </S.Content>
       </S.ContentContainer>
       <S.Button>
