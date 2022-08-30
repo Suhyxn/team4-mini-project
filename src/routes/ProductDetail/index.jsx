@@ -1,5 +1,4 @@
 import React from 'react'
-
 import * as S from './style'
 // import { useHistory } from 'react-router-dom'
 import { card1 } from '../../constants/card'

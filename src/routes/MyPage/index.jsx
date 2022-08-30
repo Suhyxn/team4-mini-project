@@ -19,24 +19,29 @@ function MyPage() {
 
   return (
     <S.Container>
-      <div>ㅇㅇㅇ 님의 정보입니다</div>
-      <span>신청 중인 상품</span>
-      <Button size="smaill" className="btn">
-        수정하기
-      </Button>
-      <S.ItemBox>
+      <S.Title>
+        <span>ㅇㅇㅇ님</span>의 정보입니다.
+      </S.Title>
+      <S.ContentContainer>
+        <span>신청 중인 상품</span>
+        <Button size="smaill" className="btn">
+          수정하기
+        </Button>
         <div>
           {products.loan.map((item) => (
             <Loan item={item} key={item.loan_id} />
           ))}
         </div>
-      </S.ItemBox>
-      <div>신청 완료 상품</div>
-      <div>
-        {products.card.map((item) => (
-          <Card item={item} key={item.product_id} />
-        ))}
-      </div>
+        <div>신청 완료 상품</div>
+        <div>
+          {products.card.map((item) => (
+            <Card item={item} key={item.product_id} />
+          ))}
+        </div>
+      </S.ContentContainer>
+      <Button size="smaill" className="btn">
+        로그아웃
+      </Button>
     </S.Container>
   )
 }

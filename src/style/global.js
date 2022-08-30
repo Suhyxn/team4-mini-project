@@ -29,6 +29,14 @@ const GlobalStyled = createGlobalStyle`
     font-family: 'GmarketSansMedium';
     font-size: ${(props) => props.theme.size.base};
   }
+  #root {
+    width: 100vw;
+    height: 100vh;
+    padding: 3rem 2rem;
+  }
+  .root {
+    padding-bottom: 9rem;
+  }
   a {
     color: inherit;
     text-decoration: none;

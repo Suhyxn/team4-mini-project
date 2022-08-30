@@ -12,23 +12,25 @@ import MyPage from './routes/MyPage'
 import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
+import GotoTop from './components/common/GoToTop'
 
 function App() {
   return (
     <Provider store={store}>
       {/* <MyPage /> */}
-      {/* <main className="appMain"> */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<SignUp />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/mypage" element={<MyPage />} />
-        <Route path="/recommened" element={<Recommended />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/*" element={<NotFound />} />
-      </Routes>
-      {/* </main> */}
+      <main className="root">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/recommened" element={<Recommended />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+        <GotoTop />
+      </main>
       <Nav />
     </Provider>
   )

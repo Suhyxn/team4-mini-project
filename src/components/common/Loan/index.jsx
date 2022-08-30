@@ -17,8 +17,6 @@ function Loan({ item }) {
   return (
     <>
       <S.Container>
-        {/* <S.Box> */}
-
         <S.imgBox>
           <S.StyledImg src={imageURL} />
         </S.imgBox>
@@ -30,13 +28,12 @@ function Loan({ item }) {
           </S.Rate>
           <S.TagBox>
             {tags.map((tag, index) => (
-              <S.Tag key={index} index={index}>
+              <S.Tag index={index} key={index}>
                 {tag}
               </S.Tag>
             ))}
           </S.TagBox>
         </S.InfoBox>
-        {/* </S.Box> */}
         <S.CardFavorite>
           {favorite ? (
             <AiFillHeart size={25} />
