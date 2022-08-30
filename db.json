@@ -283,5 +283,32 @@
         "credit_line": 150
       }
     ]
+  },
+  "mypage": {
+    "id": 1,
+    "member": {
+      "id": 1,
+      "username": "wnsdn4875",
+      "password": "$2a$1",
+      "role": "ROLE_USER"
+    },
+    "loanList": [],
+    "cardList": [
+      {
+        "id": 1,
+        "productType": "카드",
+        "cardName": "신한카드",
+        "cardCompany": "신한",
+        "annualFee": "10000",
+        "cardType": "신용",
+        "cardDescription": "매일매일 할인 좋아",
+        "franchisee": "0.3 1.0",
+        "shopping": "10만원 당 5천 머니",
+        "oiling": "5만원 당 3천원",
+        "insurance": "7만원 당 2천 머니",
+        "cafe": "100",
+        "tag": "주부 그림/운동 30대"
+      }
+    ]
   }
 }
