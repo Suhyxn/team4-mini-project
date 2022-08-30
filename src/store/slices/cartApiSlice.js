@@ -10,7 +10,14 @@ export const cartApi = createApi({
     getCart: builder.query({
       query: () => '',
     }),
+    addCardCart: builder.query({
+      query: (id) => `/card/${id}`,
+    }),
+    addLoanCart: builder.query({
+      query: (id) => `/loan/${id}`,
+    }),
   }),
 })
 
-export const { useGetCartQuery } = cartApi
+export const { useGetCartQuery, useAddCardCartQuery, useAddLoanCartQuery } =
+  cartApi
