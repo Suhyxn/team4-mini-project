@@ -9,7 +9,7 @@ export const myPageApi = createApi({
   baseQuery,
   endpoints: (builder) => ({
     //카드 상품 불러오기
-    getCart: builder.query({
+    getMypage: builder.query({
       query: () => 'mypage',
     }),
   }),
