@@ -1,19 +1,7 @@
 //로그인, 로그아웃,  토큰 무효화 체크
 const { VITE_BASE_URL } = import.meta.env
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-
-const baseQuery = fetchBaseQuery({
-  baseUrl: VITE_BASE_URL,
-  credentials: 'include',
-  prepareHeaders: (headers, { getState }) => {
-    const token = getState().auth.token
-    if (token) {
-      headers.set('authorization', `Bearer ${token}`)
-    }
-
-    return headers
-  },
-})
+import { createApi } from '@reduxjs/toolkit/query/react'
+import { baseQuery } from '../apis/baseQuery'
 
 export const authApi = createApi({
   reducerPath: 'authApi',
