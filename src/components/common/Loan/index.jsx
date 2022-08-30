@@ -1,5 +1,6 @@
 import React from 'react'
 import * as S from './style'
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 
 function Loan({ item }) {
   const {
@@ -16,8 +17,6 @@ function Loan({ item }) {
   return (
     <>
       <S.Container>
-        {/* <S.Box> */}
-
         <S.imgBox>
           <S.StyledImg src={imageURL} />
         </S.imgBox>
@@ -35,6 +34,13 @@ function Loan({ item }) {
             ))}
           </S.TagBox>
         </S.InfoBox>
+        <S.CardFavorite>
+          {favorite ? (
+            <AiFillHeart size={25} />
+          ) : (
+            <AiOutlineHeart size={25} color="red" />
+          )}
+        </S.CardFavorite>
       </S.Container>
     </>
   )

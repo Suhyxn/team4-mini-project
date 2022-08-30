@@ -5,9 +5,9 @@ function Filter() {
   return (
     <S.Container>
       <S.Input type="radio" name="filter" value="card" id="filterloan" />
-      <S.Label for="filterloan">대출</S.Label>
+      <S.Label htmlFor="filterloan">대출</S.Label>
       <S.Input type="radio" name="filter" value="card" id="filtercard" />
-      <S.Label for="filtercard">카드</S.Label>
+      <S.Label htmlFor="filtercard">카드</S.Label>
     </S.Container>
   )
 }
