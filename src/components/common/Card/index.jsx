@@ -26,7 +26,7 @@ function Card({ item }) {
         </S.CardDescription>
       </S.CardInfo>
       <S.CardFavorite>
-        {favorite ? (
+        {item.isfavorite ? (
           <AiFillHeart size={25} />
         ) : (
           <AiOutlineHeart size={25} color="red" />
