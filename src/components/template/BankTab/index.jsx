@@ -5,7 +5,6 @@ import Loan from '../../common/Loan'
 
 function BankTab() {
   const { data: products, isLoading, isError } = useGetProductsQuery()
-  console.log(products)
 
   if (isLoading) {
     return <div>로딩중...</div>
