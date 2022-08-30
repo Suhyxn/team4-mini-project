@@ -6,7 +6,7 @@ import { AiOutlineArrowLeft, AiOutlineShopping } from 'react-icons/ai'
 import { BiStoreAlt, BiHomeHeart } from 'react-icons/bi'
 import { RiOilLine } from 'react-icons/ri'
 import Button from '../../components/common/Button'
-import { useAddCardCartMutation } from '../../store/slices/cartApiSlice'
+import { useAddCardToCartMutation } from '../../store/slices/cartApiSlice'
 
 function ProductDetail() {
   const data = {
@@ -27,10 +27,10 @@ function ProductDetail() {
   }
 
   const navigate = useNavigate()
-  const [addCardCart] = useAddCardCartMutation()
+  const [addCardToCart] = useAddCardToCartMutation()
 
   const submitHandler = () => {
-    addCardCart({
+    addCardToCart({
       card_id: data.cardId,
     })
   }

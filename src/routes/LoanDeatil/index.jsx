@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../../components/common/Button'
 import * as S from './style'
-import { useAddLoanCartMutation } from '../../store/slices/cartApiSlice'
+import { useAddLoanToCartMutation } from '../../store/slices/cartApiSlice'
 
 function LoanDetail() {
   const data = {
@@ -18,7 +18,7 @@ function LoanDetail() {
     img: 'https://www.banksalad.com/_next/image?url=https%3A%2F%2Fcdn.banksalad.com%2Fgraphic%2Fcolor%2Flogo%2Fcircle%2Fkyobo.png&w=96&q=75',
   }
 
-  const [addLoanCart] = useAddLoanCartMutation()
+  const [addLoanCart] = useAddLoanToCartMutation()
 
   const submitHandler = () => {
     addLoanCart({
