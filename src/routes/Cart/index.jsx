@@ -31,7 +31,7 @@ function Cart() {
     <div>
       <S.CartsTitleContainer>
         <S.CartsTitle>
-          <S.TitleSpan>000님</S.TitleSpan>의 장바구니
+          <S.TitleSpan>{carts.name}님</S.TitleSpan>의 장바구니
         </S.CartsTitle>
       </S.CartsTitleContainer>
       <div>

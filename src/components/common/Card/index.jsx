@@ -29,7 +29,7 @@ function Card({ item }) {
         <S.CardDescription>연회비 {description} 원</S.CardDescription>
       </S.CardInfo>
       <S.CardFavorite>
-        {item.isfavorite ? (
+        {favorite ? (
           <AiFillHeart size={25} />
         ) : (
           <AiOutlineHeart size={25} color="red" />

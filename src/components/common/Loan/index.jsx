@@ -28,8 +28,7 @@ function Loan({ item }) {
           <S.Title>{bank}</S.Title>
           <S.SubTitle>{name}</S.SubTitle>
           <S.Rate>
-            {/* {rates.split(' ')[0]}~{rates.split(' ')[1]}% */}
-            {rates}
+            {rates.split(' ')[0]}~{rates.split(' ')[1]}%
           </S.Rate>
           <S.TagBox>
             {tags.map((tag, index) => (
