@@ -5,11 +5,9 @@ import Loan from '../../components/common/Loan'
 import Loader from '../../components/layout/Loader'
 import Button from '../../components/common/Button'
 import * as S from './style'
-import { AiOutlineBorder, AiOutlineCheckSquare } from 'react-icons/ai'
 
 function Cart() {
   const { data: carts, isLoading, isError } = useGetCartQuery()
-  const [checked, setChecked] = useState(false)
   const arr = []
   const checkedHandler = (e, id) => {
     if (!e.target.parentNode.previousSibling.checked && !arr.includes(id)) {

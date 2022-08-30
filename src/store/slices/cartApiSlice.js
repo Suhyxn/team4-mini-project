@@ -6,6 +6,7 @@ export const cartApi = createApi({
   reducerPath: 'cartApi',
   baseQuery: fetchBaseQuery({ baseUrl: VITE_BASE_URL }),
   endpoints: (builder) => ({
+    //카드 상품 불러오기
     getCart: builder.query({
       query: () => 'carts',
     }),

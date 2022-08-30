@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const CartsTitleContainer = styled.div`
-  margin-top: 3rem;
+  margin-top: 1rem;
   margin-bottom: 3rem;
   margin-left: 2rem;
 `
