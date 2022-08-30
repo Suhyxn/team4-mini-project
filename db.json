@@ -64,56 +64,50 @@
       ]
     }
   },
-  "carts": {
-    "card": [
-      {
-        "product_type": "카드",
-        "card_type": "신용",
-        "card_img": "https://www.ebs.co.kr/common/images/munwha_card/nuri_img01.png",
-        "product_id": "21",
-        "card_name": "Fit카드",
-        "card_company": "현대백화점",
-        "tags": ["주부", "그림/운동", "30대"],
-        "annual_fee": 10000,
-        "isfavorite": false
+  "carts": [
+    {
+      "id": 1,
+      "cart": {
+        "id": 1,
+        "member": {
+          "createdDate": "2022-08-29T22:20:01.55022",
+          "modifiedDate": "2022-08-29T22:20:01.55022",
+          "id": 1,
+          "username": "wnsdn4875",
+          "password": "$2a$10$AQRizD/bqHFqHbZUeg4Wo.5wVg07vYH9YlJrFrVM52HVazjxTRcx.",
+          "role": "ROLE_USER",
+          "name": "위준우",
+          "gender": null,
+          "age": 0,
+          "job": null,
+          "income": 0,
+          "hobby": null,
+          "creditRating": 0,
+          "orders": []
+        }
       },
-      {
-        "product_type": "카드",
-        "card_type": "신용",
-        "card_img": "https://cdn.banksalad.com/entities/etc/1527572372734-3661.png",
-        "product_id": "22",
-        "card_name": "1Q Daily+",
-        "card_company": "하나카드",
-        "annual_fee": 12000,
-        "tags": ["학생", "10대", "영상/사진"],
-        "isfavorite": true
-      }
-    ],
-    "loan": [
-      {
-        "product_type": "대출",
-        "loan_company": "대구은행",
-        "product_id": "11",
-        "loan_name": "보험계약대출",
-        "loan_rate": ["2.82", "10.5"],
-        "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
-        "tags": ["2금융권", "직장인"],
-        "credit_line": 150,
-        "isfavorite": false
-      },
-      {
-        "product_type": "대출",
-        "loan_company": "대구은행",
-        "product_id": "12",
-        "loan_name": "보험계약대출",
-        "loan_rate": ["2.82", "10.5"],
-        "bank_img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
-        "tags": ["1금융권", "직장인"],
-        "credit_line": 150,
-        "isfavorite": true
-      }
-    ]
-  },
+      "loanList": [],
+      "cardList": [
+        {
+          "createdDate": null,
+          "modifiedDate": null,
+          "id": 1,
+          "productType": "카드",
+          "cardName": "신한카드",
+          "cardCompany": "신한",
+          "annualFee": "10000",
+          "cardType": "신용",
+          "cardDescription": "매일매일 할인 좋아",
+          "franchisee": "0.3 1.0",
+          "shopping": "10만원 당 5천 머니",
+          "oiling": "5만원 당 3천원",
+          "insurance": "7만원 당 2천 머니",
+          "cafe": "100",
+          "tag": "주부 그림/운동 30대"
+        }
+      ]
+    }
+  ],
   "loan_detail": {
     "loan": [
       {
