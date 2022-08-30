@@ -28,7 +28,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
-        <GotoTop />
+        {/* <GotoTop /> */}
       </main>
       <Nav />
     </Provider>

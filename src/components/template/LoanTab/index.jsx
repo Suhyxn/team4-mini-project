@@ -16,7 +16,7 @@ function LoanTab() {
   return (
     <>
       {products.loan.map((item) => (
-        <Loan item={item} key={item.loan_id} />
+        <Loan item={item} key={item.product_id} />
       ))}
     </>
   )
