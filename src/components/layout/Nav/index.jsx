@@ -6,7 +6,9 @@ function TempNav() {
   return (
     <S.NavContainer>
       <NavLink
-        style={({ isActive }) => ({ color: isActive ? 'grey' : 'white' })}
+        style={({ isActive }) => ({
+          backgroundColor: isActive ? '#7ADAB7' : '#13bd7e',
+        })}
         to="/recommened"
       >
         <S.NavBtn>
@@ -16,7 +18,9 @@ function TempNav() {
         </S.NavBtn>
       </NavLink>
       <NavLink
-        style={({ isActive }) => ({ color: isActive ? 'grey' : 'white' })}
+        style={({ isActive }) => ({
+          backgroundColor: isActive ? '#7ADAB7' : '#13bd7e',
+        })}
         to="/favorites"
       >
         <S.NavBtn>
@@ -26,7 +30,9 @@ function TempNav() {
         </S.NavBtn>
       </NavLink>
       <NavLink
-        style={({ isActive }) => ({ color: isActive ? 'grey' : 'white' })}
+        style={({ isActive }) => ({
+          backgroundColor: isActive ? '#7ADAB7' : '#13bd7e',
+        })}
         to="/"
       >
         <S.NavBtn>
@@ -36,7 +42,9 @@ function TempNav() {
         </S.NavBtn>
       </NavLink>
       <NavLink
-        style={({ isActive }) => ({ color: isActive ? 'grey' : 'white' })}
+        style={({ isActive }) => ({
+          backgroundColor: isActive ? '#7ADAB7' : '#13bd7e',
+        })}
         to="/cart"
       >
         <S.NavBtn>
@@ -46,7 +54,9 @@ function TempNav() {
         </S.NavBtn>
       </NavLink>
       <NavLink
-        style={({ isActive }) => ({ color: isActive ? 'grey' : 'white' })}
+        style={({ isActive }) => ({
+          backgroundColor: isActive ? '#7ADAB7' : '#13bd7e',
+        })}
         to="/mypage"
       >
         <S.NavBtn>

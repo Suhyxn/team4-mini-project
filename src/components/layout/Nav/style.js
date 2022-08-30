@@ -1,16 +1,24 @@
 import styled from 'styled-components'
 
 export const NavContainer = styled.div`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  background: #fff;
+  border-radius: 1rem 1rem 0 0;
   display: flex;
   justify-content: space-between;
-  list-style: none;
   align-items: center;
   padding: 1rem;
   border-top: 1px solid lightgray;
+  a {
+    border-radius: 1.2rem;
+  }
 `
 
 export const NavBtn = styled.div`
-  background-color: #13bd7e;
   font-size: 1.4rem;
   text-align: center;
   line-height: 2.2rem;
@@ -20,4 +28,5 @@ export const NavBtn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #eee;
 `
