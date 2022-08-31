@@ -1,16 +1,16 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
 import { useGetProductsQuery } from '../../store/slices/productApiSlice'
 import * as S from './style'
 import Button from '../../components/common/Button'
 import Card from '../../components/common/Card'
 import Loan from '../../components/common/Loan'
+import Loader from '../../components/layout/Loader'
 
 function MyPage() {
   const { data: products, isLoading, isError } = useGetProductsQuery()
 
   if (isLoading) {
-    return <div>로딩중...</div>
+    return <Loader />
   }
 
   if (isError || !products) {
