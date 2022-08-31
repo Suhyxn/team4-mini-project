@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import Loader from '../../components/layout/Loader'
 import Filter from '../../components/common/Filter'
 import IfTab from '../../components/template/IfTab'

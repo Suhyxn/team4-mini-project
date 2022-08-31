@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as S from './style'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+import {
+  useAddCardToFavoritesMutation,
+  useDeleteCardInFavoriteMutation,
+} from '../../../store/slices/favoriteApiSlice'
 
 function Card({ item }) {
   const {
@@ -15,9 +19,23 @@ function Card({ item }) {
   } = item
 
   const navigate = useNavigate()
+  const navigationHandler = (e) => {
+    e.preventDefault
+    navigate(`/card/${id}`)
+  }
+  const [addCardToFavorites] = useAddCardToFavoritesMutation()
+  const [deleteCardInFavorite] = useDeleteCardInFavoriteMutation()
+  const addFavoriteHandler = (e) => {
+    e.stopPropagation()
+    favorite
+      ? deleteCardInFavorite(id)
+      : addCardToFavorites({
+          cardId: id,
+        })
+  }
 
   return (
-    <S.CardContainer onClick={() => navigate(`/card/${id}`)}>
+    <S.CardContainer onClick={navigationHandler}>
       <S.CardBox>
         <S.CardImage src={imageName} />
       </S.CardBox>
@@ -28,7 +46,7 @@ function Card({ item }) {
         </S.CardTitle>
         <S.CardDescription>연회비 {description} 원</S.CardDescription>
       </S.CardInfo>
-      <S.CardFavorite>
+      <S.CardFavorite onClick={addFavoriteHandler}>
         {favorite ? (
           <AiFillHeart size={25} />
         ) : (

@@ -2,8 +2,13 @@ import React from 'react'
 import * as S from './style'
 import { useNavigate } from 'react-router-dom'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+import {
+  useAddLoanToFavoritesMutation,
+  useDeleteLoanInFavoriteMutation,
+} from '../../../store/slices/favoriteApiSlice'
 
 function Loan({ item }) {
+  const tags = ['중도상환수수료 없음', '무서류', '모바일', '직장인', '2금융권']
   const {
     img: imageURL,
     loanCompany: bank,
@@ -15,9 +20,16 @@ function Loan({ item }) {
 
   const navigate = useNavigate()
 
-  //지울 부분
-  const tags = ['중도상환수수료 없음', '무서류', '모바일', '직장인', '2금융권']
-
+  const [addLoanToFavorites] = useAddLoanToFavoritesMutation()
+  const [deleteLoanInFavorite] = useDeleteLoanInFavoriteMutation()
+  const addFavoriteHandler = (e) => {
+    e.stopPropagation()
+    favorite
+      ? deleteLoanInFavorite(id)
+      : addLoanToFavorites({
+          loanId: id,
+        })
+  }
   return (
     <>
       <S.Container onClick={() => navigate(`/loan/${id}`)}>
@@ -38,7 +50,7 @@ function Loan({ item }) {
             ))}
           </S.TagBox>
         </S.InfoBox>
-        <S.CardFavorite>
+        <S.CardFavorite onClick={addFavoriteHandler}>
           {favorite ? (
             <AiFillHeart size={25} />
           ) : (
