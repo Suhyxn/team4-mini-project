@@ -15,11 +15,11 @@ import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
 import RequireAuth from './components/template/RequireAuth'
 import GotoTop from './components/common/GoToTop'
+import Filter from './components/common/Filter'
 
 function App() {
   return (
     <Provider store={store}>
-      {/* <MyPage /> */}
       <main className="root">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -37,6 +37,7 @@ function App() {
           <Route path="/recommened" element={<Recommended />} />
           <Route path="/cart" element={<Cart />} />
         </Route> */}
+
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </main>
