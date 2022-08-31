@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import * as S from './style'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 
@@ -9,10 +10,14 @@ function Card({ item }) {
     cardName: name,
     annualFee: description,
     isfavorite: favorite,
+    cardId: id,
+    productType: type,
   } = item
 
+  const navigate = useNavigate()
+
   return (
-    <S.CardContainer>
+    <S.CardContainer onClick={() => navigate(`/card/${id}`)}>
       <S.CardBox>
         <S.CardImage src={imageName} />
       </S.CardBox>
@@ -21,9 +26,7 @@ function Card({ item }) {
           <S.CardBank>{bank}</S.CardBank>
           <S.CardName>{name}</S.CardName>
         </S.CardTitle>
-        <S.CardDescription>
-          연회비 {description.toLocaleString('ko-KR')} 원
-        </S.CardDescription>
+        <S.CardDescription>연회비 {description} 원</S.CardDescription>
       </S.CardInfo>
       <S.CardFavorite>
         {favorite ? (

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const LoanImage = styled.img`
   width: 6rem;
   height: 6rem;
-  margin-top: 10rem;
+  margin-top: 2rem;
   border-radius: 50%;
 `
 
