@@ -1,4 +1,14 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const checked = css`
+  ${(props) =>
+    props.active &&
+    css`
+      background: white;
+      color: black;
+      transition: 0.3s;
+    `}
+`
 
 export const Container = styled.div`
   height: 6rem;
@@ -27,13 +37,9 @@ export const Label = styled.label`
   :last-child {
     margin-right: 10px;
   }
+  ${checked}
 `
 
 export const Input = styled.input`
   opacity: 0;
-  &:checked + ${Label} {
-    background: white;
-    color: black;
-    transition: 0.3s;
-  }
 `

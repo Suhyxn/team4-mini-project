@@ -3,19 +3,29 @@ import * as S from './style'
 import IfTab from '../../template/IfTab'
 
 function Filter() {
-  const [item, setItem] = useState('loan')
+  const [item, setItem] = useState({
+    loan: true,
+    card: false,
+  })
 
   const filterHandler = (e) => {
-    setItem(e.target.value)
+    const { value } = e.target
+    setItem({
+      [value]: !item[value],
+    })
   }
 
   return (
     <>
       <S.Container onClick={filterHandler}>
         <S.Input type="radio" name="filter" value="loan" id="filterloan" />
-        <S.Label htmlFor="filterloan">대출</S.Label>
+        <S.Label htmlFor="filterloan" active={item.loan}>
+          대출
+        </S.Label>
         <S.Input type="radio" name="filter" value="card" id="filtercard" />
-        <S.Label htmlFor="filtercard">카드</S.Label>
+        <S.Label htmlFor="filtercard" active={item.card}>
+          카드
+        </S.Label>
       </S.Container>
       <IfTab tab={item} />
     </>
