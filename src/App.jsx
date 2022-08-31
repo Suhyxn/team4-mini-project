@@ -42,6 +42,7 @@ function App() {
 
           <Route path="/*" element={<NotFound />} />
         </Routes>
+        <GotoTop />
       </main>
       <Nav />
     </Provider>
