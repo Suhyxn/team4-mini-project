@@ -7,7 +7,6 @@ const CustomInput = forwardRef((props, ref) => {
     id: false,
     pwd: false,
   })
-  console.log(active)
   const inputHandler = (e) => {
     const { name } = e.target
     setActive({

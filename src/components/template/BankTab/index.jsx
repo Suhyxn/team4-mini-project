@@ -16,8 +16,8 @@ function BankTab() {
 
   return (
     <>
-      {products.card.map((item) => (
-        <Card item={item} key={item.product_id} />
+      {products.cardList.map((item) => (
+        <Card item={item} key={item.cardId} />
       ))}
     </>
   )
