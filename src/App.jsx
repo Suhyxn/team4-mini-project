@@ -39,8 +39,8 @@ function App() {
         </Route> */}
 
           <Route path="/*" element={<NotFound />} />
-          <GotoTop />
         </Routes>
+        <GotoTop />
       </main>
       <Nav />
     </Provider>
