@@ -1,23 +1,49 @@
 import React from 'react'
 import * as S from './style'
+import { useNavigate } from 'react-router-dom'
 // import { useHistory } from 'react-router-dom'
-import { card1 } from '../../constants/card'
 import { AiOutlineArrowLeft, AiOutlineShopping } from 'react-icons/ai'
 import { BiStoreAlt, BiHomeHeart } from 'react-icons/bi'
 import { RiOilLine } from 'react-icons/ri'
 import Button from '../../components/common/Button'
+import { useAddCardToCartMutation } from '../../store/slices/cartApiSlice'
 
 function ProductDetail() {
+  const data = {
+    cardId: 1,
+    productType: '카드',
+    cardName: '신한카드',
+    cardCompany: '신한',
+    annualFee: '10000',
+    cardType: '신용',
+    cardDescription: '매일매일 할인 좋아',
+    franchisee: '0.3 1.0',
+    shopping: '10만원 당 5천 머니',
+    oiling: '5만원 당 3천원',
+    insurance: '7만원 당 2천 머니',
+    cafe: '100',
+    tag: '주부 그림/운동 30대',
+    img: 'https://cdn.banksalad.com/entities/etc/1561359772723-1572.png',
+  }
+
+  const navigate = useNavigate()
+  const [addCardToCart] = useAddCardToCartMutation()
+
+  const submitHandler = () => {
+    addCardToCart({
+      card_id: data.cardId,
+    })
+  }
   // let history = useHistory()
 
-  const { data, error, isLoading } = useGetProductsQuery(undefined, {
-    selectFromResult: ({ data, error, isLoading }) => ({
-      data: data.card,
-      error,
-      isLoading,
-    }),
-    pollingInterval: 3000,
-  })
+  // const { data, error, isLoading } = useGetProductsQuery(undefined, {
+  //   selectFromResult: ({ data, error, isLoading }) => ({
+  //     data: data.card,
+  //     error,
+  //     isLoading,
+  //   }),
+  //   pollingInterval: 3000,
+  // })
 
   return (
     <>
@@ -28,35 +54,35 @@ function ProductDetail() {
             history.goBack()
           }}
         />
-        <S.BankTitle>{card1.bank}</S.BankTitle>
+        <S.BankTitle>{data.cardCompany}</S.BankTitle>
       </S.Header>
       <S.Content>
-        <S.CardImage src="/public/assets/images/Card.png" alt="card" />
-        <S.CardTitle>{card1.title}</S.CardTitle>
-        <S.CardSubTilte>{card1.subtitle}</S.CardSubTilte>
+        <S.CardImage src={data.img} alt="card" />
+        <S.CardTitle>{data.cardName}</S.CardTitle>
+        <S.CardSubTilte>{data.cardDescription}</S.CardSubTilte>
         <S.DescriptionContainer>
           <S.Description>
             <BiStoreAlt className="icons" />
             <div className="description">
-              국내 모든 가맹점 <span>{card1.description1}</span> 적립
+              국내 모든 가맹점{' '}
+              <span>
+                {data.franchisee.split(' ')[0]}~{data.franchisee.split(' ')[1]}
+              </span>
+              적립
             </div>
           </S.Description>
           <S.Description>
             <AiOutlineShopping className="icons" />
-            <div className="description">
-              10만원 당 <span>{card1.description2}</span> 적립
-            </div>
+            <div className="description">{data.shopping}</div>
           </S.Description>
           <S.Description>
             <RiOilLine className="icons" />
-            <div className="description">
-              주유 <span>{card1.description3}</span> 청구 할인
-            </div>
+            <div className="description">주유 {data.oiling}</div>
           </S.Description>
           <S.Description>
             <BiHomeHeart className="icons" />
             <div className="description">
-              관리비/4대보험 <span>{card1.description4}</span> 적립
+              관리비/4대보험 {data.insurance} 적립
             </div>
           </S.Description>
         </S.DescriptionContainer>
@@ -78,7 +104,7 @@ function ProductDetail() {
       <S.SubTitle>
         연회비
         <S.SubContent>
-          One Way(JCB) 10,000원
+          One Way(JCB) {data.annualFee} 원
           <br />
           VISA/mastercard 12,000원
           <br />
@@ -90,7 +116,7 @@ function ProductDetail() {
         <S.SubContent>VISA/mastercard/국내전용/One Way(JCB)</S.SubContent>
       </S.SubTitle>
       <S.Button>
-        <Button size="large" className="btn">
+        <Button size="large" onClick={submitHandler}>
           장바구니 담기
         </Button>
       </S.Button>

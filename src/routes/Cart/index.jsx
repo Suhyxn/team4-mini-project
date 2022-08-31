@@ -64,7 +64,7 @@ function Cart() {
           ))}
         </S.CardContainer>
       </div>
-      <Button width="100%" height="5.2rem" disabled>
+      <Button width="100%" height="5.2rem">
         장바구니 신청
       </Button>
     </div>
