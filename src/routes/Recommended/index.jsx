@@ -1,5 +1,5 @@
-import React from 'react'
-import { useGetMypageQuery } from '../../store/slices/userApiSlice'
+import React, { useState } from 'react'
+import { useGetRecommendQuery } from '../../store/slices/userApiSlice'
 import * as S from './style'
 import Button from '../../components/common/Button'
 import Card from '../../components/common/Card'
@@ -8,11 +8,25 @@ import Filter from '../../components/common/Filter'
 import BankTab from '../../components/template/BankTab'
 import LoanTab from '../../components/template/LoanTab'
 
+import CountdownTimer from './countdownTimer'
+
 function Recommended() {
-  const { data: recommends, isLoading, isError } = useGetMypageQuery()
+  const { data: recommends, isLoading, isError } = useGetRecommendQuery()
 
-  const { userInfo, cardList, loanList } = recommends
+  const { value, setValue } = useState({
+    bank: true,
+    loan: false,
+  })
 
+  const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000
+  const NOW_IN_MS = new Date().getTime()
+
+  const dateTimeAfterThreeDays = NOW_IN_MS + THREE_DAYS_IN_MS
+
+  const filterHandler = (e) => {
+    const { name } = e.target
+    console.log(value.name)
+  }
   if (isLoading) {
     return <div>로딩중...</div>
   }
@@ -20,35 +34,32 @@ function Recommended() {
   if (isError || !recommends) {
     return <div>오류발생!</div>
   }
+  // const { userInfo, cardList, loanList } = recommends
+
+  // console.log('recommends', recommends)
 
   return (
     <S.Container>
       <S.Title>
-        <span>{cardList.length + loanList.length}</span>의 정보입니다.
+        <span>{recommends.cardList.length + recommends.loanList.length}</span>
+        개의 대출 상품이
+        <br />
+        매칭되었습니다.
       </S.Title>
+      <CountdownTimer targetDate={dateTimeAfterThreeDays} />
+      <div>유효시간 {Date.now() - Date.now()}</div>
+      {recommends.userInfo}
       <Filter />
-      <BankTab name="bank" onClick={filterHandler} />
-      <LoanTab name="loan" onClick={filterHandler} />
-      {/* <S.ContentContainer>
-        <span>신청 중인 상품</span>
-        <Button size="smaill" className="btn">
-          수정하기
-        </Button>
-        <div>
-          {products.loan.map((item) => (
-            <Loan item={item} key={item.loan_id} />
-          ))}
-        </div>
-        <div>신청 완료 상품</div>
-        <div>
-          {products.card.map((item) => (
-            <Card item={item} key={item.product_id} />
-          ))}
-        </div>
-      </S.ContentContainer>
-      <Button size="smaill" className="btn">
-        로그아웃
-      </Button> */}
+      <div>
+        {recommends.loanList.map((item) => (
+          <Loan item={item} key={item.loanId} />
+        ))}
+      </div>
+      <div>
+        {recommends.cardList.map((item) => (
+          <Card item={item} key={item.cardId} />
+        ))}
+      </div>
     </S.Container>
   )
 }
