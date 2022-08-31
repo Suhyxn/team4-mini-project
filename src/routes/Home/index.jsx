@@ -9,15 +9,16 @@ function Home() {
     loan: false,
   })
 
-  const filterHandler = (e) => {
-    const { name } = e.target
-    console.log(value.name)
+  const filterHandler = () => {
+    console.log('hello~')
+    // const { name } = e.target.value
+    // console.log(name)
   }
   return (
     <>
       <Filter />
-      <BankTab name="bank" onClick={filterHandler} />
-      <LoanTab name="loan" onClick={filterHandler} />
+      {/* <BankTab name="bank" onClick={filterHandler} />
+      <LoanTab name="loan" onClick={filterHandler} /> */}
     </>
   )
 }

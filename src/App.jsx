@@ -13,11 +13,12 @@ import Recommended from './routes/Recommended'
 import Cart from './routes/Cart'
 import NotFound from './components/layout/NotFound'
 import GotoTop from './components/common/GoToTop'
+import Filter from './components/common/Filter'
 
 function App() {
   return (
     <Provider store={store}>
-      {/* <MyPage /> */}
+      <Filter />
       <main className="root">
         <Routes>
           <Route path="/" element={<Home />} />
