@@ -10,12 +10,6 @@ function Filter() {
     console.log(item)
   }
 
-  // if ('loan' === item) {
-  //   return <LoanTab />
-  // } else {
-  //   return <BankTab />
-  // }
-
   return (
     <>
       <S.Container onClick={filterHandler}>

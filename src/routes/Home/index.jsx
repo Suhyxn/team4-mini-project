@@ -1,24 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import BankTab from '../../components/template/BankTab'
 import LoanTab from '../../components/template/LoanTab'
 import Filter from '../../components/common/Filter'
 
 function Home() {
-  const { value, setValue } = useState({
-    bank: true,
-    loan: false,
-  })
-
-  const filterHandler = () => {
-    // const { name } = e.target.value
-    // console.log(name)
-  }
+  const filterHandler = () => {}
 
   return (
     <>
       <Filter />
-      {/* <BankTab name="bank" onClick={filterHandler} />
-      <LoanTab name="loan" onClick={filterHandler} /> */}
     </>
   )
 }
