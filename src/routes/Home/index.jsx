@@ -10,10 +10,10 @@ function Home() {
   })
 
   const filterHandler = () => {
-    console.log('hello~')
     // const { name } = e.target.value
     // console.log(name)
   }
+
   return (
     <>
       <Filter />

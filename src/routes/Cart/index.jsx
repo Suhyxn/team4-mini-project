@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useGetCartQuery } from '../../store/slices/cartApiSlice'
+import { useCreateOrderMutation } from '../../store/slices/orderApiSlice'
 import Card from '../../components/common/Card'
 import Loan from '../../components/common/Loan'
 import Loader from '../../components/layout/Loader'
@@ -9,10 +10,15 @@ import * as S from './style'
 function Cart() {
   const { data: carts, isLoading, isError } = useGetCartQuery()
   const arr = []
+  const [createOrder] = useCreateOrderMutation()
   const checkedHandler = (e, id) => {
     if (!e.target.parentNode.previousSibling.checked && !arr.includes(id)) {
       arr.push(id)
     }
+  }
+
+  const createOrderHandler = () => {
+    createOrder(arr)
   }
 
   if (isLoading) {
@@ -31,17 +37,17 @@ function Cart() {
     <div>
       <S.CartsTitleContainer>
         <S.CartsTitle>
-          <S.TitleSpan>000님</S.TitleSpan>의 장바구니
+          <S.TitleSpan>{carts.name}님</S.TitleSpan>의 장바구니
         </S.CartsTitle>
       </S.CartsTitleContainer>
       <div>
         <S.CardContainer>
-          {carts.card.map((item) => (
-            <S.Container key={item.product_id}>
-              <S.CardCheckInput type="checkbox" id={item.product_id} />
+          {carts.cardList.map((item) => (
+            <S.Container key={item.cardId}>
+              <S.CardCheckInput type="checkbox" id={`card-${item.cardId}`} />
               <S.CardLabel
-                htmlFor={item.product_id}
-                onClick={(e) => checkedHandler(e, item.product_id)}
+                htmlFor={`card-${item.cardId}`}
+                onClick={(e) => checkedHandler(e, `cardId: ${item.cardId}`)}
               >
                 <S.CardCheckBox />
               </S.CardLabel>
@@ -50,12 +56,12 @@ function Cart() {
           ))}
         </S.CardContainer>
         <S.CardContainer>
-          {carts.loan.map((item) => (
-            <S.Container key={item.product_id}>
-              <S.CardCheckInput type="checkbox" id={item.product_id} />
+          {carts.loanList.map((item) => (
+            <S.Container key={item.loanId}>
+              <S.CardCheckInput type="checkbox" id={`loan-${item.loanId}`} />
               <S.CardLabel
-                htmlFor={item.product_id}
-                onClick={(e) => checkedHandler(e, item.product_id)}
+                htmlFor={`loan-${item.loanId}`}
+                onClick={(e) => checkedHandler(e, `loadId: ${item.loanId}`)}
               >
                 <S.CardCheckBox />
               </S.CardLabel>
@@ -64,7 +70,8 @@ function Cart() {
           ))}
         </S.CardContainer>
       </div>
-      <Button width="100%" height="5.2rem" disabled>
+      <Button width="100%" height="5.2rem" onClick={createOrderHandler}>
+
         장바구니 신청
       </Button>
     </div>
