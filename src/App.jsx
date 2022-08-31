@@ -31,6 +31,8 @@ function App() {
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/recommened" element={<Recommended />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/loan/:id" element={<LoanDetail />} />
+          <Route path="/card/:id" element={<ProductDetail />} />
 
           {/* 토큰 생기면 주석 삭제하기 */}
           {/* <Route element={<RequireAuth />}>    
