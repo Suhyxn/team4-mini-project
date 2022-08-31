@@ -28,14 +28,14 @@ function MyPage() {
           수정하기
         </Button>
         <div>
-          {products.loan.map((item) => (
-            <Loan item={item} key={item.loan_id} />
+          {products.loanList.map((item) => (
+            <Loan item={item} key={item.loanId} />
           ))}
         </div>
         <div>신청 완료 상품</div>
         <div>
-          {products.card.map((item) => (
-            <Card item={item} key={item.product_id} />
+          {products.cardList.map((item) => (
+            <Card item={item} key={item.cardId} />
           ))}
         </div>
       </S.ContentContainer>
