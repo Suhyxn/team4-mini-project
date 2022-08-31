@@ -21,7 +21,7 @@
       "hobby": "코딩/개발",
       "house": true
     },
-    "order": {
+    "orders": {
       "cardList": [
         {
           "cardId": 1,
@@ -102,7 +102,7 @@
           "loanLine": "50 90",
           "tag": "주부 모바일 1금융권",
           "img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg",
-          "isfavorite": false
+          "isfavorite": true
         },
         {
           "loanId": 4,
