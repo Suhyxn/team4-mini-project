@@ -1,13 +1,12 @@
 import React, { forwardRef, useState } from 'react'
 import * as S from './style'
 
-const CustomInput = forwardRef((props, ref) => {
+const CustomInput = forwardRef(({ color, disabled }, ref) => {
   let [active, setActive] = useState({
     name: false,
     id: false,
     pwd: false,
   })
-  console.log(active)
   const inputHandler = (e) => {
     const { name } = e.target
     setActive({
@@ -24,8 +23,13 @@ const CustomInput = forwardRef((props, ref) => {
   }
 
   return (
-    <>
-      <S.Container onFocus={inputHandler} onBlur={inputBlurHandler}>
+    <div>
+      <S.Container
+        onFocus={inputHandler}
+        onBlur={inputBlurHandler}
+        color={color}
+        disabled={disabled}
+      >
         <S.InputBox>
           <S.StyledInput
             type="text"
@@ -36,7 +40,11 @@ const CustomInput = forwardRef((props, ref) => {
           <S.StyledLabel active={active.name}>이름</S.StyledLabel>
         </S.InputBox>
       </S.Container>
-      <S.Container onFocus={inputHandler} onBlur={inputBlurHandler}>
+      <S.Container
+        onFocus={inputHandler}
+        onBlur={inputBlurHandler}
+        color={color}
+      >
         <S.InputBox>
           <S.StyledInput
             type="text"
@@ -47,7 +55,11 @@ const CustomInput = forwardRef((props, ref) => {
           <S.StyledLabel active={active.id}>아이디</S.StyledLabel>
         </S.InputBox>
       </S.Container>
-      <S.Container onFocus={inputHandler} onBlur={inputBlurHandler}>
+      <S.Container
+        onFocus={inputHandler}
+        onBlur={inputBlurHandler}
+        color={color}
+      >
         <S.InputBox>
           <S.StyledInput
             type="text"
@@ -58,7 +70,7 @@ const CustomInput = forwardRef((props, ref) => {
           <S.StyledLabel active={active.pwd}>비밀번호</S.StyledLabel>
         </S.InputBox>
       </S.Container>
-    </>
+    </div>
   )
 })
 

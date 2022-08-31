@@ -5,6 +5,9 @@ export const Container = styled.div`
   border-radius: 1.2rem;
   border: 1px solid #e4edf2;
   margin-bottom: 1rem;
+  background-color: ${(props) =>
+    props.color ? props.theme.palette.baseColor : 'inherit'};
+  display: ${(props) => (props.disabled ? 'none' : 'block')};
 `
 
 export const InputBox = styled.div`
@@ -32,6 +35,7 @@ export const StyledInput = styled.input`
   &::placeholder {
     color: rgb(186, 186, 188);
   }
+  background-color: inherit;
 `
 
 export const StyledLabel = styled.label`
