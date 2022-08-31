@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import * as S from './style'
 import CustomInput from '../../components/common/CustomInput'
-import StyledInput from '../../components/common/StyledInput'
 import Button from '../../components/common/Button'
 
 function Login() {
@@ -13,8 +12,6 @@ function Login() {
   const onClickHandler = () => {
     setIsActive(true)
   }
-
-  console.log(isActive)
 
   return (
     <S.Container>
