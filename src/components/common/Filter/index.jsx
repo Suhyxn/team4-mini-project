@@ -1,23 +1,10 @@
 import React, { useState } from 'react'
 import * as S from './style'
-import IfTab from '../../template/IfTab'
 
-function Filter() {
-  const [item, setItem] = useState({
-    loan: true,
-    card: false,
-  })
-
-  const filterHandler = (e) => {
-    const { value } = e.target
-    setItem({
-      [value]: !item[value],
-    })
-  }
-
+function Filter({ onFilterHandler, item }) {
   return (
     <>
-      <S.Container onClick={filterHandler}>
+      <S.Container onClick={onFilterHandler}>
         <S.Input type="radio" name="filter" value="loan" id="filterloan" />
         <S.Label htmlFor="filterloan" active={item.loan}>
           대출
@@ -27,7 +14,6 @@ function Filter() {
           카드
         </S.Label>
       </S.Container>
-      <IfTab tab={item} />
     </>
   )
 }
