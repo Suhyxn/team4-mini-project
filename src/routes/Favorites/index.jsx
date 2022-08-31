@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import BankTab from '../../components/template/BankTab'
+import LoanTab from '../../components/template/LoanTab'
 
-function Favorites() {
-  return <div>Favorites</div>
+function Favorites(props) {
+  const fav = props.favorites
+
+  return (
+    <>
+      <BankTab />
+      <LoanTab />
+    </>
+  )
 }
 
 export default Favorites
