@@ -23,8 +23,8 @@ function App() {
       <main className="root">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/recommened" element={<Recommended />} />
@@ -40,6 +40,7 @@ function App() {
 
           <Route path="/*" element={<NotFound />} />
         </Routes>
+        <GotoTop />
       </main>
       <Nav />
     </Provider>
