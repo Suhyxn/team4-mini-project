@@ -1,14 +1,26 @@
 import React, { useState } from 'react'
-import BankTab from '../../components/template/BankTab'
-import LoanTab from '../../components/template/LoanTab'
+import Loader from '../../components/layout/Loader'
+import Filter from '../../components/common/Filter'
+import IfTab from '../../components/template/IfTab'
+import useFilter from '../../components/Hook/useFilter'
+import { useGetFavoritesQuery } from '../../store/slices/favoriteApiSlice'
 
-function Favorites(props) {
-  const fav = props.favorites
+function Favorites() {
+  const [isActive, setIsActive] = useFilter()
+  const { data: products, isLoading, isError } = useGetFavoritesQuery()
+
+  if (isLoading) {
+    return <Loader />
+  }
+
+  if (isError || !products) {
+    return <div>오류발생!</div>
+  }
 
   return (
     <>
-      <BankTab />
-      <LoanTab />
+      <Filter onFilterHandler={setIsActive} item={isActive} />
+      <IfTab tab={isActive} items={products} />
     </>
   )
 }
