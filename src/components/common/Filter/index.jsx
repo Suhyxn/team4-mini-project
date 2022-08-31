@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import * as S from './style'
 
 function Filter({ onFilterHandler, item }) {
