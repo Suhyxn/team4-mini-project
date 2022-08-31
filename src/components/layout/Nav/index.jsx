@@ -1,6 +1,6 @@
-import React from 'react'
 import * as S from './style'
 import { NavLink } from 'react-router-dom'
+import Badge from '../../common/Badge'
 
 function TempNav() {
   return (
@@ -51,6 +51,7 @@ function TempNav() {
           장바
           <br />
           구니
+          <Badge />
         </S.NavBtn>
       </NavLink>
       <NavLink

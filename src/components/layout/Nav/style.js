@@ -20,6 +20,7 @@ export const NavContainer = styled.div`
 `
 
 export const NavBtn = styled.div`
+  position: relative;
   font-size: 1.4rem;
   text-align: center;
   line-height: 2.2rem;
