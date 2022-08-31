@@ -11,8 +11,8 @@ function Home() {
 
   const filterHandler = (e) => {
     const { name } = e.target
-    console.log(value.name)
   }
+
   return (
     <>
       <Filter />
