@@ -485,6 +485,100 @@
       }
     ]
   },
+  "recommended": {
+    "userInfo": "3000 5.96",
+    "cardList": [
+      {
+        "cardId": 1,
+        "productType": "카드",
+        "cardName": "신한카드",
+        "cardCompany": "신한",
+        "annualFee": "10000",
+        "cardType": "신용",
+        "cardDescription": "매일매일 할인 좋아",
+        "franchisee": "0.3 1.0",
+        "shopping": "10만원 당 5천 머니",
+        "oiling": "5만원 당 3천원",
+        "insurance": "7만원 당 2천 머니",
+        "cafe": "100",
+        "tag": "주부 그림/운동 30대",
+        "img": "https://www.shinhancard.com/pconts/images/contents/card/plate/cdCreaditBA7AQ7.png"
+      },
+      {
+        "cardId": 4,
+        "productType": "카드",
+        "cardName": "우리카드",
+        "cardCompany": "우리",
+        "annualFee": "10000",
+        "cardType": "신용",
+        "cardDescription": "매일매일 할인 넘나좋아",
+        "franchisee": "0.3 1.0",
+        "shopping": "10만원 당 5천 머니",
+        "oiling": "5만원 당 3천원",
+        "insurance": "7만원 당 2천 머니",
+        "cafe": "100",
+        "tag": "주부 그림/운동 30대",
+        "img": "https://www.shinhancard.com/pconts/images/contents/card/plate/cdCreaditBA7AQ7.png"
+      },
+      {
+        "cardId": 5,
+        "productType": "카드",
+        "cardName": "기업카드",
+        "cardCompany": "기업",
+        "annualFee": "10000",
+        "cardType": "신용",
+        "cardDescription": "매일매일 할인 좋아",
+        "franchisee": "0.3 1.0",
+        "shopping": "10만원 당 5천 머니",
+        "oiling": "5만원 당 3천원",
+        "insurance": "7만원 당 2천 머니",
+        "cafe": "100",
+        "tag": "주부 그림/운동 30대",
+        "img": "https://www.shinhancard.com/pconts/images/contents/card/plate/cdCreaditBA7AQ7.png"
+      }
+    ],
+    "loanList": [
+      {
+        "loanId": 1,
+        "productType": "대출",
+        "loanName": "신한대출",
+        "loanCompany": "신한",
+        "creditLine": "2000",
+        "rate": "2.8 10.2",
+        "primeRate": false,
+        "period": 3,
+        "loanLine": "50 90",
+        "tag": "주부 모바일 1금융권",
+        "img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg"
+      },
+      {
+        "loanId": 2,
+        "productType": "대출",
+        "loanName": "우리대출",
+        "loanCompany": "우리",
+        "creditLine": "1000",
+        "rate": "2.8 10.2",
+        "primeRate": false,
+        "period": 3,
+        "loanLine": "50 90",
+        "tag": "주부 모바일 1금융권",
+        "img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg"
+      },
+      {
+        "loanId": 4,
+        "productType": "대출",
+        "loanName": "국민대출",
+        "loanCompany": "국민",
+        "creditLine": "3000",
+        "rate": "2.8 10.2",
+        "primeRate": false,
+        "period": 3,
+        "loanLine": "50 90",
+        "tag": "주부 모바일 1금융권",
+        "img": "https://file.newswire.co.kr/data/datafile2/thumb_480/2006/12/2006121111658174910.43193500.jpg"
+      }
+    ]
+  },
   "edit": {
     "username": "qweqweqe@naver.com",
     "password": "*****",
