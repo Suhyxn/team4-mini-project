@@ -22,6 +22,10 @@ export const Select = styled.select`
   }
 `
 
+export const searchBox = styled.div`
+  cusror: pointer;
+`
+
 export const InputBox = styled.div`
   display: flex;
   position: relative;

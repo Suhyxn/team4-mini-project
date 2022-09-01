@@ -11,19 +11,29 @@ export const productsSlice = createApi({
     getProducts: builder.query({
       query: () => '/products',
     }),
-    getLoanDetail: builder.query({
-      // query: (loan_id) => `/loan_detail/${loan_id}`,
-      query: () => '/loan_detail',
-    }),
-    getCardDetail: builder.query({
-      // query: (card_id) => `/card_detail/${card_id}`,
-      query: () => `/card_detail`,
+    // getLoanDetail: builder.query({
+    //   // query: (loan_id) => `/loan_detail/${loan_id}`,
+    //   query: () => '/loan_detail',
+    // }),
+    // getCardDetail: builder.query({
+    //   // query: (card_id) => `/card_detail/${card_id}`,
+    //   query: () => `/card_detail`,
+    // }),
+    getSearchData: builder.query({
+      query: (data) => {
+        const { productType, searchKeyword } = data
+        return {
+          url: `/products/search?productType=${productType}&searchKeyword=${searchKeyword}`,
+          method: 'GET',
+        }
+      },
     }),
   }),
 })
 
 export const {
   useGetProductsQuery,
-  useGetLoanDetailQuery,
-  useGetCardDetailQuery,
+  // useGetLoanDetailQuery,
+  // useGetCardDetailQuery,
+  useGetSearchDataQuery,
 } = productsSlice
