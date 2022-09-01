@@ -1,16 +1,16 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
 import { useGetProductsQuery } from '../../store/slices/productApiSlice'
 import * as S from './style'
 import Button from '../../components/common/Button'
 import Card from '../../components/common/Card'
 import Loan from '../../components/common/Loan'
+import Loader from '../../components/layout/Loader'
 
 function MyPage() {
   const { data: products, isLoading, isError } = useGetProductsQuery()
 
   if (isLoading) {
-    return <div>로딩중...</div>
+    return <Loader />
   }
 
   if (isError || !products) {
@@ -28,14 +28,14 @@ function MyPage() {
           수정하기
         </Button>
         <div>
-          {products.loan.map((item) => (
-            <Loan item={item} key={item.loan_id} />
+          {products.loanList.map((item) => (
+            <Loan item={item} key={item.loanId} />
           ))}
         </div>
         <div>신청 완료 상품</div>
         <div>
-          {products.card.map((item) => (
-            <Card item={item} key={item.product_id} />
+          {products.cardList.map((item) => (
+            <Card item={item} key={item.cardId} />
           ))}
         </div>
       </S.ContentContainer>

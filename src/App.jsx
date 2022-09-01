@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './routes/Home'
 import Nav from './components/layout/Nav'
 import Login from './routes/Login'
+import SignIn from './routes/SignIn'
 import SignUp from './routes/SignUp'
 import Favorites from './routes/Favorites'
 import MyPage from './routes/MyPage'
@@ -23,12 +24,15 @@ function App() {
       <main className="root">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/recommened" element={<Recommended />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/loan/:id" element={<LoanDetail />} />
+          <Route path="/card/:id" element={<ProductDetail />} />
 
           {/* 토큰 생기면 주석 삭제하기 */}
           {/* <Route element={<RequireAuth />}>    
@@ -40,6 +44,7 @@ function App() {
 
           <Route path="/*" element={<NotFound />} />
         </Routes>
+        <GotoTop />
       </main>
       <Nav />
     </Provider>

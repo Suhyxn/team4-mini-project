@@ -7,7 +7,6 @@ function Filter() {
 
   const filterHandler = (e) => {
     setItem(e.target.value)
-    console.log(item)
   }
 
   return (
