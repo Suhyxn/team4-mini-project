@@ -1,32 +1,21 @@
 import React from 'react'
 import * as S from './style'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { AiOutlineArrowLeft, AiOutlineShopping } from 'react-icons/ai'
 import { BiStoreAlt, BiHomeHeart } from 'react-icons/bi'
 import { RiOilLine } from 'react-icons/ri'
 import Button from '../../components/common/Button'
 import { useAddCardToCartMutation } from '../../store/slices/cartApiSlice'
+import { useGetProductsQuery } from '../../store/slices/productApiSlice'
+import Loader from '../../components/layout/Loader'
+import { useGetCardDetailQuery } from '../../store/slices/productApiSlice'
 
 function ProductDetail() {
-  const data = {
-    cardId: 1,
-    productType: '카드',
-    cardName: '신한카드',
-    cardCompany: '신한',
-    annualFee: '10000',
-    cardType: '신용',
-    cardDescription: '매일매일 할인 좋아',
-    franchisee: '0.3 1.0',
-    shopping: '10만원 당 5천 머니',
-    oiling: '5만원 당 3천원',
-    insurance: '7만원 당 2천 머니',
-    cafe: '100',
-    tag: '주부 그림/운동 30대',
-    img: 'https://cdn.banksalad.com/entities/etc/1561359772723-1572.png',
-  }
-
+  const params = useParams()
   const navigate = useNavigate()
   const [addCardToCart] = useAddCardToCartMutation()
+
+  const { data, isLoading, isError } = useGetCardDetailQuery(params.id)
 
   const submitHandler = () => {
     addCardToCart({
@@ -34,14 +23,13 @@ function ProductDetail() {
     })
   }
 
-  // const { data, error, isLoading } = useGetProductsQuery(undefined, {
-  //   selectFromResult: ({ data, error, isLoading }) => ({
-  //     data: data.card,
-  //     error,
-  //     isLoading,
-  //   }),
-  //   pollingInterval: 3000,
-  // })
+  if (isLoading) {
+    return <Loader />
+  }
+
+  if (isError || !data) {
+    return <div>오류발생!</div>
+  }
 
   return (
     <>
@@ -57,10 +45,7 @@ function ProductDetail() {
           <S.Description>
             <BiStoreAlt className="icons" />
             <div className="description">
-              국내 모든 가맹점{' '}
-              <span>
-                {data.franchisee.split(' ')[0]}~{data.franchisee.split(' ')[1]}
-              </span>
+              국내 모든 가맹점 <span>{data.franchisee}</span>
               적립
             </div>
           </S.Description>
@@ -99,7 +84,7 @@ function ProductDetail() {
         <S.SubContent>
           One Way(JCB) {data.annualFee} 원
           <br />
-          VISA/mastercard 12,000원
+          VISA/mastercard {data.annualFee * 1.2} 원
           <br />
           국내전용 10,000원
         </S.SubContent>

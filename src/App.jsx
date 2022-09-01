@@ -22,7 +22,6 @@ function App() {
   return (
     <Provider store={store}>
       <main className="root">
-        <LoanDetail />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SignIn />} />
