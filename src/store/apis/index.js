@@ -4,6 +4,7 @@ import { setupListeners } from '@reduxjs/toolkit/query'
 import { cartApi } from '../slices/cartApiSlice'
 import { favoritesApi } from '../slices/favoriteApiSlice'
 import { authApi } from '../slices/authApiSlice'
+import { userApi } from '../slices/userApiSlice'
 import { orderApi } from '../slices/orderApiSlice'
 import authReducer from '../slices/authSlice'
 
@@ -13,6 +14,7 @@ export const store = configureStore({
     [cartApi.reducerPath]: cartApi.reducer,
     [favoritesApi.reducerPath]: favoritesApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
+    [userApi.reducerPath]: userApi.reducer,
     [orderApi.reducerPath]: orderApi.reducer,
     auth: authReducer,
   },
@@ -22,6 +24,7 @@ export const store = configureStore({
       cartApi.middleware,
       favoritesApi.middleware,
       authApi.middleware,
+      userApi.middleware,
       orderApi.middleware,
     ),
 })

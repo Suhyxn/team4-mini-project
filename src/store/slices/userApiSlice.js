@@ -1,11 +1,11 @@
 //회원가입,  회원 탈퇴
 //사용자 기본(추가) 정보 조회, 수정
-const { VITE_BASE_URL } = import.meta.env
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+const { VITE_BASE_URL } = import.meta.env
 import { baseQuery } from '../apis/baseQuery'
 
-export const myPageApi = createApi({
-  reducerPath: 'myPageApi',
+export const userApi = createApi({
+  reducerPath: 'userApi',
   baseQuery,
   endpoints: (builder) => ({
     //로그아웃
@@ -23,15 +23,21 @@ export const myPageApi = createApi({
     //회원정보 수정
     putUser: builder.mutation({
       query: (data) => ({
-        url:`/members/edit`
-        method:'PUT',
-        body:data
+        url: `/members/edit`,
+        method: 'PUT',
+        body: data,
       }),
     }),
-    getrecommendation: builder.query({
-      query: () => '/members/recommendation'
-    })
+    getRecommend: builder.query({
+      query: () => '/members/recommendation',
+    }),
   }),
 })
 
-export const { useGetCartQuery, useDoLogoutQuery } = myPageApi
+export const {
+  useGetMypageQuery,
+  useDoLogoutQuery,
+  useGetRecommendQuery,
+  useGetUserQuery,
+  usePutUserMutation,
+} = userApi

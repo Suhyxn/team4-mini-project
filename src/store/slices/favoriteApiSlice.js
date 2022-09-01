@@ -10,18 +10,30 @@ export const favoritesApi = createApi({
     getFavorites: builder.query({
       query: () => '/favorites',
     }),
-    addCardFavorites: builder.mutation({
+    addCardToFavorites: builder.mutation({
       query: ({ data }) => ({
-        url: `/favorites/card`,
-        metohd: 'POST',
+        url: '/favorites/card',
+        method: 'POST',
         body: data,
       }),
     }),
-    addLoanFavorites: builder.mutation({
+    addLoanToFavorites: builder.mutation({
       query: ({ data }) => ({
-        url: `/favorites/loan`,
-        metohd: 'POST',
+        url: '/favorites/loan',
+        method: 'POST',
         body: data,
+      }),
+    }),
+    deleteCardInFavorite: builder.mutation({
+      query: (id) => ({
+        url: `/favorites/card/${id}`,
+        method: 'DELETE',
+      }),
+    }),
+    deleteLoanInFavorite: builder.mutation({
+      query: (id) => ({
+        url: `/favorites/loan/${id}`,
+        method: 'DELETE',
       }),
     }),
   }),
@@ -29,6 +41,8 @@ export const favoritesApi = createApi({
 
 export const {
   useGetFavoritesQuery,
-  useAddLoanFavoritesMutation,
-  useAddCardFavoritesMutation,
+  useAddCardToFavoritesMutation,
+  useAddLoanToFavoritesMutation,
+  useDeleteCardInFavoriteMutation,
+  useDeleteLoanInFavoriteMutation,
 } = favoritesApi
