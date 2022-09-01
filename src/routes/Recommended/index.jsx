@@ -50,7 +50,7 @@ function Recommended() {
       <div>유효시간 {Date.now() - Date.now()}</div>
       {recommends.userInfo}
       <Filter />
-      <div>
+      {/* <div>
         {recommends.loanList.map((item) => (
           <Loan item={item} key={item.loanId} />
         ))}
@@ -59,7 +59,7 @@ function Recommended() {
         {recommends.cardList.map((item) => (
           <Card item={item} key={item.cardId} />
         ))}
-      </div>
+      </div> */}
     </S.Container>
   )
 }
