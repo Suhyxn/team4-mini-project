@@ -51,6 +51,8 @@ export const CardDescription = styled.div`
 export const CardFavorite = styled.div`
   font-size: 2.5rem;
   flex-shrink: 0;
-  width: 6.8rem;
   text-align: center;
+  display: block;
+  padding: 1rem;
+  cursor: pointer;
 `
