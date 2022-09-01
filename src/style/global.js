@@ -5,7 +5,6 @@ import GmarketSansMedium from '/assets/fonts/GmarketSansTTFMedium.ttf'
 import { reset } from 'styled-reset'
 
 const GlobalStyled = createGlobalStyle`
-
   @font-face {
     font-family: "GmarketSansBold";
     src: url(${GmarketSansBold}) format('truetype');
@@ -22,20 +21,9 @@ const GlobalStyled = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-  html {
-    font-size: 10px;
-  }
   body {
     font-family: 'GmarketSansMedium';
     font-size: ${(props) => props.theme.size.base};
-  }
-  #root {
-    width: 100vw;
-    height: 100vh;
-    padding: 3rem 2rem;
-  }
-  .root {
-    padding-bottom: 9rem;
   }
   a {
     color: inherit;

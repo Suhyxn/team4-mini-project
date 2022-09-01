@@ -4,37 +4,39 @@ const sizes = css`
   ${(props) =>
     props.size === 'large' &&
     css`
-      height: ${(props) => (props.height ? props.height : '6.2rem')};
-      width: ${(props) => (props.width ? props.width : '100%')};
-      font-size: 1.4rem;
-      line-height: 2.2rem;
-      border-radius: 1.2rem;
+      width: 330px;
+      height: 62px;
+      font-size: 17px;
+      line-height: 22px;
+      border-radius: 12px;
     `}
   ${(props) =>
     props.size === 'medium' &&
     css`
-      width: 16rem;
-      height: 3.7rem;
-      font-size: 1.3rem;
-      line-height: 2.2rem;
-      border-radius: 0.8rem;
+      width: 160px;
+      height: 37px;
+      font-size: 13px;
+      line-height: 22px;
+      border-radius: 8px;
     `}
   ${(props) =>
     props.size === 'small' &&
     css`
-      width: 8.3rem;
-      height: 2.5rem;
-      font-size: 1.3rem;
-      border-radius: 0.4rem;
+      width: 83px;
+      height: 25px;
+      font-size: 13px;
+      line-height: 16px;
+      border-radius: 4px;
     `}
   ${(props) =>
     props.size === 'flat' &&
     css`
-      width: 6rem;
-      height: 6rem;
-      font-size: 1.3rem;
+      width: 60px;
+      height: 60px;
+      font-size: 13px;
+      line-height: 16px;
       opacity: 0.8;
-      border-radius: 1.2rem;
+      border-radius: 12px;
     `}
 `
 

@@ -1,73 +1,35 @@
-import * as S from './style'
 import { NavLink } from 'react-router-dom'
-import Badge from '../../common/Badge'
+import * as S from './style'
 
-function TempNav() {
+function Nav() {
   return (
-    <S.NavContainer>
+    <S.Container>
       <NavLink
-        style={({ isActive }) => ({
-          backgroundColor: isActive ? '#7ADAB7' : '#13bd7e',
-        })}
-        to="/recommened"
-      >
-        <S.NavBtn>
-          상품
-          <br />
-          추천
-        </S.NavBtn>
-      </NavLink>
-      <NavLink
-        style={({ isActive }) => ({
-          backgroundColor: isActive ? '#7ADAB7' : '#13bd7e',
-        })}
-        to="/favorites"
-      >
-        <S.NavBtn>
-          즐겨
-          <br />
-          찾기
-        </S.NavBtn>
-      </NavLink>
-      <NavLink
-        style={({ isActive }) => ({
-          backgroundColor: isActive ? '#7ADAB7' : '#13bd7e',
-        })}
+        style={({ isActive }) => ({ color: isActive ? 'red' : 'black' })}
         to="/"
       >
-        <S.NavBtn>
-          상품
-          <br />
-          리스트
-        </S.NavBtn>
+        Home
       </NavLink>
       <NavLink
-        style={({ isActive }) => ({
-          backgroundColor: isActive ? '#7ADAB7' : '#13bd7e',
-        })}
-        to="/cart"
+        style={({ isActive }) => ({ color: isActive ? 'red' : 'black' })}
+        to="/recommened"
       >
-        <S.NavBtn>
-          장바
-          <br />
-          구니
-          <Badge />
-        </S.NavBtn>
+        Recommended
       </NavLink>
       <NavLink
-        style={({ isActive }) => ({
-          backgroundColor: isActive ? '#7ADAB7' : '#13bd7e',
-        })}
+        style={({ isActive }) => ({ color: isActive ? 'red' : 'black' })}
+        to="/favorites"
+      >
+        Favorite
+      </NavLink>
+      <NavLink
+        style={({ isActive }) => ({ color: isActive ? 'red' : 'black' })}
         to="/mypage"
       >
-        <S.NavBtn>
-          마이
-          <br />
-          페이지
-        </S.NavBtn>
+        마이페이지
       </NavLink>
-    </S.NavContainer>
+    </S.Container>
   )
 }
 
-export default TempNav
+export default Nav

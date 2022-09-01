@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import * as S from './style'
 
-function Button({ size, children, active, Fontsize, ...rest }) {
+function Button({ size, children, ...rest }) {
   return (
-    <S.Button size={size} active={active} {...rest}>
+    <S.Button size={size} {...rest}>
       {children}
     </S.Button>
   )

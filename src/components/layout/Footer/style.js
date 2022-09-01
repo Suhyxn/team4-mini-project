@@ -5,14 +5,14 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 5.6rem;
+  min-height: 56px;
   color: #000;
   background-color: rgb(237, 242, 246);
-  font-size: 0.8rem;
+  font-size: 0.6rem;
 `
 
 export const Footer = styled.div`
-  padding-top: 4.8rem;
-  margin-left: 2.8rem;
-  margin-right: 2.8rem;
+  padding-top: 48px;
+  margin-left: 28px;
+  margin-right: 28px;
 `

@@ -1,8 +1,8 @@
 const size = {
-  sm: '1.2rem',
-  base: '1.6rem',
-  lg: '1.8rem',
-  xl: '2rem',
+  sm: '0.85rem',
+  base: '1rem',
+  lg: '1.2rem',
+  xl: '1.5rem',
   title: '2.5rem',
   banner: '10vw',
 }
