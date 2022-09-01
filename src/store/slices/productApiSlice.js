@@ -13,11 +13,23 @@ export const productsSlice = createApi({
     }),
     getLoanDetail: builder.query({
       // query: (loan_id) => `/loan_detail/${loan_id}`,
-      query: () => '/loan_detail',
+      query: () => '/loans',
     }),
     getCardDetail: builder.query({
       // query: (card_id) => `/card_detail/${card_id}`,
-      query: () => `/card_detail`,
+      query: () => `/cards`,
+    }),
+    getSearch: builder.query({
+      query: (productType, searchKeyword) => {
+        return {
+          url: '/products/search',
+          params: { productType, searchKeyword },
+        }
+      },
+      // 혹시나 배열에서 빼내야 한다면?!!
+      // transformResponse: (responseData) => {
+      //   return responseData[0]
+      // },
     }),
   }),
 })
