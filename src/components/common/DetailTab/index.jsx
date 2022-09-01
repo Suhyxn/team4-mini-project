@@ -16,7 +16,7 @@ import GuidBox from '../GuideBox'
 function DetailTab({ data }) {
   const [tabValue, setTabValue] = useState('annualfee')
   const TabChangeHandler = (e) => {
-    setTabValue(e.target.for)
+    setTabValue(e.target.previousSibling.id)
   }
   const icons = [
     {
@@ -54,61 +54,76 @@ function DetailTab({ data }) {
       <S.MenuContainer>
         <S.Box>
           <S.Input type="radio" id="annualfee" name="filter" defaultChecked />
-          <S.Label htmlFor="annualfee" onClick={TabChangeHandler}>
+          <S.Label
+            name="annualfee"
+            htmlFor="annualfee"
+            onClick={TabChangeHandler}
+          >
             연회비/브랜드
           </S.Label>
         </S.Box>
         <S.Box>
           <S.Input type="radio" id="benefits" name="filter" />
-          <S.Label htmlFor="benefits" onClick={TabChangeHandler}>
+          <S.Label
+            name="benefits"
+            htmlFor="benefits"
+            onClick={TabChangeHandler}
+          >
             주요혜택
           </S.Label>
         </S.Box>
         <S.Box>
           <S.Input type="radio" name="filter" id="target" />
-          <S.Label htmlFor="target" onClick={TabChangeHandler}>
+          <S.Label name="target" htmlFor="target" onClick={TabChangeHandler}>
             가입대상
           </S.Label>
         </S.Box>
       </S.MenuContainer>
 
-      {/* <S.SubTitle>
-        연회비
-        <S.SubContent>
-          One Way(JCB) {data.annualFee} 원
-          <br />
-          VISA/mastercard {data.annualFee * 1.2} 원
-          <br />
-          국내전용 10,000원
-        </S.SubContent>
-      </S.SubTitle>
-      <S.SubTitle>
-        브랜드
-        <S.SubContent>VISA/mastercard/국내전용/One Way(JCB)</S.SubContent>
-      </S.SubTitle> */}
+      {tabValue === 'annualfee' && (
+        <>
+          <S.SubTitle>
+            연회비
+            <S.SubContent>
+              One Way(JCB) {data.annualFee} 원
+              <br />
+              VISA/mastercard {data.annualFee * 1.2} 원
+              <br />
+              국내전용 10,000원
+            </S.SubContent>
+          </S.SubTitle>
+          <S.SubTitle>
+            브랜드
+            <S.SubContent>VISA/mastercard/국내전용/One Way(JCB)</S.SubContent>
+          </S.SubTitle>
+        </>
+      )}
 
-      {/* <S.GuideContiner>
-        <S.Guide class="ui-notice">
-          <AiOutlineExclamationCircle />
-          상품 이용 전 반드시 혜택별 상세 안내 및 서비스 제공조건을 확인하시기
-          바랍니다.
-        </S.Guide>
-        <S.ListBox>
-          {icons.map((icon) => (
-            <S.List>
-              <div>{icon.icon}</div>
-              <S.Desc>
-                <strong>{icon.name}</strong>
-                <S.Text>
-                  각종 페이 결제시 <span>1.0</span>청구할인
-                  <BsFillPlusCircleFill size="1.5rem" />
-                </S.Text>
-              </S.Desc>
-            </S.List>
-          ))}
-        </S.ListBox>
-      </S.GuideContiner> */}
-      <GuidBox />
+      {tabValue === 'benefits' && (
+        <S.GuideContiner>
+          <S.Guide>
+            <AiOutlineExclamationCircle />
+            상품 이용 전 반드시 혜택별 상세 안내 및 서비스 제공조건을 확인하시기
+            바랍니다.
+          </S.Guide>
+          <S.ListBox>
+            {icons.map((icon, index) => (
+              <S.List key={index}>
+                <div>{icon.icon}</div>
+                <S.Desc>
+                  <strong>{icon.name}</strong>
+                  <S.Text>
+                    각종 페이 결제시 <span>1.0</span>청구할인
+                    <BsFillPlusCircleFill size="1.5rem" />
+                  </S.Text>
+                </S.Desc>
+              </S.List>
+            ))}
+          </S.ListBox>
+        </S.GuideContiner>
+      )}
+
+      {tabValue === 'target' && <GuidBox />}
     </div>
   )
 }
