@@ -8,11 +8,30 @@ export const myPageApi = createApi({
   reducerPath: 'myPageApi',
   baseQuery,
   endpoints: (builder) => ({
-    //카드 상품 불러오기
-    getMypage: builder.query({
-      query: () => 'mypage',
+    //로그아웃
+    doLogout: builder.query({
+      query: () => '/do-logout',
     }),
+    //마이페이지
+    getMypage: builder.query({
+      query: () => '/members/my-page',
+    }),
+    //회원정보 가져오기
+    getUser: builder.query({
+      query: () => `/members/edit`,
+    }),
+    //회원정보 수정
+    putUser: builder.mutation({
+      query: (data) => ({
+        url:`/members/edit`
+        method:'PUT',
+        body:data
+      }),
+    }),
+    getrecommendation: builder.query({
+      query: () => '/members/recommendation'
+    })
   }),
 })
 
-export const { useGetCartQuery } = myPageApi
+export const { useGetCartQuery, useDoLogoutQuery } = myPageApi

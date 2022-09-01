@@ -1,10 +1,11 @@
 //장바구니 조회, 추가, 취소
 const { VITE_BASE_URL } = import.meta.env
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi } from '@reduxjs/toolkit/query/react'
+import { baseQuery } from '../apis/baseQuery'
 
 export const cartApi = createApi({
   reducerPath: 'cartApi',
-  baseQuery: fetchBaseQuery({ baseUrl: `${VITE_BASE_URL}/carts` }),
+  baseQuery,
   endpoints: (builder) => ({
     //카드 상품 불러오기
     getCart: builder.query({
@@ -24,13 +25,13 @@ export const cartApi = createApi({
         body: data,
       }),
     }),
-    deleteCardInCart: builder.query({
+    deleteCardInCart: builder.mutation({
       query: (id) => ({
         url: `card/${id}`,
         method: 'DELETE',
       }),
     }),
-    deleteLoanInCart: builder.query({
+    deleteLoanInCart: builder.mutation({
       query: (id) => ({
         url: `loan/${id}`,
         method: 'DELETE',
