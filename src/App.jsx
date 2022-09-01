@@ -17,17 +17,18 @@ import NotFound from './components/layout/NotFound'
 import RequireAuth from './components/template/RequireAuth'
 import GotoTop from './components/common/GoToTop'
 import Filter from './components/common/Filter'
+import Search from './routes/Search'
 
 function App() {
   return (
     <Provider store={store}>
       <main className="root">
-        <LoanDetail />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/recommened" element={<Recommended />} />
