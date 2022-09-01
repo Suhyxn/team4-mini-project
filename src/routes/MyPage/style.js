@@ -19,10 +19,14 @@ export const Title = styled.div`
   }
 `
 
+export const subBox = styled.div`
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+`
+
 export const ContentContainer = styled.div`
   margin-top: 4rem;
-
-  .btn {
-    margin-left: 50%;
-  }
 `
