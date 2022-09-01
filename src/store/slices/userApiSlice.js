@@ -6,6 +6,7 @@ import { baseQuery } from '../apis/baseQuery'
 
 export const userApi = createApi({
   reducerPath: 'userApi',
+  //토큰있을때 삭제
   baseQuery: fetchBaseQuery({ baseUrl: VITE_BASE_URL }),
   //토큰있을때 주석 풀기
   // baseQuery,
