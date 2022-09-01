@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import DateTimeDisplay from './DateTimeDisplay'
 import { useCountdown } from './useCountdown'
+import * as S from './style'
 
 const ExpiredNotice = () => {
   return (
@@ -15,15 +15,13 @@ const ExpiredNotice = () => {
 const ShowCounter = ({ days, hours, minutes, seconds }) => {
   return (
     <div className="show-counter">
-      <div>
-        <DateTimeDisplay value={days} type={'Days'} isDanger={days <= 1} />
-        <p>:</p>
+      <S.Container>
         <DateTimeDisplay value={hours} type={'Hours'} isDanger={false} />
         <p>:</p>
         <DateTimeDisplay value={minutes} type={'Mins'} isDanger={false} />
         <p>:</p>
         <DateTimeDisplay value={seconds} type={'Seconds'} isDanger={false} />
-      </div>
+      </S.Container>
     </div>
   )
 }
@@ -34,14 +32,7 @@ const CountdownTimer = ({ targetDate }) => {
   if (days + hours + minutes + seconds <= 0) {
     return <ExpiredNotice />
   } else {
-    return (
-      <ShowCounter
-        days={days}
-        hours={hours}
-        minutes={minutes}
-        seconds={seconds}
-      />
-    )
+    return <ShowCounter hours={hours} minutes={minutes} seconds={seconds} />
   }
 }
 
