@@ -1,15 +1,21 @@
 import React from 'react'
-import BankTab from '../BankTab'
-import LoanTab from '../LoanTab'
+import Card from '../../common/Card'
+import Loan from '../../common/Loan'
 
-function IfTab(props) {
-  const tab = props.tab
-
-  if ('loan' === tab) {
-    return <LoanTab />
-  } else {
-    return <BankTab />
-  }
+function IfTab({ tab, items }) {
+  return tab.loan ? (
+    <>
+      {items.loanList.map((item) => (
+        <Loan item={item} key={item.loanId} />
+      ))}
+    </>
+  ) : (
+    <>
+      {items.cardList.map((item) => (
+        <Card item={item} key={item.cardId} />
+      ))}
+    </>
+  )
 }
 
 export default IfTab

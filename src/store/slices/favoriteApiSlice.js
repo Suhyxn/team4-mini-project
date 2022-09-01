@@ -4,12 +4,44 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const favoritesApi = createApi({
   reducerPath: 'favoritesApi',
-  baseQuery: fetchBaseQuery({ baseUrl: VITE_BASE_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: `${VITE_BASE_URL}/favorites` }),
   endpoints: (builder) => ({
     getFavorites: builder.query({
-      query: () => 'favorites',
+      query: () => '',
+    }),
+    addCardToFavorites: builder.mutation({
+      query: ({ data }) => ({
+        url: 'card',
+        method: 'POST',
+        body: data,
+      }),
+    }),
+    addLoanToFavorites: builder.mutation({
+      query: ({ data }) => ({
+        url: 'loan',
+        method: 'POST',
+        body: data,
+      }),
+    }),
+    deleteCardInFavorite: builder.mutation({
+      query: (id) => ({
+        url: `card/${id}`,
+        method: 'DELETE',
+      }),
+    }),
+    deleteLoanInFavorite: builder.mutation({
+      query: (id) => ({
+        url: `loan/${id}`,
+        method: 'DELETE',
+      }),
     }),
   }),
 })
 
-export const { useGetFavoritesQuery } = favoritesApi
+export const {
+  useGetFavoritesQuery,
+  useAddCardToFavoritesMutation,
+  useAddLoanToFavoritesMutation,
+  useDeleteCardInFavoriteMutation,
+  useDeleteLoanInFavoriteMutation,
+} = favoritesApi

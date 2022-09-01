@@ -1,10 +1,26 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const hidden = css`
+  ${(props) =>
+    props.disabled &&
+    css`
+      overflow: hidden;
+      position: absolute;
+      clip: rect(0, 0, 0, 0);
+      clip-path: polygon(0 0, 0 0, 0 0);
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      white-space: nowrap;
+    `}
+`
 
 export const Container = styled.div`
   background-color: transparent;
   border-radius: 1.2rem;
   border: 1px solid #e4edf2;
   margin-bottom: 1rem;
+  ${hidden}
 `
 
 export const InputBox = styled.div`
@@ -32,6 +48,16 @@ export const StyledInput = styled.input`
   &::placeholder {
     color: rgb(186, 186, 188);
   }
+  background-color: inherit;
+`
+
+export const Button = styled.div`
+  opacity: ${(props) => (props.active ? 1 : 0)};
+  display: flex;
+  cursor: pointer;
+  padding-bottom: 1rem;
+  align-items: center;
+  justify-content: center;
 `
 
 export const StyledLabel = styled.label`

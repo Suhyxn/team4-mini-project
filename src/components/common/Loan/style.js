@@ -83,7 +83,6 @@ export const Tag = styled.li`
 export const CardFavorite = styled.div`
   font-size: 2.5rem;
   flex-shrink: 0;
-  width: 4rem;
   text-align: center;
-  flex-shrink: 0;
+  padding: 1rem;
 `
