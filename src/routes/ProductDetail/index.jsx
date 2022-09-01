@@ -7,6 +7,7 @@ import { RiOilLine } from 'react-icons/ri'
 import Button from '../../components/common/Button'
 import { useAddCardToCartMutation } from '../../store/slices/cartApiSlice'
 import { useGetProductsQuery } from '../../store/slices/productApiSlice'
+import DetailTab from '../../components/common/DetailTab'
 import Loader from '../../components/layout/Loader'
 import { useGetCardDetailQuery } from '../../store/slices/productApiSlice'
 
@@ -51,53 +52,29 @@ function ProductDetail() {
           </S.Description>
           <S.Description>
             <AiOutlineShopping className="icons" />
-            <div className="description">{data.shopping}</div>
+            <div className="description">
+              <span>{data.shopping}</span>
+            </div>
           </S.Description>
           <S.Description>
             <RiOilLine className="icons" />
-            <div className="description">주유 {data.oiling}</div>
+            <div className="description">
+              주유 <span>{data.oiling}</span>
+            </div>
           </S.Description>
           <S.Description>
             <BiHomeHeart className="icons" />
             <div className="description">
-              관리비/4대보험 {data.insurance} 적립
+              관리비/4대보험 <span>{data.insurance}</span> 적립
             </div>
           </S.Description>
         </S.DescriptionContainer>
       </S.Content>
-      <S.MenuContainer>
-        <S.Input
-          type="radio"
-          name="filter"
-          value="card"
-          id="filterloan"
-          checked="checked"
-        />
-        <S.Label Htmlfor="filterloan">연회비/브랜드</S.Label>
-        <S.Input type="radio" name="filter" value="card" id="filtercard" />
-        <S.Label Htmlfor="filtercard">주요혜택</S.Label>
-        <S.Input type="radio" name="filter" value="card" id="role" />
-        <S.Label Htmlfor="role">가입대상</S.Label>
-      </S.MenuContainer>
-      <S.SubTitle>
-        연회비
-        <S.SubContent>
-          One Way(JCB) {data.annualFee} 원
-          <br />
-          VISA/mastercard {data.annualFee * 1.2} 원
-          <br />
-          국내전용 10,000원
-        </S.SubContent>
-      </S.SubTitle>
-      <S.SubTitle>
-        브랜드
-        <S.SubContent>VISA/mastercard/국내전용/One Way(JCB)</S.SubContent>
-      </S.SubTitle>
-      <S.Button>
-        <Button size="large" onClick={submitHandler}>
-          장바구니 담기
-        </Button>
-      </S.Button>
+      <DetailTab data={data} />
+
+      <Button size="large" onClick={submitHandler}>
+        장바구니 담기
+      </Button>
     </>
   )
 }
