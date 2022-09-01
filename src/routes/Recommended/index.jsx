@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
 import { useGetRecommendQuery } from '../../store/slices/userApiSlice'
 import * as S from './style'
-import Button from '../../components/common/Button'
 import Card from '../../components/common/Card'
 import Loan from '../../components/common/Loan'
-import Filter from '../../components/common/Filter'
-import BankTab from '../../components/template/BankTab'
-import LoanTab from '../../components/template/LoanTab'
 
 import CountdownTimer from './Timer/countdownTimer'
 function Recommended() {
