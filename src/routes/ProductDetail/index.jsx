@@ -1,7 +1,6 @@
 import React from 'react'
 import * as S from './style'
 import { useNavigate } from 'react-router-dom'
-// import { useHistory } from 'react-router-dom'
 import { AiOutlineArrowLeft, AiOutlineShopping } from 'react-icons/ai'
 import { BiStoreAlt, BiHomeHeart } from 'react-icons/bi'
 import { RiOilLine } from 'react-icons/ri'
@@ -34,7 +33,6 @@ function ProductDetail() {
       card_id: data.cardId,
     })
   }
-  // let history = useHistory()
 
   // const { data, error, isLoading } = useGetProductsQuery(undefined, {
   //   selectFromResult: ({ data, error, isLoading }) => ({
@@ -48,12 +46,7 @@ function ProductDetail() {
   return (
     <>
       <S.Header>
-        <AiOutlineArrowLeft
-          size="30"
-          onClick={() => {
-            history.goBack()
-          }}
-        />
+        <AiOutlineArrowLeft size="30" onClick={() => navigate(-1)} />
         <S.BankTitle>{data.cardCompany}</S.BankTitle>
       </S.Header>
       <S.Content>
