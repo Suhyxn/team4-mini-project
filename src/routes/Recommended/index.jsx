@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useGetRecommendQuery } from '../../store/slices/userApiSlice'
 import * as S from './style'
 import useFilter from '../../components/Hook/useFilter'

@@ -5,11 +5,13 @@ import Button from '../../components/common/Button'
 import Card from '../../components/common/Card'
 import Loan from '../../components/common/Loan'
 import Loader from '../../components/layout/Loader'
-// import { useDoLogoutQuery } from ''
+import { logOut } from '../../store/slices/authSlice'
+import { useDispatch } from 'react-redux'
+import { useDoLogoutQuery } from '../../store/slices/userApiSlice'
 
 function MyPage() {
   const { data: mypages, isLoading, isError } = useGetMypageQuery()
-
+  const dispatch = useDispatch()
   if (isLoading) {
     return <Loader />
   }
@@ -17,10 +19,21 @@ function MyPage() {
   if (isError || !mypages) {
     return <div>오류발생!</div>
   }
-
+  const [logoutquery, { isLogooutLoading }] = useDoLogoutQuery()
   const { member, orders } = mypages
-  const logOutHandler = (e) => {
+
+  const logOutHandler = async (e) => {
     e.preventDefault()
+    try {
+      const isLogout = await logoutquery()
+      if (isLogooutLoading) {
+        return <Loader />
+      } else {
+        isLogout && dispatch(logOut())
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
