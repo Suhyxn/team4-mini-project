@@ -22,7 +22,7 @@ export const Select = styled.select`
   }
 `
 
-export const searchBox = styled.div`
+export const SearchBox = styled.div`
   cusror: pointer;
 `
 

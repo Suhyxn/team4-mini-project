@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import * as S from './style'
+import { BsSearch } from 'react-icons/bs'
 import Filter from '../../components/common/Filter'
 import IfTab from '../../components/template/IfTab'
 import useFilter from '../../components/Hook/useFilter'
@@ -8,6 +11,7 @@ import Loader from '../../components/layout/Loader'
 function Home() {
   const [isActive, setIsActive] = useFilter()
   const { data: products, isLoading, isError } = useGetProductsQuery()
+  const navigate = useNavigate()
 
   if (isLoading) {
     return <Loader />
@@ -19,6 +23,9 @@ function Home() {
 
   return (
     <>
+      <S.SearchBox onClick={() => navigate('/search')}>
+        <BsSearch size="2.5rem" />
+      </S.SearchBox>
       <Filter onFilterHandler={setIsActive} item={isActive} />
       <IfTab tab={isActive} items={products} />
     </>
