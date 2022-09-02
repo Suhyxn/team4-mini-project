@@ -51,9 +51,9 @@ function Search() {
               placeholder="검색어를 입력해주세요"
               onChange={searchHandler}
             />
-            <S.searchBox onClick={submitHandler}>
+            <S.SearchBox onClick={submitHandler}>
               <BsSearch size="2.5rem" />
-            </S.searchBox>
+            </S.SearchBox>
           </S.InputBox>
         </S.Box>
         <S.TagContainer>
