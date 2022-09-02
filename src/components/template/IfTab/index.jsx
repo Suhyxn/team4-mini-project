@@ -3,17 +3,15 @@ import Card from '../../common/Card'
 import Loan from '../../common/Loan'
 
 function IfTab({ tab, items }) {
-  console.log('tab', 'items', tab, items)
-
   return tab.loan ? (
     <>
-      {items.loanList.map((item) => (
+      {items?.loanList.map((item) => (
         <Loan item={item} key={item.loanId} />
       ))}
     </>
   ) : (
     <>
-      {items.cardList.map((item) => (
+      {items?.cardList.map((item) => (
         <Card item={item} key={item.cardId} />
       ))}
     </>

@@ -52,7 +52,7 @@ export const StyledInput = styled.input`
 `
 
 export const Button = styled.div`
-  display: ${(props) => (props.active ? 'block' : 'none')};
+  opacity: ${(props) => (props.active ? 1 : 0)};
   display: flex;
   cursor: pointer;
   padding-bottom: 1rem;

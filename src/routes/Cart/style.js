@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 
-export const CartsTitleContainer = styled.div`
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-  margin-left: 2rem;
+export const Title = styled.div`
+  margin: 4rem 0 2rem;
+  font-size: 2.2rem;
+  font-weight: bold;
+
+  span {
+    color: #56b983;
+  }
 `
 
 export const CardContainer = styled.div`

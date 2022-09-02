@@ -4,13 +4,15 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   margin-top: 1rem;
+  justify-content: space-between;
 `
 
 export const BankTitle = styled.div`
   font-size: 2rem;
-  justify-content: center;
   margin-top: 0.5rem;
-  margin-left: 13rem;
+  flex-grow: 1;
+  padding-right: 30px;
+  text-align: center;
 `
 
 export const Content = styled.div`
@@ -22,24 +24,34 @@ export const Content = styled.div`
 
 export const CardImage = styled.img`
   margin-top: 2rem;
-  width: 22rem;
-  height: 10rem;
+  height: 12rem;
+  margin-bottom: 2rem;
 `
 
 export const CardTitle = styled.div`
-  margin-top: 2rem;
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 2.1rem;
+  line-height: 30px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 `
 
 export const CardSubTilte = styled.div`
   margin-top: 0.4rem;
-  font-weight: 300;
+  font-size: 1.5rem;
   color: #888888;
+  width: 23rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.8rem;
 `
 
 export const DescriptionContainer = styled.div`
-  margin-top: 2.5rem;
+  margin: 2.5rem 0 0.5rem;
 `
 
 export const Description = styled.div`
@@ -55,51 +67,12 @@ export const Description = styled.div`
   .description {
     margin-top: 0.7rem;
     color: #444b55;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 
     span {
       color: #00a49d;
     }
   }
-`
-
-export const MenuContainer = styled.div`
-  display: flex;
-  margin-top: 4rem;
-  padding-bottom: 4rem;
-`
-
-export const Label = styled.label`
-  display: block;
-  width: 8rem;
-  height: 3rem;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #888888;
-  justify-content: center;
-  padding: 1rem 0;
-  :last-child {
-  }
-`
-
-export const Input = styled.input`
-  opacity: 0;
-  &:checked + ${Label} {
-    color: black;
-    transition: 0.3s;
-  }
-`
-
-export const SubTitle = styled.div`
-  margin-top: 2rem;
-  font-size: 1.4rem;
-  margin-left: 2rem;
-`
-
-export const SubContent = styled.div`
-  font-size: 1.2rem;
-  line-height: 1.8rem;
 `
 
 export const Button = styled.div`

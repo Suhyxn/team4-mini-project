@@ -17,8 +17,6 @@ function Home() {
     return <div>오류발생!</div>
   }
 
-  console.log(isActive, 'here')
-
   return (
     <>
       <Filter onFilterHandler={setIsActive} item={isActive} />

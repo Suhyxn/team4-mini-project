@@ -28,6 +28,7 @@ const CustomInput = forwardRef(({ disabled, propFunction, isActive }, ref) => {
       [name]: false,
     })
   }
+
   const onUserInputChange = (e) => {
     const { name, value } = e.target
     setUserInput({ ...userInput, [name]: value })
