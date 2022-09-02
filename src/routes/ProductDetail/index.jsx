@@ -20,7 +20,7 @@ function ProductDetail() {
 
   const submitHandler = () => {
     addCardToCart({
-      card_id: data.cardId,
+      carIid: data.cardId,
     })
   }
 

@@ -32,7 +32,6 @@ function App() {
             <Route path="/search" element={<Search />} />
             <Route path="/loan/:id" element={<LoanDetail />} />
             <Route path="/card/:id" element={<ProductDetail />} />
-
             <Route element={<RequireAuth />}>
               <Route path="/favorites" element={<Favorites />} />
               <Route path="/mypage" element={<MyPage />} />

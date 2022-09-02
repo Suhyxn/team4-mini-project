@@ -6,7 +6,13 @@ export const ContainerBox = styled.div`
   overflow: hidden;
 `
 export const Container = styled.div`
-  border-bottom: 1px solid #e5e5e5;
+  button {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .accordion-button {
+    font-size: 1.3rem;
+  }
 `
 export const Button = styled.button`
   display: block;
@@ -44,10 +50,12 @@ export const ListItem = styled.li`
   position: relative;
   padding-left: 8px;
   font-size: 1.5rem;
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.8rem;
 
   li {
     color: #666;
     font-size: 14px;
+    font-weight: 400;
   }
 `
