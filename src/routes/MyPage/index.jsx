@@ -5,6 +5,7 @@ import Button from '../../components/common/Button'
 import Card from '../../components/common/Card'
 import Loan from '../../components/common/Loan'
 import Loader from '../../components/layout/Loader'
+// import { useDoLogoutQuery } from ''
 
 function MyPage() {
   const { data: mypages, isLoading, isError } = useGetMypageQuery()
