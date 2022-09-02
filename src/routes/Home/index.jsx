@@ -12,7 +12,7 @@ function Home() {
   useEffect(() => {
     cookies.set(
       'accessToken',
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMjM0QGhhbm1haWwubmV0IiwiaWQiOjIsImV4cCI6MTY2MjEwNzc0OCwidXNlcm5hbWUiOiIxMjM0QGhhbm1haWwubmV0In0.qoRv24QxFd1ptLa1yD0VNVI6aAvvX1b5vatnpPFnoypD2sjfE4nkuAcw6Hw-ZL91dSUHqDiWMUh1yp_NzN1USg',
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMjM0NUBoYW5tYWlsLm5ldCIsImlkIjoxNCwiZXhwIjoxNjYyMTIyMzg4LCJ1c2VybmFtZSI6IjEyMzQ1QGhhbm1haWwubmV0In0.oDWBk5yhmDk3jNWrRk3bSK5ncp9qOvdWUEiJe-_0_Bl_Ce30QiUVNJFbXYQ84oF6zTKPHWW7I8_SUTiBMTKDRQ',
       { path: '/' },
     )
   }, [])

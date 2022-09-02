@@ -8,8 +8,10 @@ import {
   useGetIsduplicateQuery,
 } from '~/store/slices/authApiSlice'
 import { useNavigate } from 'react-router'
+import { Cookies } from 'react-cookie'
 
 function Login() {
+  const cookies = new Cookies()
   const [login, { isLoading }] = useLoginMutation()
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -17,12 +19,15 @@ function Login() {
 
   let [isActive, setIsActive] = useState(false)
   const submitHandler = async (text) => {
-    console.log(text) //id, pwd
+    console.log('test', text) //id, pwd
     const { id, pwd } = text
+    console.log('hhhhh', text, id, pwd)
     //호출 api
     try {
-      const userData = await login({ username: id, password: pwd })
-      dispatch(setCredentials({ ...userData }))
+      const userData = await login({ username: id, password: pwd }).unwrap()
+      console.log('userData', userData)
+      // dispatch(setCredentials({ ...userData }))
+      dispatch(setCredentials(cookies.get('accessToken')))
       navigate('/recommened')
     } catch (error) {
       if (!error?.originalStatus) {
@@ -61,7 +66,11 @@ function Login() {
                 <Button size="medium" onClick={onClickHandler}>
                   로그인
                 </Button>
-                <Button size="medium" disabled={isActive}>
+                <Button
+                  size="medium"
+                  disabled={isActive}
+                  onClick={() => navigate('/SignUp')}
+                >
                   회원가입
                 </Button>
               </S.BtnBox>
