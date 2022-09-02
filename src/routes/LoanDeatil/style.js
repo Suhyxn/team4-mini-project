@@ -25,7 +25,7 @@ export const LoanSubTitle = styled.div`
 
 export const ContentContainer = styled.div`
   display: flex;
-  margin-top: 4rem;
+  margin: 4rem 0 3.5rem 0;
 `
 
 export const Content = styled.div`
@@ -38,23 +38,22 @@ export const Content = styled.div`
   }
 
   .content {
-    font-size: 3rem;
+    font-size: 2.22rem;
     margin-top: 1rem;
-    margin-left: 0.4rem;
     color: #13bd7e;
   }
 `
 
 export const Button = styled.div`
   .btn {
-    margin-top: 4rem;
+    margin-top: 3rem;
     width: 100%;
   }
 `
 
 export const ExplanationTitle = styled.div`
-  padding-top: 3rem;
-  padding-bottom: 2rem;
+  margin-top: 3rem;
+  padding: 3rem 0 2rem 0;
   background-color: #f6f7f9;
   color: #555b66;
 `
@@ -62,22 +61,21 @@ export const ExplanationTitle = styled.div`
 export const Explanation = styled.div`
   display: flex;
   background-color: #f6f7f9;
-  height: 41rem;
+  height: 33rem;
+  margin-bottom: 1rem;
 
   .title {
     width: 15rem;
     color: #979cac;
     div {
-      margin-top: 1.8rem;
-      margin-bottom: 1.8rem;
+      margin: 1.8rem 0;
     }
   }
 
   .content {
     color: #555b66;
     div {
-      margin-top: 1.8rem;
-      margin-bottom: 1.8rem;
+      margin: 1.8rem 0;
     }
   }
 `
