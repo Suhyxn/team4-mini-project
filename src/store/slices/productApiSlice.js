@@ -4,24 +4,25 @@
 //전체 상품 조회,
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 const { VITE_BASE_URL } = import.meta.env
-export const productsSlice = createApi({
+
+export const productsApi = createApi({
   reducerPath: 'productsApi',
   baseQuery: fetchBaseQuery({ baseUrl: `${VITE_BASE_URL}/products` }),
   endpoints: (builder) => ({
     getProducts: builder.query({
       query: () => '',
     }),
-
     getLoanDetail: builder.query({
       query: (id) => `/${id}?productType=대출`,
     }),
     getCardDetail: builder.query({
       query: (id) => `/${id}?productType=카드`,
+    }),
     getSearchData: builder.query({
       query: (data) => {
         const { productType, searchKeyword } = data
         return {
-          url: `/products/search?productType=${productType}&searchKeyword=${searchKeyword}`,
+          url: `/search?productType=${productType}&searchKeyword=${searchKeyword}`,
           method: 'GET',
         }
       },
@@ -31,7 +32,7 @@ export const productsSlice = createApi({
 
 export const {
   useGetProductsQuery,
- useGetLoanDetailQuery,
+  useGetLoanDetailQuery,
   useGetCardDetailQuery,
   useGetSearchDataQuery,
-} = productsSlice
+} = productsApi
