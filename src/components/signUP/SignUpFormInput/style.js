@@ -19,12 +19,12 @@ export const SignUpLabel = styled.label`
 export const SignUpInput = styled.input`
   width: 100%;
   font-size: 1.8rem;
-  caret-color: rgb(19, 189, 126);
+  /* caret-color: rgb(19, 189, 126);
   opacity: ${(props) => (props.active ? 1 : 0)};
   transition: opacity 0.2s ease-in-out 0s;
   -webkit-appearance: inherit;
   -moz-appearance: inherit;
-  user-select: initial;
+  user-select: initial; */
   border: none;
   background-color: inherit;
 
