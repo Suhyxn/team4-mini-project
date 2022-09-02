@@ -6,19 +6,17 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 const { VITE_BASE_URL } = import.meta.env
 export const productsSlice = createApi({
   reducerPath: 'productsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: VITE_BASE_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: `${VITE_BASE_URL}/products` }),
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: () => '/products',
+      query: () => '',
     }),
-    // getLoanDetail: builder.query({
-    //   // query: (loan_id) => `/loan_detail/${loan_id}`,
-    //   query: () => '/loan_detail',
-    // }),
-    // getCardDetail: builder.query({
-    //   // query: (card_id) => `/card_detail/${card_id}`,
-    //   query: () => `/card_detail`,
-    // }),
+
+    getLoanDetail: builder.query({
+      query: (id) => `/${id}?productType=대출`,
+    }),
+    getCardDetail: builder.query({
+      query: (id) => `/${id}?productType=카드`,
     getSearchData: builder.query({
       query: (data) => {
         const { productType, searchKeyword } = data
@@ -33,7 +31,7 @@ export const productsSlice = createApi({
 
 export const {
   useGetProductsQuery,
-  // useGetLoanDetailQuery,
-  // useGetCardDetailQuery,
+ useGetLoanDetailQuery,
+  useGetCardDetailQuery,
   useGetSearchDataQuery,
 } = productsSlice
