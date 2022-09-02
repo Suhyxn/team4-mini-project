@@ -1,14 +1,18 @@
 import { forwardRef, useContext } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { FormContext } from '../../../routes/SignUp'
 import Button from '../../common/Button'
 import * as S from './style'
 
 const SignUpModal = forwardRef((props, ref) => {
   const { formData } = useContext(FormContext)
-
+  let navigate = useNavigate()
   const handleClick = (type) => {
     ref.current.close()
-    type === 'approve' && window.alert('가입되었습니다 🥳 ')
+    // type === 'approve' && window.alert('가입되었습니다 🥳 ')
+    if (type === 'approve') {
+      navigate('/additional')
+    }
   }
 
   return (
@@ -40,7 +44,7 @@ const SignUpModal = forwardRef((props, ref) => {
             type="button"
             onClick={() => handleClick('approve')}
           >
-            가입하기
+            계속하기
           </Button>
         </S.Div>
       </S.Div>
