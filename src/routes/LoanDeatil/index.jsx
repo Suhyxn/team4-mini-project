@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '../../components/common/Button'
 import * as S from './style'
 import { useAddLoanToCartMutation } from '../../store/slices/cartApiSlice'
+import Loader from '../../components/layout/Loader'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 import { useGetLoanDetailQuery } from '../../store/slices/productApiSlice'
@@ -10,7 +11,7 @@ function LoanDetail() {
   const params = useParams()
   const navigate = useNavigate()
 
-  const { data, isLoading, isError } = useGetCardDetailQuery(params.id)
+  const { data, isLoading, isError } = useGetLoanDetailQuery(params.id)
 
   if (isLoading) {
     return <Loader />
@@ -34,7 +35,7 @@ function LoanDetail() {
   //   img: 'https://www.banksalad.com/_next/image?url=https%3A%2F%2Fcdn.banksalad.com%2Fgraphic%2Fcolor%2Flogo%2Fcircle%2Fkyobo.png&w=96&q=75',
   // }
 
-  const [addLoanCart] = useAddLoanToCartMutation()
+  // const [addLoanCart] = useAddLoanToCartMutation()
 
   const submitHandler = () => {
     addLoanCart({
