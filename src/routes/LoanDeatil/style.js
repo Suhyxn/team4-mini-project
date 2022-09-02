@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
+export const Header = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 0.2rem;
+`
+
 export const LoanImage = styled.img`
   width: 6rem;
   height: 6rem;

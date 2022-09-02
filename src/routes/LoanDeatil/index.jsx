@@ -2,6 +2,8 @@ import React from 'react'
 import Button from '../../components/common/Button'
 import * as S from './style'
 import { useAddLoanToCartMutation } from '../../store/slices/cartApiSlice'
+import { useNavigate } from 'react-router-dom'
+import { AiOutlineArrowLeft } from 'react-icons/ai'
 
 function LoanDetail() {
   const data = {
@@ -19,6 +21,7 @@ function LoanDetail() {
   }
 
   const [addLoanCart] = useAddLoanToCartMutation()
+  const navigate = useNavigate()
 
   const submitHandler = () => {
     addLoanCart({
@@ -27,6 +30,9 @@ function LoanDetail() {
   }
   return (
     <>
+      <S.Header>
+        <AiOutlineArrowLeft size="30" onClick={() => navigate(-1)} />
+      </S.Header>
       <S.LoanImage src={data.img} alt="loan" />
       <S.LoanTitle>{data.loanCompany}</S.LoanTitle>
       <S.LoanSubTitle>{data.loanName}</S.LoanSubTitle>
