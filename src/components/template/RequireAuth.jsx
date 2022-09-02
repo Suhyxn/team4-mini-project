@@ -3,15 +3,16 @@ import { useSelector } from 'react-redux'
 import { selectCurrentToken } from '../../store/slices/authSlice'
 
 const RequireAuth = () => {
-  const token = useSelector(selectCurrentToken)
+  const token = selectCurrentToken
   console.log(token)
   const location = useLocation()
   return (
     <>
-      token ? (
-      <Outlet />
+      {token ? (
+        <Outlet />
       ) : (
-      <Navigate to="/signin" state={{ from: location }} replace />)
+        <Navigate to="/signin" state={{ from: location }} replace />
+      )}
     </>
   )
 }

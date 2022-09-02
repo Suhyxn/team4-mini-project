@@ -21,7 +21,7 @@ function Login() {
     const { id, pwd } = text
     //호출 api
     try {
-      const userData = await login({ username: id, password: pwd }).unwrap()
+      const userData = await login({ username: id, password: pwd })
       dispatch(setCredentials({ ...userData }))
       navigate('/recommened')
     } catch (error) {

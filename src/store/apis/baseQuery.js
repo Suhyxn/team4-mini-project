@@ -8,9 +8,9 @@ export const baseQuery = fetchBaseQuery({
   baseUrl: VITE_BASE_URL,
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
-    const token = cookies.get(accessToken)
+    const token = cookies.get('accessToken')
     if (token) {
-      headers.set('authorization', `Bearer ${token}`)
+      headers.set('authorization', `${token}`)
     }
     return headers
   },

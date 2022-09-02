@@ -1,4 +1,5 @@
 import './App.css'
+import React, { useEffect } from 'react'
 import { Provider } from 'react-redux'
 import { store } from './store/apis'
 import { Route, Routes } from 'react-router-dom'
@@ -19,6 +20,8 @@ import GotoTop from './components/common/GoToTop'
 import Filter from './components/common/Filter'
 import Search from './routes/Search'
 import { CookiesProvider } from 'react-cookie'
+//dkdkdkdkd
+
 function App() {
   return (
     <CookiesProvider>
