@@ -9,9 +9,9 @@ const SignUpModal = forwardRef((props, ref) => {
   let navigate = useNavigate()
   const handleClick = (type) => {
     ref.current.close()
-    // type === 'approve' && window.alert('가입되었습니다 🥳 ')
+
     if (type === 'approve') {
-      navigate('/additional')
+      navigate('/additional', { state: formData })
     }
   }
 

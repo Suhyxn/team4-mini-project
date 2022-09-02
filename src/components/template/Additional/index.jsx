@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react'
+import { useLocation } from 'react-router'
 import Button from '../../common/Button'
 import UserDetailForm from '../UserDetailForm'
 import * as S from './style'
@@ -15,12 +16,20 @@ export const AddFormContext = createContext({
   addInfo: initialAddInfo,
   setAddInfo: () => {},
 })
+
 function Additional() {
+  const { state: formData } = useLocation()
+  const [addInfo, setAddInfo] = useState(initialAddInfo)
+  // const [userInfo, setUserInfo] = useState({})
+
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(addInfo)
+    const userInfo = { ...formData, ...addInfo }
+    // console.log({ ...formData, ...addInfo })
+    // setUserInfo(...formData, ...addInfo)
+    console.log(userInfo)
   }
-  const [addInfo, setAddInfo] = useState(initialAddInfo)
 
   return (
     <AddFormContext.Provider value={{ addInfo, setAddInfo }}>

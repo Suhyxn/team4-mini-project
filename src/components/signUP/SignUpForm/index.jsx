@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { FormContext } from '../../../routes/SignUp'
 import SignUpFormInput from '../SignUpFormInput'
 import Button from '../../common/Button'
 import * as S from './style'
@@ -11,12 +12,14 @@ const initialErrorData = {
 
 const SignUpForm = ({ modalRef }) => {
   const [errorData, setErrorData] = useState(initialErrorData)
-
+  const { formData } = useContext(FormContext)
   const handleSubmit = (e) => {
     e.preventDefault()
 
     const isValid = Object.values(errorData).every((value) => value === true)
     isValid && modalRef.current.showModal()
+
+    console.log(formData)
   }
 
   return (
@@ -32,6 +35,7 @@ const SignUpForm = ({ modalRef }) => {
           // autoFocus: true,
         }}
       />
+      <Button>ID 중복검사</Button>
       <SignUpFormInput
         id={'pw'}
         label={'비밀번호'}
