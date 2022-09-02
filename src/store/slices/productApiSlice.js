@@ -26,6 +26,10 @@ export const productsApi = createApi({
           method: 'GET',
         }
       },
+      // 혹시나 배열에서 빼내야 한다면?!!
+      // transformResponse: (responseData) => {
+      //   return responseData[0]
+      // },
     }),
   }),
 })

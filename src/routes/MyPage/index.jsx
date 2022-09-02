@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGetProductsQuery } from '../../store/slices/productApiSlice'
+import { useGetMypageQuery } from '../../store/slices/userApiSlice'
 import * as S from './style'
 import Button from '../../components/common/Button'
 import Card from '../../components/common/Card'
@@ -7,20 +7,25 @@ import Loan from '../../components/common/Loan'
 import Loader from '../../components/layout/Loader'
 
 function MyPage() {
-  const { data: products, isLoading, isError } = useGetProductsQuery()
+  const { data: mypages, isLoading, isError } = useGetMypageQuery()
 
   if (isLoading) {
     return <Loader />
   }
 
-  if (isError || !products) {
+  if (isError || !mypages) {
     return <div>오류발생!</div>
+  }
+
+  const { member, orders } = mypages
+  const logOutHandler = (e) => {
+    e.preventDefault()
   }
 
   return (
     <>
       <S.Title>
-        <span>ㅇㅇㅇ님</span>의 정보입니다.
+        <span>{member.name}님</span>의 정보입니다.
       </S.Title>
       <S.ContentContainer>
         <S.subBox>
@@ -30,18 +35,28 @@ function MyPage() {
           </Button>
         </S.subBox>
         <div>
-          {products.loanList.map((item) => (
+          {orders.loanList.map((item) => (
             <Loan item={item} key={item.loanId} />
+          ))}
+        </div>
+        <div>
+          {orders.cardList.map((item) => (
+            <Card item={item} key={item.cardId} />
           ))}
         </div>
         <S.subBox>신청 완료 상품</S.subBox>
         <div>
-          {products.cardList.map((item) => (
+          {orders.loanList.map((item) => (
+            <Loan item={item} key={item.loanId} />
+          ))}
+        </div>
+        <div>
+          {orders.cardList.map((item) => (
             <Card item={item} key={item.cardId} />
           ))}
         </div>
       </S.ContentContainer>
-      <Button size="smaill" className="btn">
+      <Button size="smaill" className="btn" onClick={logOutHandler}>
         로그아웃
       </Button>
     </>

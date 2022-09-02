@@ -18,38 +18,33 @@ import RequireAuth from './components/template/RequireAuth'
 import GotoTop from './components/common/GoToTop'
 import Filter from './components/common/Filter'
 import Search from './routes/Search'
-
+import { CookiesProvider } from 'react-cookie'
 function App() {
   return (
-    <Provider store={store}>
-      <main className="root">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/mypage" element={<MyPage />} />
-          <Route path="/recommened" element={<Recommended />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/loan/:id" element={<LoanDetail />} />
-          <Route path="/card/:id" element={<ProductDetail />} />
-
-          {/* 토큰 생기면 주석 삭제하기 */}
-          {/* <Route element={<RequireAuth />}>
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/mypage" element={<MyPage />} />
-          <Route path="/recommened" element={<Recommended />} />
-          <Route path="/cart" element={<Cart />} />
-        </Route> */}
-
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
-        <GotoTop />
-      </main>
-      <Nav />
-    </Provider>
+    <CookiesProvider>
+      <Provider store={store}>
+        <main className="root">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/loan/:id" element={<LoanDetail />} />
+            <Route path="/card/:id" element={<ProductDetail />} />
+            <Route element={<RequireAuth />}>
+              <Route path="/favorites" element={<Favorites />} />
+              <Route path="/mypage" element={<MyPage />} />
+              <Route path="/recommened" element={<Recommended />} />
+              <Route path="/cart" element={<Cart />} />
+            </Route>
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+          <GotoTop />
+        </main>
+        <Nav />
+      </Provider>
+    </CookiesProvider>
   )
 }
 export default App
