@@ -9,31 +9,31 @@ export const cartApi = createApi({
   endpoints: (builder) => ({
     //카드 상품 불러오기
     getCart: builder.query({
-      query: () => '/carts',
+      query: () => 'carts',
     }),
     addCardToCart: builder.mutation({
       query: ({ data }) => ({
-        url: '/carts/card',
+        url: 'carts/card',
         method: 'POST',
         body: data,
       }),
     }),
     addLoanToCart: builder.mutation({
       query: ({ data }) => ({
-        url: '/carts/loan',
+        url: 'carts/loan',
         method: 'POST',
         body: data,
       }),
     }),
     deleteCardInCart: builder.mutation({
       query: (id) => ({
-        url: `/carts/card/${id}`,
+        url: `carts/card/${id}`,
         method: 'DELETE',
       }),
     }),
     deleteLoanInCart: builder.mutation({
       query: (id) => ({
-        url: `/carts/loan/${id}`,
+        url: `carts/loan/${id}`,
         method: 'DELETE',
       }),
     }),

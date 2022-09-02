@@ -8,31 +8,31 @@ export const favoritesApi = createApi({
   baseQuery,
   endpoints: (builder) => ({
     getFavorites: builder.query({
-      query: () => '/favorites',
+      query: () => 'favorites',
     }),
     addCardToFavorites: builder.mutation({
       query: ({ data }) => ({
-        url: '/favorites/card',
+        url: 'favorites/card',
         method: 'POST',
         body: data,
       }),
     }),
     addLoanToFavorites: builder.mutation({
       query: ({ data }) => ({
-        url: '/favorites/loan',
+        url: 'favorites/loan',
         method: 'POST',
         body: data,
       }),
     }),
     deleteCardInFavorite: builder.mutation({
       query: (id) => ({
-        url: `/favorites/card/${id}`,
+        url: `favorites/card/${id}`,
         method: 'DELETE',
       }),
     }),
     deleteLoanInFavorite: builder.mutation({
       query: (id) => ({
-        url: `/favorites/loan/${id}`,
+        url: `favorites/loan/${id}`,
         method: 'DELETE',
       }),
     }),
