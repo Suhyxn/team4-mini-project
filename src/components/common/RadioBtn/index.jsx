@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AddFormContext } from '../../template/Additional'
 import * as S from './style'
 
-function RadioBtn({ items }) {
+function RadioBtn({ items, id }) {
+  const { addInfo, setAddInfo } = useContext(AddFormContext)
   return (
     <S.Container>
       {items.map((item, index) => (
@@ -11,6 +13,10 @@ function RadioBtn({ items }) {
             value={item}
             name={`group-${items}`}
             id={item}
+            required="required"
+            onChange={(e) =>
+              setAddInfo((prev) => ({ ...prev, [id]: e.target.value }))
+            }
           />
           <S.Label htmlFor={item} key={index}>
             <S.Text>{item}</S.Text>
