@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { Cookies } from 'react-cookie'
+const cookies = new Cookies()
 
 const authSlice = createSlice({
   name: 'auth',
@@ -7,11 +9,11 @@ const authSlice = createSlice({
     //토큰저장
     setCredentials: (state, action) => {
       const { accessToken } = action.payload
-      state.token = accessToken
+      cookies.set(accessToken, accessToken, { path: '/' })
     },
     //로그아웃(토큰삭제)
     logOut: (state, action) => {
-      state.token = null
+      cookies.remove(accessToken)
     },
   },
 })
