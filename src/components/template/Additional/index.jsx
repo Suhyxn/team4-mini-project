@@ -1,8 +1,9 @@
 import React, { createContext, useState } from 'react'
-import { useLocation } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import Button from '../../common/Button'
 import UserDetailForm from '../UserDetailForm'
 import * as S from './style'
+import { useRegisterMutation } from '../../../store/slices/authApiSlice'
 
 const initialAddInfo = {
   gender: null,
@@ -18,7 +19,9 @@ export const AddFormContext = createContext({
 })
 
 function Additional() {
+  const [register, { isLoading }] = useRegisterMutation()
   const { state: userData } = useLocation()
+  const navigation = useNavigate()
   const [addInfo, setAddInfo] = useState(initialAddInfo)
   // const [userInfo, setUserInfo] = useState({})
 
@@ -27,11 +30,19 @@ function Additional() {
     const userInfo = {
       ...userData,
       gender: addInfo.gender,
-      age: addInfo.age,
+      age: addInfo.age.slice(0, 2),
       job: addInfo.job,
       income: addInfo.income.slice(0, 4),
       hobby: addInfo.hobby,
       house: addInfo.house === 'Y' ? true : false,
+    }
+    try {
+      register(userInfo)
+    } catch (error) {
+      console.log(error)
+    } finally {
+      window.alert('가입이 정상적으로 진행되었습니다')
+      navigation('../favorites')
     }
   }
 

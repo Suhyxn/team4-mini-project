@@ -23,13 +23,16 @@ export const authApi = createApi({
     }),
     //회원가입
     register: builder.mutation({
-      query: (data) => ({
-        url: '/register',
-        method: 'POST',
-        body: data,
-      }),
+      query: (data) => {
+        return {
+          url: '/register',
+          method: 'POST',
+          body: data,
+        }
+      },
     }),
   }),
 })
 
-export const { useLoginMutation, useGetIsduplicateQuery } = authApi
+export const { useLoginMutation, useGetIsduplicateQuery, useRegisterMutation } =
+  authApi

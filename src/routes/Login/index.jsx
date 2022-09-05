@@ -42,9 +42,6 @@ function Login() {
       }
     }
   }
-  // const onClickHandler = () => {
-  //   setActive(true)
-  // }
 
   return (
     <div>
