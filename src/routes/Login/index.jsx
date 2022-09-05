@@ -16,6 +16,7 @@ function Login() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [errMsg, setErrMsg] = useState('')
+  const [userData, setUserData] = useState(null)
 
   let [isActive, setIsActive] = useState(false)
   const submitHandler = async (text) => {
@@ -24,11 +25,10 @@ function Login() {
     console.log('hhhhh', text, id, pwd)
     //호출 api
     try {
-      const userData = await login({ username: id, password: pwd }).unwrap()
-      console.log('userData', userData)
-      // dispatch(setCredentials({ ...userData }))
-      dispatch(setCredentials(cookies.get('accessToken')))
-      navigate('/recommened')
+      const userData = await login({ username: id, password: pwd })
+      // console.log('userData', userData)
+      dispatch(setCredentials({ ...userData }))
+      navigate('../recommened')
     } catch (error) {
       if (!error?.originalStatus) {
         // isLoading: true until timeout occurs

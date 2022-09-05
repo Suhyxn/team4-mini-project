@@ -10,14 +10,14 @@ import Loader from '../../components/layout/Loader'
 import { Cookies } from 'react-cookie'
 
 function Home() {
-  const cookies = new Cookies()
-  useEffect(() => {
-    cookies.set(
-      'accessToken',
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMjM0NUBoYW5tYWlsLm5ldCIsImlkIjoxNCwiZXhwIjoxNjYyMTIyMzg4LCJ1c2VybmFtZSI6IjEyMzQ1QGhhbm1haWwubmV0In0.oDWBk5yhmDk3jNWrRk3bSK5ncp9qOvdWUEiJe-_0_Bl_Ce30QiUVNJFbXYQ84oF6zTKPHWW7I8_SUTiBMTKDRQ',
-      { path: '/' },
-    )
-  }, [])
+  // const cookies = new Cookies()
+  // useEffect(() => {
+  //   cookies.set(
+  //     'accessToken',
+  //     'image.png',
+  //     { path: '/' },
+  //   )
+  // }, [])
   const [isActive, setIsActive] = useFilter()
   const { data: products, isLoading, isError } = useGetProductsQuery()
   const navigate = useNavigate()

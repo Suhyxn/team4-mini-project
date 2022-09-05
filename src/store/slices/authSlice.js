@@ -10,17 +10,15 @@ const authSlice = createSlice({
   reducers: {
     //토큰저장
     setCredentials: (state, action) => {
-      // const { accessToken } = action.payload
-      // cookies.set(ACCESSTOKEN, accessToken, { path: '/' })
-      cookies.set(
-        ACCESSTOKEN,
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMjM0NUBoYW5tYWlsLm5ldCIsImlkIjoxNCwiZXhwIjoxNjYyMTIyMzg4LCJ1c2VybmFtZSI6IjEyMzQ1QGhhbm1haWwubmV0In0.oDWBk5yhmDk3jNWrRk3bSK5ncp9qOvdWUEiJe-_0_Bl_Ce30QiUVNJFbXYQ84oF6zTKPHWW7I8_SUTiBMTKDRQ',
-        { path: '/' },
-      )
+      const { accessToken } = action.payload
+      console.log('accessToken 저장저장', accessToken)
+      cookies.set(ACCESSTOKEN, accessToken, { path: '/' })
+      state.token = accessToken
     },
     //로그아웃(토큰삭제)
     logOut: (state, action) => {
       cookies.remove(ACCESSTOKEN)
+      state.token = null
     },
   },
 })
