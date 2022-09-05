@@ -10,7 +10,7 @@ export const authApi = createApi({
     //로그인하기
     login: builder.mutation({
       query: (credentials) => {
-        console.log('credentials', credentials)
+        console.log('동기적1?', credentials)
         return {
           url: '/login',
           method: 'POST',
