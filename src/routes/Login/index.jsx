@@ -9,6 +9,7 @@ import {
 } from '~/store/slices/authApiSlice'
 import { useNavigate } from 'react-router'
 import { Cookies } from 'react-cookie'
+import { setCredentials } from '../../store/slices/authSlice'
 import useInputValue from '../../components/Hook/useInputValue'
 
 function Login() {
@@ -28,14 +29,8 @@ function Login() {
     // 호출 api
     try {
       const userData = await login({ username: id, password: pwd })
-      console.log('userData111', userData)
-      console.log('userData222')
-      console.log('userData333', { ...userData })
-      // console.log('userData', userData)
-      // dispatch(setCredentials(userData['data']['accessToken']))
-      dispatch(setCredentials({ accessToken: '뭐지?' }))
-
-      // navigate('../recommened')
+      dispatch(setCredentials(userData['data']))
+      navigate('../recommened')
     } catch (error) {
       // if (!error?.originalStatus) {
       //   // isLoading: true until timeout occurs
