@@ -13,6 +13,12 @@ export const orderApi = createApi({
         body: data,
       }),
     }),
+    deleteOrder: builder.mutation({
+      query: ({ id }) => ({
+        url: `orders/${id}`,
+        metohd: 'DELETE',
+      }),
+    }),
   }),
 })
 

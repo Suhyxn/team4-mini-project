@@ -2,31 +2,51 @@ import React from 'react'
 import Button from '../../components/common/Button'
 import * as S from './style'
 import { useAddLoanToCartMutation } from '../../store/slices/cartApiSlice'
+import Loader from '../../components/layout/Loader'
+import { useNavigate, useParams } from 'react-router-dom'
+import { AiOutlineArrowLeft } from 'react-icons/ai'
+import { useGetLoanDetailQuery } from '../../store/slices/productApiSlice'
 
 function LoanDetail() {
-  const data = {
-    loanId: 1,
-    productType: '대출',
-    loanName: '신한대출',
-    loanCompany: '신한',
-    creditLine: '2000',
-    rate: '2.8 10.2',
-    primeRate: false,
-    period: 3,
-    loanLine: '50 90',
-    tag: '주부 모바일 1금융권',
-    img: 'https://www.banksalad.com/_next/image?url=https%3A%2F%2Fcdn.banksalad.com%2Fgraphic%2Fcolor%2Flogo%2Fcircle%2Fkyobo.png&w=96&q=75',
+  const params = useParams()
+  const navigate = useNavigate()
+
+  const { data, isLoading, isError } = useGetLoanDetailQuery(params.id)
+
+  if (isLoading) {
+    return <Loader />
   }
 
-  const [addLoanCart] = useAddLoanToCartMutation()
+  if (isError || !data) {
+    return <div>오류발생!</div>
+  }
+
+  // const data = {
+  //   loanId: 1,
+  //   productType: '대출',
+  //   loanName: '신한대출',
+  //   loanCompany: '신한',
+  //   creditLine: '2000',
+  //   rate: '2.8 10.2',
+  //   primeRate: false,
+  //   period: 3,
+  //   loanLine: '50 90',
+  //   tag: '주부 모바일 1금융권',
+  //   img: 'https://www.banksalad.com/_next/image?url=https%3A%2F%2Fcdn.banksalad.com%2Fgraphic%2Fcolor%2Flogo%2Fcircle%2Fkyobo.png&w=96&q=75',
+  // }
+
+  // const [addLoanCart] = useAddLoanToCartMutation()
 
   const submitHandler = () => {
     addLoanCart({
-      loan_id: data.loanId,
+      loanId: data.loanId,
     })
   }
   return (
     <>
+      <S.Header>
+        <AiOutlineArrowLeft size="30" onClick={() => navigate(-1)} />
+      </S.Header>
       <S.LoanImage src={data.img} alt="loan" />
       <S.LoanTitle>{data.loanCompany}</S.LoanTitle>
       <S.LoanSubTitle>{data.loanName}</S.LoanSubTitle>
@@ -59,10 +79,12 @@ function LoanDetail() {
           <div>이자부과시기</div>
         </div>
         <div className="content">
-          <div>10.4%~19.9%</div>
+          <div>
+            {data.rate.split(' ')[0]}% ~ {data.rate.split(' ')[1]}
+          </div>
           <div>없음</div>
-          <div>200만원 ~ 5,000만원</div>
-          <div>1년 ~ 5년</div>
+          <div>200만원 ~ {data.creditLine} 만원</div>
+          <div>1년 ~ {data.period}</div>
           <div>고정 금리</div>
           <div>원리금균등분할상환</div>
           <div>모바일 앱, TM센터</div>

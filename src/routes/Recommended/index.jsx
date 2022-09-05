@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useGetRecommendQuery } from '../../store/slices/userApiSlice'
 import * as S from './style'
 import useFilter from '../../components/Hook/useFilter'
 import IfTab from '../../components/template/IfTab'
 import Filter from '../../components/common/Filter'
 import CountdownTimer from './Timer/countdownTimer'
+import Loader from '../../components/layout/Loader'
 
 function Recommended() {
   const [isActive, setIsActive] = useFilter()
@@ -15,7 +16,11 @@ function Recommended() {
   const dateTimeAfterOneDays = NOW_IN_MS + ONE_DAYS_IN_MS
 
   if (isLoading) {
-    return <div>로딩중...</div>
+    return (
+      <div>
+        <Loader />
+      </div>
+    )
   }
 
   if (isError || !recommends) {

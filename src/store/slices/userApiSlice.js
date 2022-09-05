@@ -6,19 +6,38 @@ import { baseQuery } from '../apis/baseQuery'
 
 export const userApi = createApi({
   reducerPath: 'userApi',
-  //토큰있을때 삭제
-  baseQuery: fetchBaseQuery({ baseUrl: VITE_BASE_URL }),
-  //토큰있을때 주석 풀기
-  // baseQuery,
+  baseQuery,
   endpoints: (builder) => ({
-    //카드 상품 불러오기
+    //로그아웃
+    doLogout: builder.query({
+      query: () => '/do-logout',
+    }),
+    //마이페이지
     getMypage: builder.query({
-      query: () => '/mypage',
+      query: () => '/members/my-page',
+    }),
+    //회원정보 가져오기
+    getUser: builder.query({
+      query: () => `/members/edit`,
+    }),
+    //회원정보 수정
+    putUser: builder.mutation({
+      query: (data) => ({
+        url: `/members/edit`,
+        method: 'PUT',
+        body: data,
+      }),
     }),
     getRecommend: builder.query({
-      query: () => '/recommended',
+      query: () => '/members/recommendation',
     }),
   }),
 })
 
-export const { useGetMypageQuery, useGetRecommendQuery } = userApi
+export const {
+  useGetMypageQuery,
+  useDoLogoutQuery,
+  useGetRecommendQuery,
+  useGetUserQuery,
+  usePutUserMutation,
+} = userApi
