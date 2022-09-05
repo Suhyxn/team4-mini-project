@@ -10,3 +10,11 @@ export const hobby = [
   '운동',
 ]
 export const house = ['Y', 'N']
+export const income = [
+  '1000 이하',
+  '2000 이하',
+  '3000 이하',
+  '5000 이하',
+  '7000 이하',
+  '9000 이하',
+]

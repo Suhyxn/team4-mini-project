@@ -18,6 +18,7 @@ import RequireAuth from './components/template/RequireAuth'
 import GotoTop from './components/common/GoToTop'
 import Filter from './components/common/Filter'
 import Search from './routes/Search'
+import Additional from './components/template/Additional'
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />}></Route>
+          <Route path="/additional" element={<Additional />} />
           <Route path="/search" element={<Search />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/mypage" element={<MyPage />} />
