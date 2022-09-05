@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as S from './style'
 import { BsSearch } from 'react-icons/bs'
@@ -8,7 +7,17 @@ import useFilter from '../../components/Hook/useFilter'
 import { useGetProductsQuery } from '../../store/slices/productApiSlice'
 import Loader from '../../components/layout/Loader'
 
+import { Cookies } from 'react-cookie'
+
 function Home() {
+  // const cookies = new Cookies()
+  // useEffect(() => {
+  //   cookies.set(
+  //     'accessToken',
+  //     'image.png',
+  //     { path: '/' },
+  //   )
+  // }, [])
   const [isActive, setIsActive] = useFilter()
   const { data: products, isLoading, isError } = useGetProductsQuery()
   const navigate = useNavigate()
