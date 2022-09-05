@@ -22,18 +22,15 @@ function Login() {
   const [errMsg, setErrMsg] = useState('')
   const [userData, setUserData] = useState(null)
 
-  // let [isActive, setIsActive] = useState(false)
   const onClickHandler = async () => {
     const { id, pwd } = userInput
 
-    // 호출 api
     try {
       const userData = await login({ username: id, password: pwd })
       dispatch(setCredentials(userData['data']))
-      navigate('../recommened')
+      navigate('../favorites')
     } catch (error) {
       if (!error?.originalStatus) {
-        // isLoading: true until timeout occurs
         setErrMsg('No Server Response')
         return console.log('No Server Response')
       } else if (error.originalStatus === 400) {

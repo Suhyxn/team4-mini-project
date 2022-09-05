@@ -18,17 +18,21 @@ export const AddFormContext = createContext({
 })
 
 function Additional() {
-  const { state: formData } = useLocation()
+  const { state: userData } = useLocation()
   const [addInfo, setAddInfo] = useState(initialAddInfo)
   // const [userInfo, setUserInfo] = useState({})
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(addInfo)
-    const userInfo = { ...formData, ...addInfo }
-    // console.log({ ...formData, ...addInfo })
-    // setUserInfo(...formData, ...addInfo)
-    console.log(userInfo)
+    const userInfo = {
+      ...userData,
+      gender: addInfo.gender,
+      age: addInfo.age,
+      job: addInfo.job,
+      income: addInfo.income.slice(0, 4),
+      hobby: addInfo.hobby,
+      house: addInfo.house === 'Y' ? true : false,
+    }
   }
 
   return (
