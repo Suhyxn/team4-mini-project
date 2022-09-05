@@ -9,39 +9,11 @@ import {
 } from '~/store/slices/authApiSlice'
 import { useNavigate } from 'react-router'
 import { Cookies } from 'react-cookie'
+import useInputValue from '../../components/Hook/useInputValue'
 
 function Login() {
-  let [active, setActive] = useState({
-    name: false,
-    id: false,
-    pwd: false,
-  })
-  const [userInput, setUserInput] = useState({
-    name: '',
-    id: '',
-    pwd: '',
-  })
-
-  const inputHandler = (e) => {
-    const { name } = e.target
-
-    setActive({
-      ...active,
-      [name]: true,
-    })
-  }
-  const inputBlurHandler = (name) => {
-    setActive({
-      ...active,
-      [name]: false,
-    })
-  }
-
-  const onUserInputChange = (e) => {
-    const { name, value } = e.target
-    setUserInput({ ...userInput, [name]: value })
-  }
-
+  const [active, userInput, inputHandler, inputBlurHandler, onUserInputChange] =
+    useInputValue()
   const cookies = new Cookies()
   const [login, { isLoading }] = useLoginMutation()
   const dispatch = useDispatch()
