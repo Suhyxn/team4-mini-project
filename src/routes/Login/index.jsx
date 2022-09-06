@@ -9,8 +9,12 @@ import {
 } from '~/store/slices/authApiSlice'
 import { useNavigate } from 'react-router'
 import { Cookies } from 'react-cookie'
+import { setCredentials } from '../../store/slices/authSlice'
+import useInputValue from '../../components/Hook/useInputValue'
 
 function Login() {
+  const [active, userInput, inputHandler, inputBlurHandler, onUserInputChange] =
+    useInputValue()
   const cookies = new Cookies()
   const [login, { isLoading }] = useLoginMutation()
   const dispatch = useDispatch()
@@ -18,21 +22,17 @@ function Login() {
   const [errMsg, setErrMsg] = useState('')
   const [userData, setUserData] = useState(null)
 
-  let [isActive, setIsActive] = useState(false)
-  const submitHandler = async (text) => {
-    console.log('test', text) //id, pwd
-    const { id, pwd } = text
-    console.log('hhhhh', text, id, pwd)
-    //호출 api
+  const onClickHandler = async () => {
+    const { id, pwd } = userInput
+
     try {
       const userData = await login({ username: id, password: pwd })
-      // console.log('userData', userData)
-      dispatch(setCredentials({ ...userData }))
-      navigate('../recommened')
+      dispatch(setCredentials(userData['data']))
+      navigate('../favorites')
     } catch (error) {
       if (!error?.originalStatus) {
-        // isLoading: true until timeout occurs
         setErrMsg('No Server Response')
+        return console.log('No Server Response')
       } else if (error.originalStatus === 400) {
         setErrMsg('Missing Username or Password')
       } else if (error.originalStatus === 401) {
@@ -41,9 +41,6 @@ function Login() {
         setErrMsg('Login Failed')
       }
     }
-  }
-  const onClickHandler = () => {
-    setIsActive(true)
   }
 
   return (
@@ -59,8 +56,11 @@ function Login() {
               <S.Title>로그인 한 번이면 간편하게!</S.Title>
               <CustomInput
                 disabled="disabled"
-                propFunction={submitHandler}
-                isActive={isActive}
+                active={active}
+                userInput={userInput}
+                inputBlurHandler={inputBlurHandler}
+                inputHandler={inputHandler}
+                onUserInputChange={onUserInputChange}
               />
               <S.BtnBox>
                 <Button size="medium" onClick={onClickHandler}>
@@ -68,8 +68,8 @@ function Login() {
                 </Button>
                 <Button
                   size="medium"
-                  disabled={isActive}
-                  onClick={() => navigate('/SignUp')}
+                  disabled={active}
+                  onClick={() => navigate('/signup')}
                 >
                   회원가입
                 </Button>

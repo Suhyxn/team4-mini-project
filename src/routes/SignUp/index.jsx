@@ -7,6 +7,7 @@ import { Outlet } from 'react-router-dom'
 const initialFormData = {
   id: '',
   pw: '',
+  name: '',
   confirmPw: '',
 }
 

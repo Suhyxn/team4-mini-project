@@ -11,9 +11,8 @@ const authSlice = createSlice({
     //토큰저장
     setCredentials: (state, action) => {
       const { accessToken } = action.payload
-      console.log('accessToken 저장저장', accessToken)
-      cookies.set(ACCESSTOKEN, accessToken, { path: '/' })
       state.token = accessToken
+      cookies.set(ACCESSTOKEN, accessToken.slice(7))
     },
     //로그아웃(토큰삭제)
     logOut: (state, action) => {

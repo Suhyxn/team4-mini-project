@@ -5,9 +5,10 @@ import Button from '../../common/Button'
 import * as S from './style'
 
 const initialErrorData = {
-  id: '',
-  pw: '',
-  confirmPw: '',
+  id: null,
+  name: null,
+  pw: null,
+  confirmPw: null,
 }
 
 const SignUpForm = ({ modalRef }) => {
@@ -16,10 +17,10 @@ const SignUpForm = ({ modalRef }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
+    console.log(errorData)
+
     const isValid = Object.values(errorData).every((value) => value === true)
     isValid && modalRef.current.showModal()
-
-    console.log(formData)
   }
 
   return (
@@ -32,6 +33,17 @@ const SignUpForm = ({ modalRef }) => {
         inputProps={{
           type: 'text',
           placeholder: '아이디를 입력해주세요.',
+          // autoFocus: true,
+        }}
+      />
+      <SignUpFormInput
+        id={'name'}
+        label={'이름'}
+        errorData={errorData}
+        setErrorData={setErrorData}
+        inputProps={{
+          type: 'text',
+          placeholder: '이름을 입력해주세요.',
           // autoFocus: true,
         }}
       />

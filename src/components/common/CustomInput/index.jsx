@@ -1,41 +1,18 @@
-import React, { forwardRef, useState } from 'react'
+import React, { useState } from 'react'
 import * as S from './style'
 import { BiXCircle } from 'react-icons/bi'
 
-const CustomInput = forwardRef(({ disabled, propFunction, isActive }, ref) => {
-  let [active, setActive] = useState({
-    name: false,
-    id: false,
-    pwd: false,
-  })
-  const [userInput, setUserInput] = useState({
-    name: '',
-    id: '',
-    pwd: '',
-  })
-
-  const inputHandler = (e) => {
-    const { name } = e.target
-
-    setActive({
-      ...active,
-      [name]: true,
-    })
-  }
-  const inputBlurHandler = (name) => {
-    setActive({
-      ...active,
-      [name]: false,
-    })
-  }
-
-  const onUserInputChange = (e) => {
-    const { name, value } = e.target
-    setUserInput({ ...userInput, [name]: value })
-  }
-
-  isActive && propFunction(userInput)
-
+const CustomInput = (
+  {
+    disabled,
+    active,
+    userInput,
+    inputHandler,
+    inputBlurHandler,
+    onUserInputChange,
+  },
+  ref,
+) => {
   return (
     <div>
       <S.Container disabled={disabled}>
@@ -104,6 +81,6 @@ const CustomInput = forwardRef(({ disabled, propFunction, isActive }, ref) => {
       </S.Container>
     </div>
   )
-})
+}
 
 export default CustomInput

@@ -11,7 +11,13 @@ const SignUpModal = forwardRef((props, ref) => {
     ref.current.close()
 
     if (type === 'approve') {
-      navigate('/additional', { state: formData })
+      console.log('hhhere', formData)
+      let userData = {
+        username: formData.id,
+        name: formData.name,
+        password: formData.pw,
+      }
+      navigate('/additional', { state: userData })
     }
   }
 
