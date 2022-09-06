@@ -6,16 +6,8 @@ import {
 import * as S from './style'
 
 function Badge() {
-  const {
-    data: cards,
-    isLoading: cardLoding,
-    isError: cardError,
-  } = useGetCardCartQuery()
-  const {
-    data: loans,
-    isLoading: loanLoding,
-    isError: loanError,
-  } = useGetLoanCartQuery()
+  const { data: cards } = useGetCardCartQuery()
+  const { data: loans } = useGetLoanCartQuery()
 
   return (
     <S.Badge>

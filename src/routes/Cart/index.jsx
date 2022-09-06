@@ -11,6 +11,9 @@ import Button from '../../components/common/Button'
 import * as S from './style'
 
 function Cart() {
+  const { arr, setArr } = useState([])
+  const [createOrder] = useCreateOrderMutation()
+
   const {
     data: cards,
     isLoading: cardLoding,
@@ -32,8 +35,6 @@ function Cart() {
 
   console.log('carts/card', cards.length)
   console.log('carts/loan', loans.length)
-  const { arr, setArr } = useState([])
-  const [createOrder] = useCreateOrderMutation()
   const checkedHandler = (e, id) => {
     if (!e.target.parentNode.previousSibling.checked && !arr.includes(id)) {
       setArr([...arr, id])
@@ -47,13 +48,13 @@ function Cart() {
   return (
     <div>
       <S.Title>
-        <span>{cards.cardList.length + loans.loanList.length}개</span>의 상품이
-        신청을 기다려요.
+        <span>{cards?.cardList?.length + loans?.loanList?.length}개</span>의
+        상품이 신청을 기다려요.
       </S.Title>
 
       <div>
         <S.CardContainer>
-          {cards.cardList?.map((item) => (
+          {cards?.cardList?.map((item) => (
             <S.Container key={item.cardId}>
               <S.CardCheckInput type="checkbox" id={`card-${item.cardId}`} />
               <S.CardLabel
@@ -67,7 +68,7 @@ function Cart() {
           ))}
         </S.CardContainer>
         <S.CardContainer>
-          {loans.loanList?.map((item) => (
+          {loans?.loanList?.map((item) => (
             <S.Container key={item.loanId}>
               <S.CardCheckInput type="checkbox" id={`loan-${item.loanId}`} />
               <S.CardLabel
