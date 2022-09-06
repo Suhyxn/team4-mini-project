@@ -16,11 +16,14 @@ export const cartApi = createApi({
       query: () => 'carts/loan',
     }),
     addCardToCart: builder.mutation({
-      query: ({ data }) => ({
-        url: 'carts/card',
-        method: 'POST',
-        body: data,
-      }),
+      query: ({ data }) => {
+        console.log(data)
+        return {
+          url: 'carts/card',
+          method: 'POST',
+          body: { card_id: data },
+        }
+      },
     }),
     addLoanToCart: builder.mutation({
       query: ({ data }) => ({

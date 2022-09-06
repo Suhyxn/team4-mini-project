@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react'
 import { FormContext } from '../../../routes/SignUp'
+import { useGetIsduplicateQuery } from '../../../store/slices/authApiSlice'
 import SignUpFormInput from '../SignUpFormInput'
 import Button from '../../common/Button'
 import * as S from './style'

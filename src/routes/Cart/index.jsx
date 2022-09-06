@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
-import {
-  useGetCardCartQuery,
-  useGetLoanCartQuery,
-} from '../../store/slices/cartApiSlice'
+import { useGetCardCartQuery } from '../../store/slices/cartApiSlice'
 import { useCreateOrderMutation } from '../../store/slices/orderApiSlice'
 import Card from '../../components/common/Card'
-import Loan from '../../components/common/Loan'
 import Loader from '../../components/layout/Loader'
 import Button from '../../components/common/Button'
 import * as S from './style'
@@ -16,11 +12,6 @@ function Cart() {
     isLoading: cardLoding,
     isError: cardError,
   } = useGetCardCartQuery()
-  const {
-    data: loans,
-    isLoading: loanLoding,
-    isError: loanError,
-  } = useGetLoanCartQuery()
 
   const arr = []
   const [createOrder] = useCreateOrderMutation()
@@ -34,11 +25,11 @@ function Cart() {
     createOrder(arr)
   }
 
-  if (cardLoding || loanLoding) {
+  if (cardLoding) {
     return <Loader />
   }
 
-  if (cardError || loanError || !cards || !loans) {
+  if (cardError || !cards) {
     return <div>오류발생!</div>
   }
 
@@ -58,20 +49,6 @@ function Cart() {
                 <S.CardCheckBox />
               </S.CardLabel>
               <Card item={item} />
-            </S.Container>
-          ))}
-        </S.CardContainer>
-        <S.CardContainer>
-          {loans.loanList?.map((item) => (
-            <S.Container key={item.loanId}>
-              <S.CardCheckInput type="checkbox" id={`loan-${item.loanId}`} />
-              <S.CardLabel
-                htmlFor={`loan-${item.loanId}`}
-                onClick={(e) => checkedHandler(e, `loadId: ${item.loanId}`)}
-              >
-                <S.CardCheckBox />
-              </S.CardLabel>
-              <Loan item={item} />
             </S.Container>
           ))}
         </S.CardContainer>

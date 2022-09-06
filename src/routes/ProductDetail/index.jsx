@@ -19,9 +19,14 @@ function ProductDetail() {
   const { data, isLoading, isError } = useGetCardDetailQuery(params.id)
 
   const submitHandler = () => {
-    addCardToCart({
-      carIid: data.cardId,
-    })
+    try {
+      addCardToCart({
+        data: data.cardId,
+      })
+      alert('장바구니에 상품이 담겼습니다.')
+    } catch (error) {
+      alert(error)
+    }
   }
 
   if (isLoading) {

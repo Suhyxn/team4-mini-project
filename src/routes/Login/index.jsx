@@ -66,11 +66,7 @@ function Login() {
                 <Button size="medium" onClick={onClickHandler}>
                   로그인
                 </Button>
-                <Button
-                  size="medium"
-                  disabled={active}
-                  onClick={() => navigate('/signup')}
-                >
+                <Button size="medium" onClick={() => navigate('/signup')}>
                   회원가입
                 </Button>
               </S.BtnBox>
