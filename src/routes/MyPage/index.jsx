@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router'
 import { useGetMypageQuery } from '../../store/slices/userApiSlice'
 import * as S from './style'
 import Button from '../../components/common/Button'
@@ -11,7 +12,8 @@ import { useDoLogoutQuery } from '../../store/slices/userApiSlice'
 
 function MyPage() {
   const { data: items, isLoading, isError } = useGetMypageQuery()
-
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   if (isLoading) {
     return <Loader />
   }
@@ -20,38 +22,12 @@ function MyPage() {
     return <div>오류발생!</div>
   }
 
-  // const result = items.true.reduce((acc, cur) => {
-  //   if (cur.productType) {
-  //     return <Card item={cur} key={cur.cardId} />
-  //   } else {
-  //     return <Loan item={cur} key={cur.loanId} />
-  //   }
-  // }, [])
-
-  // console.log(items.true.map((item) => {
-  //   item.hasOwnProperty === '카드' ? <Card item={item} key={cur.cardId} /> : <Loan item={item} key={cur.loanId} />
-  // })
-
-  // const [logoutquery, { isLogooutLoading }] = useDoLogoutQuery()
-  // // const { member, orders } = mypages
-
-  // const logOutHandler = async (e) => {
-  //   e.preventDefault()
-  //   try {
-  //     const isLogout = await logoutquery()
-  //     if (isLogooutLoading) {
-  //       return <Loader />
-  //     } else {
-  //       isLogout && dispatch(logOut())
-  //     }
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
-  // const filterCardItems = items?.items.true.filter((item) => item.productType === '카드')
-  // const filterLoanItems = items?.items.true.filter((item) => item.productType === '대출')
-  // const filterLoanItems = items?.items.true.filter((item) => item.productType === '대출')
+  const logOutHandler = async (e) => {
+    e.preventDefault()
+    dispatch(logOut())
+    window.alert('로그아웃이 되었습니다')
+    navigate('/product')
+  }
 
   return (
     <>
@@ -67,33 +43,27 @@ function MyPage() {
         </S.subBox>
         <div>
           {items.true.map((item) =>
-            item.hasOwnProperty === '카드' ? (
+            item.productType === '카드' ? (
               <Card item={item} key={item.cardId} />
             ) : (
               <Loan item={item} key={item.loanId} />
             ),
           )}
         </div>
-        {/* <div>
-          {filterLoanItems.map((item) => (
-            <Card item={item} key={item.cardId} />
-          ))}
-        </div>
         <S.subBox>신청 완료 상품</S.subBox>
         <div>
-          {loans?.loanList?.map((item) => (
-            <Loan item={item} key={item.loanId} />
-          ))}
-        </div> */}
-        {/* <div>
-          {cards?.cardList?.map((item) => (
-            <Card item={item} key={item.cardId} />
-          ))}
-        </div> */}
+          {items.false.map((item) =>
+            item.productType === '카드' ? (
+              <Card item={item} key={item.cardId} />
+            ) : (
+              <Loan item={item} key={item.loanId} />
+            ),
+          )}
+        </div>
       </S.ContentContainer>
-      {/* <Button size="smaill" className="btn" onClick={logOutHandler}>
+      <Button size="smaill" className="btn" onClick={logOutHandler}>
         로그아웃
-      </Button> */}
+      </Button>
     </>
   )
 }
