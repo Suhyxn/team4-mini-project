@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import { useGetCartQuery } from '../../store/slices/cartApiSlice'
+import {
+  useGetCardCartQuery,
+  useGetLoanCartQuery,
+} from '../../store/slices/cartApiSlice'
 import { useCreateOrderMutation } from '../../store/slices/orderApiSlice'
 import Card from '../../components/common/Card'
 import Loan from '../../components/common/Loan'
@@ -8,7 +11,24 @@ import Button from '../../components/common/Button'
 import * as S from './style'
 
 function Cart() {
-  const { data: carts, isLoading, isError } = useGetCartQuery()
+  const {
+    data: cards,
+    isLoading: cardLoding,
+    isError: cardError,
+  } = useGetCardCartQuery()
+  const {
+    data: loans,
+    isLoading: loanLoding,
+    isError: loanError,
+  } = useGetLoanCartQuery()
+
+  if (cardLoding || loanLoding) {
+    return <Loader />
+  }
+
+  if (cardError || loanError || !cards || !loans) {
+    return <div>오류발생!</div>
+  }
   const arr = []
   const [createOrder] = useCreateOrderMutation()
   const checkedHandler = (e, id) => {
@@ -19,18 +39,6 @@ function Cart() {
 
   const createOrderHandler = () => {
     createOrder(arr)
-  }
-
-  if (isLoading) {
-    return (
-      <div>
-        <Loader />
-      </div>
-    )
-  }
-
-  if (isError || !carts) {
-    return <div>오류발생!</div>
   }
 
   return (
