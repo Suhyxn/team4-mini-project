@@ -30,16 +30,17 @@ function Login() {
       dispatch(setCredentials(userData['data']))
       navigate('../favorites')
     } catch (error) {
-      if (!error?.originalStatus) {
-        setErrMsg('No Server Response')
-        return console.log('No Server Response')
-      } else if (error.originalStatus === 400) {
-        setErrMsg('Missing Username or Password')
-      } else if (error.originalStatus === 401) {
-        setErrMsg('Unauthorized')
-      } else {
-        setErrMsg('Login Failed')
-      }
+      // if (!error?.originalStatus) {
+      //   setErrMsg('No Server Response')
+      //   return console.log('No Server Response')
+      // } else if (error.originalStatus === 400) {
+      //   setErrMsg('Missing Username or Password')
+      // } else if (error.originalStatus === 401) {
+      //   setErrMsg('Unauthorized')
+      // } else {
+      //   setErrMsg('Login Failed')
+      // }
+      console.log('error발생')
     }
   }
 
