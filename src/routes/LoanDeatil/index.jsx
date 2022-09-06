@@ -80,7 +80,7 @@ function LoanDetail() {
         </div>
         <div className="content">
           <div>
-            {data.rate.split(' ')[0]}% ~ {data.rate.split(' ')[1]}
+            {data.rate?.split(' ')[0]}% ~ {data.rate?.split(' ')[1]}
           </div>
           <div>없음</div>
           <div>200만원 ~ {data.creditLine} 만원</div>

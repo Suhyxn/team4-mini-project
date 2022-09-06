@@ -12,7 +12,6 @@ export const cartApi = createApi({
     getCardCart: builder.query({
       query: () => 'carts/card',
     }),
-    //론상품 불러오기
     getLoanCart: builder.query({
       query: () => 'carts/loan',
     }),

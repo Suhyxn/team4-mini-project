@@ -29,6 +29,7 @@ function Cart() {
   if (cardError || loanError || !cards || !loans) {
     return <div>오류발생!</div>
   }
+
   console.log('carts/card', cards.length)
   console.log('carts/loan', loans.length)
   const { arr, setArr } = useState([])
@@ -52,7 +53,7 @@ function Cart() {
 
       <div>
         <S.CardContainer>
-          {cards.cardList.map((item) => (
+          {cards.cardList?.map((item) => (
             <S.Container key={item.cardId}>
               <S.CardCheckInput type="checkbox" id={`card-${item.cardId}`} />
               <S.CardLabel
@@ -66,7 +67,7 @@ function Cart() {
           ))}
         </S.CardContainer>
         <S.CardContainer>
-          {loans.loanList.map((item) => (
+          {loans.loanList?.map((item) => (
             <S.Container key={item.loanId}>
               <S.CardCheckInput type="checkbox" id={`loan-${item.loanId}`} />
               <S.CardLabel
