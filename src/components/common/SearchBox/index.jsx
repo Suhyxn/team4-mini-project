@@ -18,7 +18,6 @@ function SearchBox({ data }) {
     return <div>찾는 데이터가 없습니다.</div>
   }
 
-  console.log('here', data.productType)
   return (
     <div>
       {searchData.productType === 'loan'

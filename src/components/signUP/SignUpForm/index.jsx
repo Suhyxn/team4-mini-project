@@ -17,8 +17,6 @@ const SignUpForm = ({ modalRef }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    console.log(errorData)
-
     const isValid = Object.values(errorData).every((value) => value === true)
     isValid && modalRef.current.showModal()
   }
