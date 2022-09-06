@@ -9,7 +9,7 @@ import {
 
 function Loan({ item }) {
   const tags = ['중도상환수수료 없음', '무서류', '모바일', '직장인', '2금융권']
-  console.log('items', item)
+  console.log('loan-items', item)
   const {
     img: imageURL,
     loanCompany: bank,

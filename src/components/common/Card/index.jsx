@@ -8,6 +8,7 @@ import {
 } from '../../../store/slices/favoriteApiSlice'
 
 function Card({ item }) {
+  console.log('card-items', item)
   const {
     img: imageName,
     cardCompany: bank,
