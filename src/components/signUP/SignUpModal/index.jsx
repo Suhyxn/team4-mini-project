@@ -11,7 +11,6 @@ const SignUpModal = forwardRef((props, ref) => {
     ref.current.close()
 
     if (type === 'approve') {
-      console.log('hhhere', formData)
       let userData = {
         username: formData.id,
         name: formData.name,

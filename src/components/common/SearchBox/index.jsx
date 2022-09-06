@@ -20,9 +20,9 @@ function SearchBox({ data }) {
 
   return (
     <div>
-      {data?.productType === 'card'
-        ? searchData.map((item) => <Card item={item} key={item.cardId} />)
-        : searchData.map((item) => <Loan item={item} key={item.loanId} />)}
+      {searchData.productType === 'loan'
+        ? searchData.map((item) => <Loan item={item} key={item.loanId} />)
+        : searchData.map((item) => <Card item={item} key={item.cardId} />)}
     </div>
   )
 }

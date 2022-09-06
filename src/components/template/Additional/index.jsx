@@ -39,7 +39,6 @@ function Additional() {
     try {
       register(userInfo)
     } catch (error) {
-      console.log(error)
     } finally {
       window.alert('가입이 정상적으로 진행되었습니다')
       navigation('../favorites')
