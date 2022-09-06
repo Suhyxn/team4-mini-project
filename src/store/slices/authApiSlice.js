@@ -1,27 +1,39 @@
-//로그인, 로그아웃,  토큰 무효화 체크
+//로그인, 아이디 중복검사, 회원가입
 const { VITE_BASE_URL } = import.meta.env
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const authApi = createApi({
   reducerPath: 'authApi',
-  baseQuery: fetchBaseQuery({ baseUrl: VITE_BASE_URL }),
+  //토큰 필요 없음
+  baseQuery: fetchBaseQuery({ baseUrl: `${VITE_BASE_URL}` }),
   endpoints: (builder) => ({
     //로그인하기
     login: builder.mutation({
-      query: (credentials) => ({
-        url: 'login',
-        method: 'POST',
-        body: { ...credentials },
-      }),
+      query: (credentials) => {
+        console.log(credentials, '로그인')
+        return {
+          url: '/login',
+          method: 'POST',
+          body: { ...credentials },
+        }
+      },
     }),
-    doLogout: builder.query({
-      query: () => 'do-logout',
-    }),
+    //아이디 중복검사
     getIsduplicate: builder.query({
-      query: (userName) => `duplicate?username=${userName}`,
+      query: (userName) => `/duplicate?username=${userName}`,
+    }),
+    //회원가입
+    register: builder.mutation({
+      query: (data) => {
+        return {
+          url: '/register',
+          method: 'POST',
+          body: data,
+        }
+      },
     }),
   }),
 })
 
-export const { useLoginMutation, useDoLogoutQuery, useGetIsduplicateQuery } =
+export const { useLoginMutation, useGetIsduplicateQuery, useRegisterMutation } =
   authApi

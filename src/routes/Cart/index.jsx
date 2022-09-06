@@ -35,11 +35,10 @@ function Cart() {
 
   return (
     <div>
-      <S.CartsTitleContainer>
-        <S.CartsTitle>
-          <S.TitleSpan>{carts.name}님</S.TitleSpan>의 장바구니
-        </S.CartsTitle>
-      </S.CartsTitleContainer>
+      <S.Title>
+        <span>{carts.name}님</span>의 장바구니
+      </S.Title>
+
       <div>
         <S.CardContainer>
           {carts.cardList.map((item) => (
@@ -71,7 +70,6 @@ function Cart() {
         </S.CardContainer>
       </div>
       <Button width="100%" height="5.2rem" onClick={createOrderHandler}>
-
         장바구니 신청
       </Button>
     </div>

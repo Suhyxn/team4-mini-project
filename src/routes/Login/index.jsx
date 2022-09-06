@@ -2,34 +2,84 @@ import { useState } from 'react'
 import * as S from './style'
 import CustomInput from '../../components/common/CustomInput'
 import Button from '../../components/common/Button'
+import { useDispatch } from 'react-redux'
+import {
+  useLoginMutation,
+  useGetIsduplicateQuery,
+} from '~/store/slices/authApiSlice'
+import { useNavigate } from 'react-router'
+import { Cookies } from 'react-cookie'
+import { setCredentials } from '../../store/slices/authSlice'
+import useInputValue from '../../components/Hook/useInputValue'
 
 function Login() {
-  let [isActive, setIsActive] = useState(false)
-  const submitHandler = (text) => {
-    console.log(text)
-    //호출 api
-  }
-  const onClickHandler = () => {
-    setIsActive(true)
+  const [active, userInput, inputHandler, inputBlurHandler, onUserInputChange] =
+    useInputValue()
+  const cookies = new Cookies()
+  const [login, { isLoading }] = useLoginMutation()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const [errMsg, setErrMsg] = useState('')
+  const [userData, setUserData] = useState(null)
+
+  const onClickHandler = async () => {
+    const { id, pwd } = userInput
+
+    try {
+      const userData = await login({ username: id, password: pwd })
+      dispatch(setCredentials(userData['data']))
+      navigate('../favorites')
+    } catch (error) {
+      // if (!error?.originalStatus) {
+      //   setErrMsg('No Server Response')
+      //   return console.log('No Server Response')
+      // } else if (error.originalStatus === 400) {
+      //   setErrMsg('Missing Username or Password')
+      // } else if (error.originalStatus === 401) {
+      //   setErrMsg('Unauthorized')
+      // } else {
+      //   setErrMsg('Login Failed')
+      // }
+      console.log('error발생')
+    }
   }
 
   return (
-    <S.Container>
-      <S.Title>로그인 한 번이면 간편하게!</S.Title>
-      <CustomInput
-        disabled="disabled"
-        propFunction={submitHandler}
-        isActive={isActive}
-      />
-      <S.BtnBox>
-        <Button size="medium" onClick={onClickHandler}>
-          로그인
-        </Button>
-        <Button size="medium" disabled={isActive}>
-          회원가입
-        </Button>
-      </S.BtnBox>
-    </S.Container>
+    <div>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <S.Container>
+          {errMsg ? (
+            <S.Title>{errMsg}</S.Title>
+          ) : (
+            <>
+              <S.Title>로그인 한 번이면 간편하게!</S.Title>
+              <CustomInput
+                disabled="disabled"
+                active={active}
+                userInput={userInput}
+                inputBlurHandler={inputBlurHandler}
+                inputHandler={inputHandler}
+                onUserInputChange={onUserInputChange}
+              />
+              <S.BtnBox>
+                <Button size="medium" onClick={onClickHandler}>
+                  로그인
+                </Button>
+                <Button
+                  size="medium"
+                  disabled={active}
+                  onClick={() => navigate('/signup')}
+                >
+                  회원가입
+                </Button>
+              </S.BtnBox>
+            </>
+          )}
+        </S.Container>
+      )}
+    </div>
   )
 }
 

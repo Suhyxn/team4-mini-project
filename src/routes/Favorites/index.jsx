@@ -1,25 +1,47 @@
 import Loader from '../../components/layout/Loader'
-import Filter from '../../components/common/Filter'
-import IfTab from '../../components/template/IfTab'
-import useFilter from '../../components/Hook/useFilter'
-import { useGetFavoritesQuery } from '../../store/slices/favoriteApiSlice'
+import Card from '../../components/common/Card'
+import Loan from '../../components/common/Loan'
+import {
+  useGetCardFavoritesQuery,
+  useGetLoanFavoritesQuery,
+} from '../../store/slices/favoriteApiSlice'
+import * as S from './style'
 
 function Favorites() {
-  const [isActive, setIsActive] = useFilter()
-  const { data: products, isLoading, isError } = useGetFavoritesQuery()
+  const {
+    data: cards,
+    isLoading: cardLoding,
+    isError: cardError,
+  } = useGetCardFavoritesQuery()
+  const {
+    data: loans,
+    isLoading: loanLoding,
+    isError: loanError,
+  } = useGetLoanFavoritesQuery()
 
-  if (isLoading) {
+  if (cardLoding || loanLoding) {
     return <Loader />
   }
 
-  if (isError || !products) {
+  if (cardError || loanError || !cards || !loans) {
     return <div>오류발생!</div>
   }
 
   return (
     <>
-      <Filter onFilterHandler={setIsActive} item={isActive} />
-      <IfTab tab={isActive} items={products} />
+      <S.Title>
+        <p>
+          <span>{items?.cardList.length + items?.loanList.length}</span>
+          개의 관심리스트가
+        </p>
+        <p>있습니다.</p>
+      </S.Title>
+      {items.loanList.map((item) => (
+        <Loan item={item} key={item.loanId} />
+      ))}
+      {items.cardList.map((item) => (
+        <Card item={item} key={item.cardId} />
+      ))}
     </>
   )
 }
