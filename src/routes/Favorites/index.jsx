@@ -31,15 +31,15 @@ function Favorites() {
     <>
       <S.Title>
         <p>
-          <span>{items?.cardList.length + items?.loanList.length}</span>
+          <span>{cards?.cardList?.length + loans?.loanList?.length}</span>
           개의 관심리스트가
         </p>
         <p>있습니다.</p>
       </S.Title>
-      {items.loanList.map((item) => (
+      {cards?.loanList?.map((item) => (
         <Loan item={item} key={item.loanId} />
       ))}
-      {items.cardList.map((item) => (
+      {loans.cardList?.map((item) => (
         <Card item={item} key={item.cardId} />
       ))}
     </>

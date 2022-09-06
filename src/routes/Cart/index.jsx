@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import { useGetCartQuery } from '../../store/slices/cartApiSlice'
+import {
+  useGetCardCartQuery,
+  useGetLoanCartQuery,
+} from '../../store/slices/cartApiSlice'
 import { useCreateOrderMutation } from '../../store/slices/orderApiSlice'
 import Card from '../../components/common/Card'
 import Loan from '../../components/common/Loan'
@@ -8,7 +11,17 @@ import Button from '../../components/common/Button'
 import * as S from './style'
 
 function Cart() {
-  const { data: carts, isLoading, isError } = useGetCartQuery()
+  const {
+    data: cards,
+    isLoading: cardLoding,
+    isError: cardError,
+  } = useGetCardCartQuery()
+  const {
+    data: loans,
+    isLoading: loanLoding,
+    isError: loanError,
+  } = useGetLoanCartQuery()
+
   const arr = []
   const [createOrder] = useCreateOrderMutation()
   const checkedHandler = (e, id) => {
@@ -21,27 +34,21 @@ function Cart() {
     createOrder(arr)
   }
 
-  if (isLoading) {
-    return (
-      <div>
-        <Loader />
-      </div>
-    )
+  if (cardLoding || loanLoding) {
+    return <Loader />
   }
 
-  if (isError || !carts) {
+  if (cardError || loanError || !cards || !loans) {
     return <div>오류발생!</div>
   }
 
   return (
     <div>
-      <S.Title>
-        <span>{carts.name}님</span>의 장바구니
-      </S.Title>
+      <S.Title>{/* <span>{carts.name}님</span>의 장바구니 */}</S.Title>
 
       <div>
         <S.CardContainer>
-          {carts.cardList.map((item) => (
+          {cards.cardList?.map((item) => (
             <S.Container key={item.cardId}>
               <S.CardCheckInput type="checkbox" id={`card-${item.cardId}`} />
               <S.CardLabel
@@ -55,7 +62,7 @@ function Cart() {
           ))}
         </S.CardContainer>
         <S.CardContainer>
-          {carts.loanList.map((item) => (
+          {loans.loanList?.map((item) => (
             <S.Container key={item.loanId}>
               <S.CardCheckInput type="checkbox" id={`loan-${item.loanId}`} />
               <S.CardLabel

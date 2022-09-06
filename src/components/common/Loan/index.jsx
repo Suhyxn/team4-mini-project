@@ -9,6 +9,7 @@ import {
 
 function Loan({ item }) {
   const tags = ['중도상환수수료 없음', '무서류', '모바일', '직장인', '2금융권']
+  console.log('items', item)
   const {
     img: imageURL,
     loanCompany: bank,
@@ -40,7 +41,7 @@ function Loan({ item }) {
           <S.Title>{bank}</S.Title>
           <S.SubTitle>{name}</S.SubTitle>
           <S.Rate>
-            {rates.split(' ')[0]}~{rates.split(' ')[1]}%
+            {rates?.split(' ')[0]}~{rates?.split(' ')[1]}%
           </S.Rate>
           <S.TagBox>
             {tags.map((tag, index) => (

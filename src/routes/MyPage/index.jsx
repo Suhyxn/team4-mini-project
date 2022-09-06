@@ -10,36 +10,53 @@ import { useDispatch } from 'react-redux'
 import { useDoLogoutQuery } from '../../store/slices/userApiSlice'
 
 function MyPage() {
-  const { data: mypages, isLoading, isError } = useGetMypageQuery()
-  const dispatch = useDispatch()
+  const { data: items, isLoading, isError } = useGetMypageQuery()
+
   if (isLoading) {
     return <Loader />
   }
 
-  if (isError || !mypages) {
+  if (isError || !items) {
     return <div>오류발생!</div>
   }
-  const [logoutquery, { isLogooutLoading }] = useDoLogoutQuery()
-  const { member, orders } = mypages
 
-  const logOutHandler = async (e) => {
-    e.preventDefault()
-    try {
-      const isLogout = await logoutquery()
-      if (isLogooutLoading) {
-        return <Loader />
-      } else {
-        isLogout && dispatch(logOut())
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const result = items.true.reduce((acc, cur) => {
+  //   if (cur.productType) {
+  //     return <Card item={cur} key={cur.cardId} />
+  //   } else {
+  //     return <Loan item={cur} key={cur.loanId} />
+  //   }
+  // }, [])
+
+  // console.log(items.true.map((item) => {
+  //   item.hasOwnProperty === '카드' ? <Card item={item} key={cur.cardId} /> : <Loan item={item} key={cur.loanId} />
+  // })
+
+  // const [logoutquery, { isLogooutLoading }] = useDoLogoutQuery()
+  // // const { member, orders } = mypages
+
+  // const logOutHandler = async (e) => {
+  //   e.preventDefault()
+  //   try {
+  //     const isLogout = await logoutquery()
+  //     if (isLogooutLoading) {
+  //       return <Loader />
+  //     } else {
+  //       isLogout && dispatch(logOut())
+  //     }
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
+  // const filterCardItems = items?.items.true.filter((item) => item.productType === '카드')
+  // const filterLoanItems = items?.items.true.filter((item) => item.productType === '대출')
+  // const filterLoanItems = items?.items.true.filter((item) => item.productType === '대출')
 
   return (
     <>
       <S.Title>
-        <span>{member.name}님</span>의 정보입니다.
+        <span>{items.userInfo}님</span>의 정보입니다.
       </S.Title>
       <S.ContentContainer>
         <S.subBox>
@@ -49,30 +66,34 @@ function MyPage() {
           </Button>
         </S.subBox>
         <div>
-          {orders.loanList.map((item) => (
-            <Loan item={item} key={item.loanId} />
-          ))}
+          {items.true.map((item) =>
+            item.hasOwnProperty === '카드' ? (
+              <Card item={item} key={item.cardId} />
+            ) : (
+              <Loan item={item} key={item.loanId} />
+            ),
+          )}
         </div>
-        <div>
-          {orders.cardList.map((item) => (
+        {/* <div>
+          {filterLoanItems.map((item) => (
             <Card item={item} key={item.cardId} />
           ))}
         </div>
         <S.subBox>신청 완료 상품</S.subBox>
         <div>
-          {orders.loanList.map((item) => (
+          {loans?.loanList?.map((item) => (
             <Loan item={item} key={item.loanId} />
           ))}
-        </div>
-        <div>
-          {orders.cardList.map((item) => (
+        </div> */}
+        {/* <div>
+          {cards?.cardList?.map((item) => (
             <Card item={item} key={item.cardId} />
           ))}
-        </div>
+        </div> */}
       </S.ContentContainer>
-      <Button size="smaill" className="btn" onClick={logOutHandler}>
+      {/* <Button size="smaill" className="btn" onClick={logOutHandler}>
         로그아웃
-      </Button>
+      </Button> */}
     </>
   )
 }
