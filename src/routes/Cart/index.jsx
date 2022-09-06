@@ -29,11 +29,13 @@ function Cart() {
   if (cardError || loanError || !cards || !loans) {
     return <div>오류발생!</div>
   }
-  const arr = []
+  console.log('carts/card', cards.length)
+  console.log('carts/loan', loans.length)
+  const { arr, setArr } = useState([])
   const [createOrder] = useCreateOrderMutation()
   const checkedHandler = (e, id) => {
     if (!e.target.parentNode.previousSibling.checked && !arr.includes(id)) {
-      arr.push(id)
+      setArr([...arr, id])
     }
   }
 
@@ -44,12 +46,13 @@ function Cart() {
   return (
     <div>
       <S.Title>
-        <span>{carts.name}님</span>의 장바구니
+        <span>{cards.cardList.length + loans.loanList.length}개</span>의 상품이
+        신청을 기다려요.
       </S.Title>
 
       <div>
         <S.CardContainer>
-          {carts.cardList.map((item) => (
+          {cards.cardList.map((item) => (
             <S.Container key={item.cardId}>
               <S.CardCheckInput type="checkbox" id={`card-${item.cardId}`} />
               <S.CardLabel
@@ -63,7 +66,7 @@ function Cart() {
           ))}
         </S.CardContainer>
         <S.CardContainer>
-          {carts.loanList.map((item) => (
+          {loans.loanList.map((item) => (
             <S.Container key={item.loanId}>
               <S.CardCheckInput type="checkbox" id={`loan-${item.loanId}`} />
               <S.CardLabel
