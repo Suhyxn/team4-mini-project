@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react'
 import { FormContext } from '../../../routes/SignUp'
+import { useGetIsduplicateQuery } from '../../../store/slices/authApiSlice'
 import SignUpFormInput from '../SignUpFormInput'
 import Button from '../../common/Button'
 import * as S from './style'
@@ -16,8 +17,6 @@ const SignUpForm = ({ modalRef }) => {
   const { formData } = useContext(FormContext)
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    console.log(errorData)
 
     const isValid = Object.values(errorData).every((value) => value === true)
     isValid && modalRef.current.showModal()

@@ -6,7 +6,7 @@ export const SignUpInputBox = styled.div`
   flex-direction: column;
   align-content: center;
   padding: 2rem 1.6rem 0 1.6rem;
-  margin: 1rem;
+  margin-bottom: 1.5rem;
   min-height: 6.6rem;
   font-size: 1.7rem;
   border-radius: 1.2rem;

@@ -9,15 +9,21 @@ export const cartApi = createApi({
   baseQuery,
   endpoints: (builder) => ({
     //카드 상품 불러오기
-    getCart: builder.query({
-      query: () => 'carts',
+    getCardCart: builder.query({
+      query: () => 'carts/card',
+    }),
+    getLoanCart: builder.query({
+      query: () => 'carts/loan',
     }),
     addCardToCart: builder.mutation({
-      query: ({ data }) => ({
-        url: 'carts/card',
-        method: 'POST',
-        body: data,
-      }),
+      query: ({ data }) => {
+        console.log(data)
+        return {
+          url: 'carts/card',
+          method: 'POST',
+          body: { card_id: data },
+        }
+      },
     }),
     addLoanToCart: builder.mutation({
       query: ({ data }) => ({
@@ -42,7 +48,8 @@ export const cartApi = createApi({
 })
 
 export const {
-  useGetCartQuery,
+  useGetCardCartQuery,
+  useGetLoanCartQuery,
   useAddCardToCartMutation,
   useAddLoanToCartMutation,
   useDeleteCardInCartQuery,

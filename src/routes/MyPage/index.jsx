@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router'
 import { useGetMypageQuery } from '../../store/slices/userApiSlice'
 import * as S from './style'
 import Button from '../../components/common/Button'
@@ -10,36 +11,28 @@ import { useDispatch } from 'react-redux'
 import { useDoLogoutQuery } from '../../store/slices/userApiSlice'
 
 function MyPage() {
-  const { data: mypages, isLoading, isError } = useGetMypageQuery()
+  const { data: items, isLoading, isError } = useGetMypageQuery()
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   if (isLoading) {
     return <Loader />
   }
 
-  if (isError || !mypages) {
+  if (isError || !items) {
     return <div>오류발생!</div>
   }
-  const [logoutquery, { isLogooutLoading }] = useDoLogoutQuery()
-  const { member, orders } = mypages
 
   const logOutHandler = async (e) => {
     e.preventDefault()
-    try {
-      const isLogout = await logoutquery()
-      if (isLogooutLoading) {
-        return <Loader />
-      } else {
-        isLogout && dispatch(logOut())
-      }
-    } catch (error) {
-      console.log(error)
-    }
+    dispatch(logOut())
+    window.alert('로그아웃이 되었습니다')
+    navigate('/product')
   }
 
   return (
     <>
       <S.Title>
-        <span>{member.name}님</span>의 정보입니다.
+        <span>{items.userInfo}님</span>의 정보입니다.
       </S.Title>
       <S.ContentContainer>
         <S.subBox>
@@ -49,25 +42,23 @@ function MyPage() {
           </Button>
         </S.subBox>
         <div>
-          {orders.loanList.map((item) => (
-            <Loan item={item} key={item.loanId} />
-          ))}
-        </div>
-        <div>
-          {orders.cardList.map((item) => (
-            <Card item={item} key={item.cardId} />
-          ))}
+          {items.true.map((item) =>
+            item.productType === '카드' ? (
+              <Card item={item} key={item.cardId} />
+            ) : (
+              <Loan item={item} key={item.loanId} />
+            ),
+          )}
         </div>
         <S.subBox>신청 완료 상품</S.subBox>
         <div>
-          {orders.loanList.map((item) => (
-            <Loan item={item} key={item.loanId} />
-          ))}
-        </div>
-        <div>
-          {orders.cardList.map((item) => (
-            <Card item={item} key={item.cardId} />
-          ))}
+          {items.false.map((item) =>
+            item.productType === '카드' ? (
+              <Card item={item} key={item.cardId} />
+            ) : (
+              <Loan item={item} key={item.loanId} />
+            ),
+          )}
         </div>
       </S.ContentContainer>
       <Button size="smaill" className="btn" onClick={logOutHandler}>
