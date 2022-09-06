@@ -7,8 +7,11 @@ export const favoritesApi = createApi({
   reducerPath: 'favoritesApi',
   baseQuery,
   endpoints: (builder) => ({
-    getFavorites: builder.query({
-      query: () => 'favorites',
+    getCardFavorites: builder.query({
+      query: () => 'favorites/card',
+    }),
+    getLoanFavorites: builder.query({
+      query: () => 'favorites/loan',
     }),
     addCardToFavorites: builder.mutation({
       query: ({ data }) => ({
@@ -40,7 +43,8 @@ export const favoritesApi = createApi({
 })
 
 export const {
-  useGetFavoritesQuery,
+  useGetCardFavoritesQuery,
+  useGetLoanFavoritesQuery,
   useAddCardToFavoritesMutation,
   useAddLoanToFavoritesMutation,
   useDeleteCardInFavoriteMutation,

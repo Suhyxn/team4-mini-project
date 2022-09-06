@@ -10,6 +10,7 @@ const authSlice = createSlice({
   reducers: {
     //토큰저장
     setCredentials: (state, action) => {
+      console.log(action.payload, '왜구러지?')
       const { accessToken } = action.payload
       state.token = accessToken
       cookies.set(ACCESSTOKEN, accessToken.slice(7))
