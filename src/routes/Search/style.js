@@ -23,7 +23,7 @@ export const Select = styled.select`
 `
 
 export const SearchBox = styled.div`
-  cusror: pointer;
+  cursor: pointer;
 `
 
 export const InputBox = styled.div`
