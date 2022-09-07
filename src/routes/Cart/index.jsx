@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
-<<<<<<< HEAD
 import {
   useGetCardCartsQuery,
   useGetLoanCartsQuery,
 } from '../../store/slices/cartApiSlice'
-=======
-import { useGetCardCartQuery } from '../../store/slices/cartApiSlice'
->>>>>>> 4b3476cd6300a3ddc1deb0e29bdc5c7805049ef6
 import { useCreateOrderMutation } from '../../store/slices/orderApiSlice'
 import Card from '../../components/common/Card'
 import Loader from '../../components/layout/Loader'
