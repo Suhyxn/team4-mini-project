@@ -21,7 +21,6 @@ function Cart() {
     }
   }
 
-  console.log(cards, 'cards')
   const createOrderHandler = () => {
     //
   }
