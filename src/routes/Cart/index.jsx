@@ -48,8 +48,8 @@ function Cart() {
   return (
     <div>
       <S.Title>
-        <span>{cards?.cardList?.length + loans?.loanList?.length}개</span>의
-        상품이 신청을 기다려요.
+        <span>{cards?.cardList?.length + loans?.loanList?.length || 0}개</span>
+        의 상품이 신청을 기다려요.
       </S.Title>
 
       <div>

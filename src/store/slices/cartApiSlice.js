@@ -49,6 +49,6 @@ export const {
   useGetLoanCartQuery,
   useAddCardToCartMutation,
   useAddLoanToCartMutation,
-  useDeleteCardInCartQuery,
-  useDeleteLoanInCartQuery,
+  useDeleteCardInCartMutation,
+  useDeleteLoanInCartMutation,
 } = cartApi

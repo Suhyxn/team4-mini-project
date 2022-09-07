@@ -31,7 +31,7 @@ function Favorites() {
     <>
       <S.Title>
         <p>
-          <span>{cards?.cardList?.length + loans?.loanList?.length}</span>
+          <span>{cards?.cardList?.length + loans?.loanList?.length || 0}</span>
           개의 관심리스트가
         </p>
         <p>있습니다.</p>
