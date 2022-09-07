@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import { useGetCartQuery } from '../../store/slices/cartApiSlice'
+import {
+  useGetCardCartsQuery,
+  useGetLoanCartsQuery,
+} from '../../store/slices/cartApiSlice'
 import { useCreateOrderMutation } from '../../store/slices/orderApiSlice'
 import Card from '../../components/common/Card'
 import Loan from '../../components/common/Loan'
@@ -8,7 +11,16 @@ import Button from '../../components/common/Button'
 import * as S from './style'
 
 function Cart() {
-  const { data: carts, isLoading, isError } = useGetCartQuery()
+  const {
+    data: cards,
+    isLoading: cardLoding,
+    isError: cardError,
+  } = useGetCardCartsQuery()
+  const {
+    data: loans,
+    isLoading: loanLoding,
+    isError: loanError,
+  } = useGetLoanCartsQuery()
   const arr = []
   const [createOrder] = useCreateOrderMutation()
   const checkedHandler = (e, id) => {
@@ -21,27 +33,27 @@ function Cart() {
     createOrder(arr)
   }
 
-  if (isLoading) {
-    return (
-      <div>
-        <Loader />
-      </div>
-    )
+  if (cardLoding || loanLoding) {
+    return <Loader />
   }
 
-  if (isError || !carts) {
+  if (cardError || loanError || !cards || !loans) {
     return <div>오류발생!</div>
   }
 
   return (
     <div>
       <S.Title>
-        <span>{carts.name}님</span>의 장바구니
+        장바구니 속에{' '}
+        <span>
+          {(cards?.cardList?.length ?? 0) + (loans?.loanList?.length ?? 0)}개
+        </span>
+        의 상품이 있어요.
       </S.Title>
 
       <div>
         <S.CardContainer>
-          {carts.cardList.map((item) => (
+          {cards?.cardList?.map((item) => (
             <S.Container key={item.cardId}>
               <S.CardCheckInput type="checkbox" id={`card-${item.cardId}`} />
               <S.CardLabel
@@ -55,7 +67,7 @@ function Cart() {
           ))}
         </S.CardContainer>
         <S.CardContainer>
-          {carts.loanList.map((item) => (
+          {loans?.loanList?.map((item) => (
             <S.Container key={item.loanId}>
               <S.CardCheckInput type="checkbox" id={`loan-${item.loanId}`} />
               <S.CardLabel
