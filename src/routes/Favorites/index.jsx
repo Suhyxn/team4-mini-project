@@ -40,10 +40,10 @@ function Favorites() {
         </p>
         <p>있습니다.</p>
       </S.Title>
-      {cards?.loanList?.map((item) => (
+      {loans?.loanList?.map((item) => (
         <Loan item={item} key={item.loanId} />
       ))}
-      {loans.cardList?.map((item) => (
+      {cards?.cardList?.map((item) => (
         <Card item={item} key={item.cardId} />
       ))}
     </>

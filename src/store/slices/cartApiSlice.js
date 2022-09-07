@@ -9,10 +9,10 @@ export const cartApi = createApi({
   baseQuery,
   endpoints: (builder) => ({
     //카드 상품 불러오기
-    getCardCart: builder.query({
+    getCardCarts: builder.query({
       query: () => 'carts/card',
     }),
-    getLoanCart: builder.query({
+    getLoanCarts: builder.query({
       query: () => 'carts/loan',
     }),
     addCardToCart: builder.mutation({
@@ -48,10 +48,10 @@ export const cartApi = createApi({
 })
 
 export const {
-  useGetCardCartQuery,
-  useGetLoanCartQuery,
+  useGetCardCartsQuery,
+  useGetLoanCartsQuery,
   useAddCardToCartMutation,
   useAddLoanToCartMutation,
-  useDeleteCardInCartQuery,
-  useDeleteLoanInCartQuery,
+  useDeleteCardInCartMutation,
+  useDeleteLoanInCartMutation,
 } = cartApi

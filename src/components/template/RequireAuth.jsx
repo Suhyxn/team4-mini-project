@@ -6,10 +6,10 @@ const RequireAuth = () => {
   const location = useLocation()
   return (
     <>
-      {useLocation ? (
+      {selectCurrentToken ? (
         <Outlet />
       ) : (
-        <Navigate to="/recomended" state={{ from: location }} replace />
+        <Navigate to="/login" state={{ from: location }} replace />
       )}
     </>
   )

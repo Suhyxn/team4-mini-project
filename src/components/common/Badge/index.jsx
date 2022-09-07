@@ -1,7 +1,7 @@
 import React from 'react'
 import {
-  useGetCardCartQuery,
-  useGetLoanCartQuery,
+  useGetCardCartsQuery,
+  useGetLoanCartsQuery,
 } from '../../../store/slices/cartApiSlice'
 import * as S from './style'
 
@@ -10,13 +10,12 @@ function Badge() {
     data: cards,
     isLoading: cardLoding,
     isError: cardError,
-  } = useGetCardCartQuery()
+  } = useGetCardCartsQuery()
   const {
     data: loans,
     isLoading: loanLoding,
     isError: loanError,
-  } = useGetLoanCartQuery()
-
+  } = useGetLoanCartsQuery()
   return (
     <S.Badge>
       {(
