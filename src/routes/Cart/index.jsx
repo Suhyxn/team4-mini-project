@@ -57,9 +57,11 @@ function Cart() {
           ))}
         </S.CardContainer>
       </div>
-      <Button width="100%" height="5.2rem" onClick={createOrderHandler}>
-        장바구니 신청
-      </Button>
+      {cards?.cardList?.length && (
+        <Button width="100%" height="5.2rem" onClick={createOrderHandler}>
+          신청하기
+        </Button>
+      )}
     </div>
   )
 }
