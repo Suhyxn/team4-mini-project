@@ -18,17 +18,12 @@ function Cart() {
     data: cards,
     isLoading: cardLoding,
     isError: cardError,
-<<<<<<< HEAD
   } = useGetCardCartsQuery()
   const {
     data: loans,
     isLoading: loanLoding,
     isError: loanError,
   } = useGetLoanCartsQuery()
-=======
-  } = useGetCardCartQuery()
-
->>>>>>> 4b3476cd6300a3ddc1deb0e29bdc5c7805049ef6
   const arr = []
   const [createOrder] = useCreateOrderMutation()
   const checkedHandler = (e, id) => {
