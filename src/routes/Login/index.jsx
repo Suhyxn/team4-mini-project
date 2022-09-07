@@ -30,17 +30,16 @@ function Login() {
       dispatch(setCredentials(userData['data']))
       navigate('../favorites')
     } catch (error) {
-      // if (!error?.originalStatus) {
-      //   setErrMsg('No Server Response')
-      //   return console.log('No Server Response')
-      // } else if (error.originalStatus === 400) {
-      //   setErrMsg('Missing Username or Password')
-      // } else if (error.originalStatus === 401) {
-      //   setErrMsg('Unauthorized')
-      // } else {
-      //   setErrMsg('Login Failed')
-      // }
-      console.log('error발생')
+      if (!error?.originalStatus) {
+        setErrMsg('No Server Response')
+        return console.log('No Server Response')
+      } else if (error.originalStatus === 400) {
+        setErrMsg('Missing Username or Password')
+      } else if (error.originalStatus === 401) {
+        setErrMsg('Unauthorized')
+      } else {
+        setErrMsg('Login Failed')
+      }
     }
   }
 
@@ -67,11 +66,7 @@ function Login() {
                 <Button size="medium" onClick={onClickHandler}>
                   로그인
                 </Button>
-                <Button
-                  size="medium"
-                  disabled={active}
-                  onClick={() => navigate('/signup')}
-                >
+                <Button size="medium" onClick={() => navigate('/signup')}>
                   회원가입
                 </Button>
               </S.BtnBox>

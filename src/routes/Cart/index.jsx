@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
+<<<<<<< HEAD
 import {
   useGetCardCartsQuery,
   useGetLoanCartsQuery,
 } from '../../store/slices/cartApiSlice'
+=======
+import { useGetCardCartQuery } from '../../store/slices/cartApiSlice'
+>>>>>>> 4b3476cd6300a3ddc1deb0e29bdc5c7805049ef6
 import { useCreateOrderMutation } from '../../store/slices/orderApiSlice'
 import Card from '../../components/common/Card'
-import Loan from '../../components/common/Loan'
 import Loader from '../../components/layout/Loader'
 import Button from '../../components/common/Button'
 import * as S from './style'
@@ -15,12 +18,17 @@ function Cart() {
     data: cards,
     isLoading: cardLoding,
     isError: cardError,
+<<<<<<< HEAD
   } = useGetCardCartsQuery()
   const {
     data: loans,
     isLoading: loanLoding,
     isError: loanError,
   } = useGetLoanCartsQuery()
+=======
+  } = useGetCardCartQuery()
+
+>>>>>>> 4b3476cd6300a3ddc1deb0e29bdc5c7805049ef6
   const arr = []
   const [createOrder] = useCreateOrderMutation()
   const checkedHandler = (e, id) => {
