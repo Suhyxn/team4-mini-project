@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from '../../components/common/Button'
 import * as S from './style'
-import { useAddLoanToCartMutation } from '../../store/slices/cartApiSlice'
 import Loader from '../../components/layout/Loader'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
@@ -12,7 +11,6 @@ function LoanDetail() {
   const navigate = useNavigate()
 
   const { data, isLoading, isError } = useGetLoanDetailQuery(params.id)
-  const [addLoanCart] = useAddLoanToCartMutation()
 
   if (isLoading) {
     return <Loader />
@@ -22,24 +20,8 @@ function LoanDetail() {
     return <div>오류발생!</div>
   }
 
-  // const data = {
-  //   loanId: 1,
-  //   productType: '대출',
-  //   loanName: '신한대출',
-  //   loanCompany: '신한',
-  //   creditLine: '2000',
-  //   rate: '2.8 10.2',
-  //   primeRate: false,
-  //   period: 3,
-  //   loanLine: '50 90',
-  //   tag: '주부 모바일 1금융권',
-  //   img: 'https://www.banksalad.com/_next/image?url=https%3A%2F%2Fcdn.banksalad.com%2Fgraphic%2Fcolor%2Flogo%2Fcircle%2Fkyobo.png&w=96&q=75',
-  // }
-
   const submitHandler = () => {
-    addLoanCart({
-      loanId: data.loanId,
-    })
+    window.alert('관련 내용을 이메일로 발송해드렸습니다😊')
   }
   return (
     <>
