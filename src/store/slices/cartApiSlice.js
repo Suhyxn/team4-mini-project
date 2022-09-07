@@ -12,12 +12,8 @@ export const cartApi = createApi({
     getCardCarts: builder.query({
       query: () => 'carts/card',
     }),
-    getLoanCarts: builder.query({
-      query: () => 'carts/loan',
-    }),
     addCardToCart: builder.mutation({
       query: ({ data }) => {
-        console.log(data)
         return {
           url: 'carts/card',
           method: 'POST',
@@ -25,22 +21,9 @@ export const cartApi = createApi({
         }
       },
     }),
-    addLoanToCart: builder.mutation({
-      query: ({ data }) => ({
-        url: 'carts/loan',
-        method: 'POST',
-        body: data,
-      }),
-    }),
     deleteCardInCart: builder.mutation({
       query: (id) => ({
         url: `carts/card/${id}`,
-        method: 'DELETE',
-      }),
-    }),
-    deleteLoanInCart: builder.mutation({
-      query: (id) => ({
-        url: `carts/loan/${id}`,
         method: 'DELETE',
       }),
     }),
@@ -49,7 +32,6 @@ export const cartApi = createApi({
 
 export const {
   useGetCardCartsQuery,
-  useGetLoanCartsQuery,
   useAddCardToCartMutation,
   useAddLoanToCartMutation,
   useDeleteCardInCartMutation,

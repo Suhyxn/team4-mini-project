@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-import {
-  useGetCardCartsQuery,
-  useGetLoanCartsQuery,
-} from '../../store/slices/cartApiSlice'
+import { useGetCardCartsQuery } from '../../store/slices/cartApiSlice'
 import { useCreateOrderMutation } from '../../store/slices/orderApiSlice'
 import Card from '../../components/common/Card'
 import Loader from '../../components/layout/Loader'
@@ -15,11 +12,7 @@ function Cart() {
     isLoading: cardLoding,
     isError: cardError,
   } = useGetCardCartsQuery()
-  const {
-    data: loans,
-    isLoading: loanLoding,
-    isError: loanError,
-  } = useGetLoanCartsQuery()
+
   const arr = []
   const [createOrder] = useCreateOrderMutation()
   const checkedHandler = (e, id) => {
@@ -28,25 +21,23 @@ function Cart() {
     }
   }
 
+  console.log(cards, 'cards')
   const createOrderHandler = () => {
-    createOrder(arr)
+    //
   }
 
-  if (cardLoding || loanLoding) {
+  if (cardLoding) {
     return <Loader />
   }
 
-  if (cardError || loanError || !cards || !loans) {
+  if (cardError || !cards) {
     return <div>오류발생!</div>
   }
 
   return (
     <div>
       <S.Title>
-        장바구니 속에{' '}
-        <span>
-          {(cards?.cardList?.length ?? 0) + (loans?.loanList?.length ?? 0)}개
-        </span>
+        장바구니 속에 <span>{(cards?.cardList?.length ?? 0).toString()}개</span>
         의 상품이 있어요.
       </S.Title>
 
@@ -62,20 +53,6 @@ function Cart() {
                 <S.CardCheckBox />
               </S.CardLabel>
               <Card item={item} />
-            </S.Container>
-          ))}
-        </S.CardContainer>
-        <S.CardContainer>
-          {loans?.loanList?.map((item) => (
-            <S.Container key={item.loanId}>
-              <S.CardCheckInput type="checkbox" id={`loan-${item.loanId}`} />
-              <S.CardLabel
-                htmlFor={`loan-${item.loanId}`}
-                onClick={(e) => checkedHandler(e, `loadId: ${item.loanId}`)}
-              >
-                <S.CardCheckBox />
-              </S.CardLabel>
-              <Loan item={item} />
             </S.Container>
           ))}
         </S.CardContainer>
