@@ -12,6 +12,7 @@ function LoanDetail() {
   const navigate = useNavigate()
 
   const { data, isLoading, isError } = useGetLoanDetailQuery(params.id)
+  const [addLoanCart] = useAddLoanToCartMutation()
 
   if (isLoading) {
     return <Loader />
@@ -34,8 +35,6 @@ function LoanDetail() {
   //   tag: '주부 모바일 1금융권',
   //   img: 'https://www.banksalad.com/_next/image?url=https%3A%2F%2Fcdn.banksalad.com%2Fgraphic%2Fcolor%2Flogo%2Fcircle%2Fkyobo.png&w=96&q=75',
   // }
-
-  // const [addLoanCart] = useAddLoanToCartMutation()
 
   const submitHandler = () => {
     addLoanCart({

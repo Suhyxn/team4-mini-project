@@ -1,6 +1,4 @@
 import { useLocation, Navigate, Outlet } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { selectCurrentToken } from '../../store/slices/authSlice'
 import { Cookies } from 'react-cookie'
 const RequireAuth = () => {
   const location = useLocation()
