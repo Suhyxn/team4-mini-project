@@ -29,11 +29,9 @@ function Login() {
       const userData = await login({ username: id, password: pwd })
       dispatch(setCredentials(userData['data']))
       navigate('/favorites', { replace: true })
-      console.log('successxxx')
     } catch (error) {
       if (!error?.originalStatus) {
         setErrMsg('No Server Response')
-        return console.log('No Server Response')
       } else if (error.originalStatus === 400) {
         setErrMsg('Missing Username or Password')
       } else if (error.originalStatus === 401) {

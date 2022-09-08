@@ -11,7 +11,7 @@ const checked = css`
 `
 
 export const Container = styled.div`
-  height: 6rem;
+  height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ export const Label = styled.label`
   align-items: center;
   justify-content: center;
   width: 50%;
-  height: 4rem;
+  height: 3.5rem;
   border-radius: 5rem;
   text-align: center;
   line-height: 6rem;

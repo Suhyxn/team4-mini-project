@@ -34,14 +34,16 @@ export const CardInfo = styled.div`
 `
 export const CardTitle = styled.div`
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  flex-flow: column;
 `
 export const CardName = styled.div`
   background-color: transparent;
-  margin-right: 1rem;
 `
 export const CardBank = styled.div`
   background-color: transparent;
+  white-space: nowrap;
+  font-size: 1.2rem;
 `
 export const CardDescription = styled.div`
   background-color: transparent;

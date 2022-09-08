@@ -28,7 +28,6 @@ export const StyledImg = styled.img`
   width: 90%;
   height: 90%;
 `
-
 export const InfoBox = styled.div`
   margin: 1rem;
   flex-grow: 1;
@@ -77,8 +76,10 @@ export const Tag = styled.li`
   margin: 0px 4px 4px 0px;
   border-radius: 4px;
   font-size: 1.2rem;
-  color: ${({ index }) => (index == 0 ? '#DCF5EC' : '#E4EDF2')};
-  background-color: ${({ index }) => (index == 0 ? '#7ADAB7' : '#868C9C')};
+  color: ${({ index }) =>
+    index == 0 ? 'rgba(100,120,237, 0.9)' : 'rgba(134,140,156, 0.9)'};
+  background-color: ${({ index }) =>
+    index == 0 ? 'rgba(100,120,237, 0.1)' : 'rgba(228,237,242, 0.9)'};
 `
 export const CardFavorite = styled.div`
   font-size: 2.5rem;

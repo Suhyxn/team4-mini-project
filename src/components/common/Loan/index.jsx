@@ -1,4 +1,3 @@
-import React from 'react'
 import * as S from './style'
 import { useNavigate } from 'react-router-dom'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
@@ -8,7 +7,7 @@ import {
 } from '../../../store/slices/favoriteApiSlice'
 
 function Loan({ item }) {
-  const tags = ['중도상환수수료 없음', '무서류', '모바일', '직장인', '2금융권']
+  // const tags = ['중도상환수수료 없음', '무서류', '모바일', '직장인', '2금융권']
   const {
     img: imageURL,
     loanCompany: bank,
@@ -16,8 +15,12 @@ function Loan({ item }) {
     rate: rates,
     isfavorite: favorite,
     loanId: id,
+    tag: tag,
   } = item
-
+  const tags = tag.split(' ')
+  tags.includes('주부')
+    ? tags.unshift('중도상환수수료 없음', '무서류')
+    : tags.unshift('우대금리 가능', '즉시입금')
   const navigate = useNavigate()
 
   const [addLoanToFavorites] = useAddLoanToFavoritesMutation()
@@ -43,7 +46,8 @@ function Loan({ item }) {
             {rates?.split(' ')[0]}~{rates?.split(' ')[1]}%
           </S.Rate>
           <S.TagBox>
-            {tags.map((tag, index) => (
+            {/* {tags?.includes('주부')} */}
+            {tags?.map((tag, index) => (
               <S.Tag index={index} key={index}>
                 {tag}
               </S.Tag>
