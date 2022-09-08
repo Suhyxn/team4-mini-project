@@ -6,7 +6,7 @@ const sizes = css`
     css`
       height: ${(props) => (props.height ? props.height : '6.2rem')};
       width: ${(props) => (props.width ? props.width : '100%')};
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       line-height: 2.2rem;
       border-radius: 1.2rem;
     `}

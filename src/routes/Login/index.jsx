@@ -7,7 +7,7 @@ import {
   useLoginMutation,
   useGetIsduplicateQuery,
 } from '~/store/slices/authApiSlice'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 import { Cookies } from 'react-cookie'
 import { setCredentials } from '../../store/slices/authSlice'
 import useInputValue from '../../components/Hook/useInputValue'
@@ -28,11 +28,10 @@ function Login() {
     try {
       const userData = await login({ username: id, password: pwd })
       dispatch(setCredentials(userData['data']))
-      navigate('../favorites')
+      navigate('/favorites', { replace: true })
     } catch (error) {
       if (!error?.originalStatus) {
         setErrMsg('No Server Response')
-        return console.log('No Server Response')
       } else if (error.originalStatus === 400) {
         setErrMsg('Missing Username or Password')
       } else if (error.originalStatus === 401) {
